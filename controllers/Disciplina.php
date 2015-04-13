@@ -44,7 +44,7 @@ class Disciplina extends Controller{
     }
     function organizarDisciplina()
     {
-        $this->view->render('horarios/horarioPrimeiro_View');
+        $this->view->render('organizarDisciplina_View');
     }
     
     function filtrar()
