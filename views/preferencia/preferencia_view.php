@@ -1,9 +1,6 @@
 <?php require_once 'controllers/Professor.php';?>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script>
-function teste(){
-    window.alert("OK");
-}
 $(document).ready(function(){
     $("btnsubmit").submit(function(){
             $.ajax({				
@@ -22,14 +19,23 @@ $(document).ready(function(){
                 }); 
             return false;
         });
-    $(".botao-verde").ready(function(){ //teste
-        $(this).attr("style", "background-color: #00FF00");    
+        //precisa fazer algo mais generalizado...
+        var x = <?php echo $row['seg_01']; ?>;
+        
+   
+    $(".botao-verde").each(function(){ //teste
+        if(x == 1)
+        {
+            $(".seg11").attr("style", "background-color: #00FF00");    
+        }
     });
-    $(".botao-amarelo").ready(function(){
-        $(this).attr("style", "background-color: #FFFF00");
+    $(".botao-amarelo").each(function(){
+        if(x == 2)
+            $(".seg12").attr("style", "background-color: #FFFF00");
         });
     $(".botao-vermelho").ready(function(){
-        $(this).attr("style", "background-color: #FF0000");
+        if(x == 3)
+            $(".seg13").attr("style", "background-color: #FF0000");
     });
 });
 </script>
@@ -117,13 +123,13 @@ $(document).ready(function(){
                         <form class="btnsubmit" 
                               action="<?php echo HOME;?>professor/organizaHorario/<?php echo $prof['id_professor']?>" method="post">
                         <p> 
-                          <input type="submit" name="segunda01" class="btn botao-verde-config    botao-verde"  
+                          <input type="submit" name="segunda01" class="btn botao-verde-config    botao-verde seg11"  
                                  role="button"  value="1" onload="teste()">
                               </input>                              
-                          <input type="submit" name="segunda01" class="btn botao-amarelo-config  botao-amarelo" 
+                          <input type="submit" name="segunda01" class="btn botao-amarelo-config  botao-amarelo seg12" 
                                  role="button" value="2">
                               </input>
-                              <input type="submit" name="segunda01" class="btn botao-vermelho-config botao-vermelho"
+                              <input type="submit" name="segunda01" class="btn botao-vermelho-config botao-vermelho seg13"
                                      role="button" value="3">
                               </input>
                         </p>    
