@@ -18,13 +18,30 @@ function drop(ev) {
     ev.target.appendChild(document.getElementById(data));
 }
 </script>
+    <script type="text/javascript" src="jquery-1.3.2.min.js"></script>
+<script>
+	$().ready(function() {
+		var $scrollingDiv = $("#scrollingDiv");
+ 
+		$(window).scroll(function(){			
+			$scrollingDiv
+				.stop()
+				.animate({"marginTop": ($(window).scrollTop() + 30) + "px"}, "slow" );			
+		});
+	});
+</script>
 <!-- Main component for a primary marketing message or call to action -->
 <!--teste-->
-<input id="drag1" draggable="true" ondragstart="drag(event)" 
+
+        <div id="scrollingDiv" class = "jumbotron" style="float:right"> 
+    <input id="drag1" draggable="true" ondragstart="drag(event)" 
     name="seg_01" class="btn botao-verde-config    botao-verde"  
                                  role="button"  value="DRAG/DROP TESTE">
-<div class="jumbotron">
-    <div><!--Inicializa a tabela dos horários -->             
+    </div>
+<div class="jumbotron" style="float: left">
+    
+    <div><!--Inicializa a tabela dos horários -->     
+
         <br>
             <table class="table table-bordered 
                    table-condensed table-hover table-responsive table-striped">
