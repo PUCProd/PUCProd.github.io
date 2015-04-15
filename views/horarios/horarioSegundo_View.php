@@ -23,7 +23,7 @@
                     </th>
                 </tr>
                 <tr>
-                    <td>
+                     <td ondrop="drop(event)" ondragover="allowDrop(event)">
                         <?php $disciplina = Disciplina::getListaNome();?>
                         <?php //mostrar as disciplinas desse horário?>
                         <form action="" method="post" name="form"> <!--chamar alguma função
@@ -49,7 +49,7 @@
                     </td>
                       <!-- Final do TD -->                    
                       
-                      <td>
+                       <td ondrop="drop(event)" ondragover="allowDrop(event)">
                         <?php $disciplina = Disciplina::getListaNome();?>
                         <?php //mostrar as disciplinas desse horário?>
                         <form action="" method="post" name="form"> <!--chamar alguma função
@@ -74,7 +74,7 @@
                       </td>
                       <!-- Final do TD -->        
                       
-                      <td>
+                       <td ondrop="drop(event)" ondragover="allowDrop(event)">
                         <?php $disciplina = Disciplina::getListaNome();?>
                         <?php //mostrar as disciplinas desse horário?>
                         <form action="" method="post" name="form"> <!--chamar alguma função
@@ -99,7 +99,7 @@
                       </td>
                       <!-- Final do TD -->                    
                       
-                      <td>
+                       <td ondrop="drop(event)" ondragover="allowDrop(event)">
                         <?php $disciplina = Disciplina::getListaNome();?>
                         <?php //mostrar as disciplinas desse horário?>
                         <form action="" method="post" name="form"> <!--chamar alguma função
@@ -124,7 +124,7 @@
                       </td>
                       <!-- Final do TD -->                                          
                       
-                      <td>                                                      
+                       <td ondrop="drop(event)" ondragover="allowDrop(event)">                                                      
                         <?php $disciplina = Disciplina::getListaNome();?>
                         <?php //mostrar as disciplinas desse horário?>
                         <form action="" method="post" name="form"> <!--chamar alguma função
@@ -152,7 +152,7 @@
                     <!-- Final do TR -->                    
                     
                     <tr>
-                      <td>                              
+                       <td ondrop="drop(event)" ondragover="allowDrop(event)">                              
                         <?php $disciplina = Disciplina::getListaNome();?>
                         <?php //mostrar as disciplinas desse horário?>
                         <form action="" method="post" name="form"> <!--chamar alguma função
@@ -177,7 +177,7 @@
                       </td>
                       <!-- Final do TD -->
             
-                      <td>    
+                       <td ondrop="drop(event)" ondragover="allowDrop(event)">    
                           <?php $disciplina = Disciplina::getListaNome();?>
                         <?php //mostrar as disciplinas desse horário?>
                         <form action="" method="post" name="form"> <!--chamar alguma função
@@ -202,7 +202,7 @@
                       </td>
                       <!-- Final do TD -->                    
                       
-                      <td>                              
+                       <td ondrop="drop(event)" ondragover="allowDrop(event)">                              
                           <?php $disciplina = Disciplina::getListaNome();?>
                         <?php //mostrar as disciplinas desse horário?>
                         <form action="" method="post" name="form"> <!--chamar alguma função
@@ -227,7 +227,7 @@
                       </td>
                       <!-- Final do TD -->                    
 
-                      <td>                                       
+                       <td ondrop="drop(event)" ondragover="allowDrop(event)">                                       
                           <?php $disciplina = Disciplina::getListaNome();?>
                         <?php //mostrar as disciplinas desse horário?>
                         <form action="" method="post" name="form"> <!--chamar alguma função
@@ -252,7 +252,7 @@
                       </td>
                       <!-- Final do TD -->                                  
                       
-                      <td>                                      
+                       <td ondrop="drop(event)" ondragover="allowDrop(event)">                                      
                           <?php $disciplina = Disciplina::getListaNome();?>
                         <?php //mostrar as disciplinas desse horário?>
                         <form action="" method="post" name="form"> <!--chamar alguma função
@@ -280,7 +280,7 @@
                     <!-- Final do TR -->                                            
                     
                     <tr>
-                      <td>    
+                       <td ondrop="drop(event)" ondragover="allowDrop(event)">    
                         <?php $disciplina = Disciplina::getListaNome();?>
                         <?php //mostrar as disciplinas desse horário?>
                         <form action="" method="post" name="form"> <!--chamar alguma função
@@ -305,7 +305,7 @@
                       </td>
                       <!-- Final do TD -->                                            
                       
-                      <td>                                   
+                       <td ondrop="drop(event)" ondragover="allowDrop(event)">                                   
                         <?php $disciplina = Disciplina::getListaNome();?>
                         <?php //mostrar as disciplinas desse horário?>
                         <form action="" method="post" name="form"> <!--chamar alguma função
@@ -330,7 +330,7 @@
                       </td>
                       <!-- Final do TD -->                    
                       
-                      <td>             
+                       <td ondrop="drop(event)" ondragover="allowDrop(event)">             
                         <?php $disciplina = Disciplina::getListaNome();?>
                         <?php //mostrar as disciplinas desse horário?>
                         <form action="" method="post" name="form"> <!--chamar alguma função
@@ -355,7 +355,7 @@
                       </td>
                       <!-- Final do TD -->                                          
                       
-                      <td> 
+                       <td ondrop="drop(event)" ondragover="allowDrop(event)"> 
                           <?php $disciplina = Disciplina::getListaNome();?>
                         <?php //mostrar as disciplinas desse horário?>
                         <form action="" method="post" name="form"> <!--chamar alguma função
@@ -380,7 +380,7 @@
                       </td>
                       <!-- Final do TD -->                                  
                                             
-                      <td>                                     
+                       <td ondrop="drop(event)" ondragover="allowDrop(event)">                                     
                         <?php $disciplina = Disciplina::getListaNome();?>
                         <?php //mostrar as disciplinas desse horário?>
                         <form action="" method="post" name="form"> <!--chamar alguma função
@@ -408,7 +408,7 @@
                     <!-- Final do TR -->                                                                
                     
                     <tr>
-                      <td>
+                       <td ondrop="drop(event)" ondragover="allowDrop(event)">
                         <?php $disciplina = Disciplina::getListaNome();?>
                         <?php //mostrar as disciplinas desse horário?>
                         <form action="" method="post" name="form"> <!--chamar alguma função
@@ -433,7 +433,7 @@
                       </td>
                       <!-- Final do TD -->                                            
                       
-                      <td>
+                       <td ondrop="drop(event)" ondragover="allowDrop(event)">
                         <?php $disciplina = Disciplina::getListaNome();?>
                         <?php //mostrar as disciplinas desse horário?>
                         <form action="" method="post" name="form"> <!--chamar alguma função
@@ -458,7 +458,7 @@
                       </td>
                       <!-- Final do TD -->
                       
-                      <td>                                                                 
+                       <td ondrop="drop(event)" ondragover="allowDrop(event)">                                                                 
                         <?php $disciplina = Disciplina::getListaNome();?>
                         <?php //mostrar as disciplinas desse horário?>
                         <form action="" method="post" name="form"> <!--chamar alguma função
@@ -483,7 +483,7 @@
                       </td>
                       <!-- Final do TD -->                                          
                       
-                      <td>                                                                
+                       <td ondrop="drop(event)" ondragover="allowDrop(event)">                                                                
                         <?php $disciplina = Disciplina::getListaNome();?>
                         <?php //mostrar as disciplinas desse horário?>
                         <form action="" method="post" name="form"> <!--chamar alguma função
@@ -508,7 +508,7 @@
                       </td>
                       <!-- Final do TD -->                                  
                       
-                      <td>        
+                       <td ondrop="drop(event)" ondragover="allowDrop(event)">        
                         <?php $disciplina = Disciplina::getListaNome();?>
                         <?php //mostrar as disciplinas desse horário?>
                         <form action="" method="post" name="form"> <!--chamar alguma função
@@ -536,7 +536,7 @@
                     <!-- Final do TR -->                     
                     
                     <tr>
-                      <td>                                       
+                       <td ondrop="drop(event)" ondragover="allowDrop(event)">                                       
                         <?php $disciplina = Disciplina::getListaNome();?>
                         <?php //mostrar as disciplinas desse horário?>
                         <form action="" method="post" name="form"> <!--chamar alguma função
@@ -561,7 +561,7 @@
                       </td>
                       <!-- Final do TD -->                                            
                       
-                      <td>                                      
+                       <td ondrop="drop(event)" ondragover="allowDrop(event)">                                      
                           <?php $disciplina = Disciplina::getListaNome();?>
                         <?php //mostrar as disciplinas desse horário?>
                         <form action="" method="post" name="form"> <!--chamar alguma função
@@ -586,7 +586,7 @@
                       </td>
                       <!-- Final do TD -->                    
                       
-                      <td>              
+                       <td ondrop="drop(event)" ondragover="allowDrop(event)">              
                         <?php $disciplina = Disciplina::getListaNome();?>
                         <?php //mostrar as disciplinas desse horário?>
                         <form action="" method="post" name="form"> <!--chamar alguma função
@@ -611,7 +611,7 @@
                       </td>
                       <!-- Final do TD -->                                          
                       
-                      <td>
+                       <td ondrop="drop(event)" ondragover="allowDrop(event)">
                         <?php $disciplina = Disciplina::getListaNome();?>
                         <?php //mostrar as disciplinas desse horário?>
                         <form action="" method="post" name="form"> <!--chamar alguma função
@@ -636,7 +636,7 @@
                       </td>
                       <!-- Final do TD -->                                                        
                       
-                      <td>                                                             
+                       <td ondrop="drop(event)" ondragover="allowDrop(event)">                                                             
                         <?php $disciplina = Disciplina::getListaNome();?>
                         <?php //mostrar as disciplinas desse horário?>
                         <form action="" method="post" name="form"> <!--chamar alguma função
@@ -664,7 +664,7 @@
                     <!-- Final do TR -->                                         
                     
                     <tr>
-                      <td>                                       
+                       <td ondrop="drop(event)" ondragover="allowDrop(event)">                                       
                         <?php $disciplina = Disciplina::getListaNome();?>
                         <?php //mostrar as disciplinas desse horário?>
                         <form action="" method="post" name="form"> <!--chamar alguma função
@@ -689,7 +689,7 @@
                       </td>
                       <!-- Final do TD -->                                            
                       
-                      <td>                                                                  
+                       <td ondrop="drop(event)" ondragover="allowDrop(event)">                                                                  
                         <?php $disciplina = Disciplina::getListaNome();?>
                         <?php //mostrar as disciplinas desse horário?>
                         <form action="" method="post" name="form"> <!--chamar alguma função
@@ -714,7 +714,7 @@
                       </td>
                       <!-- Final do TD -->                    
 
-                      <td>                                        
+                       <td ondrop="drop(event)" ondragover="allowDrop(event)">                                        
                         <?php $disciplina = Disciplina::getListaNome();?>
                         <?php //mostrar as disciplinas desse horário?>
                         <form action="" method="post" name="form"> <!--chamar alguma função
@@ -739,7 +739,7 @@
                       </td>
                       <!-- Final do TD -->                                                                
                       
-                      <td>                                      
+                       <td ondrop="drop(event)" ondragover="allowDrop(event)">                                      
                         <?php $disciplina = Disciplina::getListaNome();?>
                         <?php //mostrar as disciplinas desse horário?>
                         <form action="" method="post" name="form"> <!--chamar alguma função
@@ -763,7 +763,7 @@
                         <br>                                               
                       </td>
                       <!-- Final do TD -->                                                        
-                      <td>                 
+                       <td ondrop="drop(event)" ondragover="allowDrop(event)">                 
                         <?php $disciplina = Disciplina::getListaNome();?>
                         <?php //mostrar as disciplinas desse horário?>
                         <form action="" method="post" name="form"> <!--chamar alguma função
