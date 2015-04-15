@@ -304,6 +304,13 @@ div#alinhamento{
     border: 1px;
     border-style: solid;
     border-color: #808080;
+    #scrollingDiv{ 
+    overflow: auto;
+    height: auto;
+    margin: 5px 0px 0px 590px;  
+    width: 34px;
+    
+    }
 }
 </style>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
