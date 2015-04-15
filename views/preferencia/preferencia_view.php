@@ -20,7 +20,7 @@ $(document).ready(function(){
                 }); 
             return false;
         });
-    document.getElementsByTagName("")
+    
     var x = <?php echo $row['seg_01']; ?>;
     $(".botao-verde").each(function(){ //teste
         if(x == 1)
