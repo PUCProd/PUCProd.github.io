@@ -20,11 +20,8 @@ $(document).ready(function(){
                 }); 
             return false;
         });
-    var num = 1;
-    var string = 'seg_0'
-    var res = string.concat(num);
+    document.getElementsByTagName("")
     var x = <?php echo $row['seg_01']; ?>;
-    alert(<?php echo $row[res]; ?>);
     $(".botao-verde").each(function(){ //teste
         if(x == 1)
         {
@@ -125,13 +122,13 @@ $(document).ready(function(){
                         <form class="btnsubmit" action="<?php echo HOME;?>professor/organizaHorario/<?php echo $prof['id_professor']?>" 
                                method="post">
                         <p> 
-                          <input type="submit" name="segunda01" class="btn botao-verde-config    botao-verde seg11"  
+                          <input type="submit" name="seg_01" class="btn botao-verde-config    botao-verde seg11"  
                                  role="button"  value="1">
                               </input>                              
-                          <input type="submit" name="segunda01" class="btn botao-amarelo-config  botao-amarelo seg12" 
+                          <input type="submit" name="seg_01" class="btn botao-amarelo-config  botao-amarelo seg12" 
                                  role="button" value="2">
                               </input>
-                              <input type="submit" name="segunda01" class="btn botao-vermelho-config botao-vermelho seg13"
+                              <input type="submit" name="seg_01" class="btn botao-vermelho-config botao-vermelho seg13"
                                      role="button" value="3">
                               </input>
                         </p>    
