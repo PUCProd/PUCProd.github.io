@@ -118,7 +118,7 @@ class Professor_Model extends Model{
     }
     function organizaHorario($id_professor)
     {
-        if(isset($_POST['segunda01']) || 
+        if(isset($_POST['seg_01']) || 
                isset($_POST['segunda02']) || 
                 isset($_POST['segunda03']) ||
                 isset($_POST['segunda04']) ||
@@ -168,9 +168,9 @@ class Professor_Model extends Model{
     }
     function organizaSegunda($id_professor)
     {
-        if(isset($_POST['segunda01']))
+        if(isset($_POST['seg_01']))
         {
-            $var = $_POST['segunda01'];
+            $var = $_POST['seg_01'];
             $col = "seg_01";
         }
         if(isset($_POST['segunda02']))
@@ -207,7 +207,6 @@ class Professor_Model extends Model{
             $sql = "UPDATE organizar_horario SET ". $col ." = '1' WHERE id_org_horario = $id_professor"; //Alterar o nome do campo a ser SET
             if(mysql_query($sql));
             {
-                 echo "Preferível";
                  return true;
             }
         }else {
@@ -216,7 +215,6 @@ class Professor_Model extends Model{
                 $sql = "UPDATE organizar_horario SET " . $col . " = '2' WHERE id_org_horario = $id_professor"; //Alterar o nome do campo a ser SET
                 if(mysql_query($sql))
                 {
-                    echo "indiferente";
                     return true;
                 }
             }else{
@@ -225,7 +223,6 @@ class Professor_Model extends Model{
                 
                     if(mysql_query($sql))
                     {
-                        echo "indisponível";
                         return true;
                     }
                 }
@@ -341,7 +338,6 @@ class Professor_Model extends Model{
             $sql = "UPDATE organizar_horario SET ". $col ." = '1' WHERE id_org_horario = $id_professor"; //Alquaar o nome do campo a ser SET
             if(mysql_query($sql));
             {
-                 echo "Preferível";
                  return true;
             }
         }else {
@@ -350,7 +346,6 @@ class Professor_Model extends Model{
                 $sql = "UPDATE organizar_horario SET " . $col . " = '2' WHERE id_org_horario = $id_professor"; //Alquaar o nome do campo a ser SET
                 if(mysql_query($sql))
                 {
-                    echo "Indiferente";
                     return true;
                 }
             }else{
@@ -359,7 +354,6 @@ class Professor_Model extends Model{
                 
                     if(mysql_query($sql))
                     {
-                        echo "Indisponível";
                         return true;
                     }
                 }
@@ -408,7 +402,6 @@ class Professor_Model extends Model{
             $sql = "UPDATE organizar_horario SET ". $col ." = '1' WHERE id_org_horario = $id_professor"; //Alquiar o nome do campo a ser SET
             if(mysql_query($sql));
             {
-                echo "Preferível";
                  return true;
             }
         }else {
@@ -417,7 +410,6 @@ class Professor_Model extends Model{
                 $sql = "UPDATE organizar_horario SET " . $col . " = '2' WHERE id_org_horario = $id_professor"; //Alquiar o nome do campo a ser SET
                 if(mysql_query($sql))
                 {
-                    echo "Indiferente";
                     return true;
                 }
             }else{
@@ -426,7 +418,6 @@ class Professor_Model extends Model{
                 
                     if(mysql_query($sql))
                     {
-                        echo "Indisponível";
                         return true;
                     }
                 }
@@ -475,7 +466,6 @@ class Professor_Model extends Model{
             $sql = "UPDATE organizar_horario SET ". $col ." = '1' WHERE id_org_horario = $id_professor"; //Alsexar o nome do campo a ser SET
             if(mysql_query($sql));
             {
-                 echo "Preferível";
                  return true;
             }
         }else {
@@ -484,7 +474,6 @@ class Professor_Model extends Model{
                 $sql = "UPDATE organizar_horario SET " . $col . " = '2' WHERE id_org_horario = $id_professor"; //Alsexar o nome do campo a ser SET
                 if(mysql_query($sql))
                 {
-                    echo "Indiferente";
                     return true;
                 }
             }else{
@@ -493,7 +482,6 @@ class Professor_Model extends Model{
                 
                     if(mysql_query($sql))
                     {
-                        echo "Indisponível";
                         return true;
                     }
                 }
