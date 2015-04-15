@@ -2,7 +2,8 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script>
 $(document).ready(function(){
-    $("btnsubmit").submit(function(){
+    $(".btnsubmit").submit(function(){
+        var url = action="<?php echo HOME;?>professor/organizaHorario/<?php echo $prof['id_professor']?>"
             $.ajax({				
 		// Captura a URL de envio do form
 		url: $(this).attr('action'),
@@ -18,10 +19,8 @@ $(document).ready(function(){
 		contentType: false  	
                 }); 
             return false;
-        });
-        //precisa fazer algo mais generalizado...
-        var x = <?php echo $row['seg_01']; ?>;
-        
+        });        
+            var x = <?php echo $row['seg_01']; ?>;
    
     $(".botao-verde").each(function(){ //teste
         if(x == 1)
@@ -121,7 +120,7 @@ $(document).ready(function(){
                 <tr>
                     <td>
                         <form class="btnsubmit" 
-                              action="<?php echo HOME;?>professor/organizaHorario/<?php echo $prof['id_professor']?>" method="post">
+                               method="post">
                         <p> 
                           <input type="submit" name="segunda01" class="btn botao-verde-config    botao-verde seg11"  
                                  role="button"  value="1" onload="teste()">
