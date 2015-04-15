@@ -32,8 +32,9 @@ function drop(ev) {
 </script>
 <!-- Main component for a primary marketing message or call to action -->
 <!--teste-->
-
-        <div id="scrollingDiv" class = "jumbotron" style="float:right"> 
+Não solte o botão "DRAG/DROP TESTE sobre algum combobox.
+<div id="scrollingDiv" class = "jumbotron" style="float:right"
+     ondrop="drop(event)" ondragover="allowDrop(event)"> 
     <input id="drag1" draggable="true" ondragstart="drag(event)" 
     name="seg_01" class="btn botao-verde-config    botao-verde"  
                                  role="button"  value="DRAG/DROP TESTE">
