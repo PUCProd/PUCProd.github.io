@@ -118,7 +118,7 @@ class Professor_Model extends Model{
     }
     function organizaHorario($id_professor)
     {
-        if(isset($_POST['seg_01']) || 
+        if(isset($_POST['segunda01']) || 
                isset($_POST['segunda02']) || 
                 isset($_POST['segunda03']) ||
                 isset($_POST['segunda04']) ||
@@ -168,9 +168,9 @@ class Professor_Model extends Model{
     }
     function organizaSegunda($id_professor)
     {
-        if(isset($_POST['seg_01']))
+        if(isset($_POST['segunda01']))
         {
-            $var = $_POST['seg_01'];
+            $var = $_POST['segunda01'];
             $col = "seg_01";
         }
         if(isset($_POST['segunda02']))
