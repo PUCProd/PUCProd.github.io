@@ -72,7 +72,7 @@
             
             <center>
                 <br>
-                <input class="btn btn-lg btn-primary" type="submit" value="Enviar">
+                <input class="btn btn-lg btn-primary" type="submit" value="Salvar">
             </center>               
 
         </form>

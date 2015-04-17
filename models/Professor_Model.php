@@ -8,8 +8,7 @@ class Professor_Model extends Model{
     }
     function add()
     {
-        require_once 'views/professor/redirecionar.php';
-        require_once 'views/center.php';
+        
         $nome = $_POST["nome"];
         $apelido = $_POST["apelido"];
         $horario = $_POST["horario"];
@@ -55,7 +54,8 @@ class Professor_Model extends Model{
                  . "1,1,1,1,1,1,"
                  . "1,1,1,1,1,1)";
          $resultado_carga_horaria = mysql_query($sql_carga_horaria);
-
+        require_once 'views/professor/redirecionar_cad.php';
+        require_once 'views/center.php';
         if($resultado_carga_horaria){
             echo "<br>sucesso!";
         }

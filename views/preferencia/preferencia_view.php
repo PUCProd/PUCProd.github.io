@@ -3,7 +3,6 @@
 <script>
 $(document).ready(function(){
     $(".btnsubmit").submit(function(){
-        var url = action="<?php echo HOME;?>professor/organizaHorario/<?php echo $prof['id_professor']?>"
             $.ajax({				
 		// Captura a URL de envio do form
 		url: $(this).attr('action'),
@@ -20,7 +19,6 @@ $(document).ready(function(){
                 }); 
             return false;
         });
-    
     var x = <?php echo $row['seg_01']; ?>;
     $(".botao-verde").each(function(){ //teste
         if(x == 1)
@@ -54,7 +52,8 @@ $(document).ready(function(){
                         <h5>    
                             <input type="text" name="nome" 
                                    value="<?php echo $prof['nome']; ?>" id="bSite" 
-                                   onfocus="EmptyField(this.id)">
+                                   onfocus="EmptyField(this.id)"
+                                   onblur="this.value='<?php echo $prof['nome']; ?>'">
                         </h5>                    
                         </td>
                 </tr>
@@ -68,7 +67,8 @@ $(document).ready(function(){
                         <h5>    
                             <input type="text" name="apelido" 
                                    value="<?php echo $prof['apelido'];?>" id="aSite" 
-                                   onfocus="EmptyField(this.id)">
+                                   onfocus="EmptyField(this.id)"
+                                   onblur="this.value='<?php echo $prof['apelido']; ?>'">
                             </h5>                    
                     </td>
                 </tr>
@@ -82,13 +82,14 @@ $(document).ready(function(){
                         <h5>    
                             <input type="number" name="carga_horaria" 
                                    value="<?php echo $prof['carga_horaria'];?>" id="cSite" 
-                                   onfocus="EmptyField(this.id)">                                    
+                                   onfocus="EmptyField(this.id)"
+                                   onblur="this.value='<?php echo $prof['carga_horaria']; ?>'">                                    
                         </h5>                    
                     </td>                            
                 </tr>    
                     <tr>
                         <td>
-                            <input type="submit" class="btn botao-confirmar-config botao-confirmar" 
+                            <input type="submit" class="btn btn-lg btn-primary" 
                                    value="Alterar">
                             <input type="hidden" name="campo" 
                                    value = "<?php $prof['id_professor'];?>">
@@ -101,27 +102,37 @@ $(document).ready(function(){
             <table 
                 class="table table-bordered table-condensed table-hover table-responsive table-striped">
                 <tr>
-                    <th>
-                        <p>Segunda-Feira</p>
-                    </th>
-                    <th>
-                        <p>Terça-Feira</p>
-                    </th>
-                    <th>
-                        <p>Quarta-Feira</p>
-                    </th>
-                    <th>
-                        <p>Quinta-Feira</p>
-                    </th>
-                    <th>
-                        <p>Sexta-Feira</p>
-                    </th>
+                    <td>
+                        <h4>
+                        Segunda-Feira
+                        </h4>
+                    </td>
+                    <td>
+                        <h4>
+                        Terça-Feira
+                        </h4>
+                    </td>
+                    <td>
+                        <h4>
+                        Quarta-Feira
+                        </h4>
+                    </td>
+                    <td>
+                        <h4>
+                        Quinta-Feira
+                        </h4>
+                    </td>
+                    <td>
+                        <h4>
+                            Sexta-Feira
+                        </h4>
+                    </td>
                 </tr>
                 <tr>
                     <td>
                         <form class="btnsubmit" action="<?php echo HOME;?>professor/organizaHorario/<?php echo $prof['id_professor']?>" 
                                method="post">
-                        <p> 
+                            <h4>
                           <input type="submit" name="seg_01" class="btn botao-verde-config    botao-verde seg11"  
                                  role="button"  value="1">
                               </input>                              
@@ -131,16 +142,16 @@ $(document).ready(function(){
                               <input type="submit" name="seg_01" class="btn botao-vermelho-config botao-vermelho seg13"
                                      role="button" value="3">
                               </input>
-                        </p>    
+                            </h4>
                           </form>
-                        <br>                                               
+                                                                      
                       </td>
                       <!-- Final do TD -->                    
                       
                       <td>
             
                           <form class="btnsubmit" action="<?php echo HOME;?>professor/organizaHorario/<?php echo $prof['id_professor']?>" method="post">
-                        <p> 
+                              <h4> 
                           <input type="submit" name="terca01" class="btn botao-verde-config    botao-verde"  
                                  role="button" value="1">
                               </input>                              
@@ -150,15 +161,15 @@ $(document).ready(function(){
                               <input type="submit" name="terca01" class="btn botao-vermelho-config botao-vermelho"
                                      role="button" value="3">
                               </input> 
-                        </p>
+                              </h4>
                           </form>
-                        <br>                                               
+                                                                      
                       </td>
                       <!-- Final do TD -->        
                       
                       <td>                                    
                           <form class="btnsubmit" action="<?php echo HOME;?>professor/organizaHorario/<?php echo $prof['id_professor']?>" method="post">
-                        <p> 
+                              <h4> 
                           <input type="submit" name="quarta01" class="btn botao-verde-config    botao-verde"  
                                  role="button" value="1">
                               </input>                              
@@ -168,15 +179,15 @@ $(document).ready(function(){
                               <input type="submit" name="quarta01" class="btn botao-vermelho-config botao-vermelho "
                                      role="button" value="3">
                               </input> 
-                        </p>                                   
+                              </h4>                                   
                             </form>                                        
-                        <br>                                               
+                                                                       
                       </td>
                       <!-- Final do TD -->                    
                       
                       <td>                                      
                           <form class="btnsubmit" action="<?php echo HOME;?>professor/organizaHorario/<?php echo $prof['id_professor']?>" method="post">
-                        <p> 
+                              <h4> 
                           <input type="submit" name="quinta01" class="btn botao-verde-config    botao-verde"  
                                  role="button" value="1">
                               </input>                              
@@ -186,15 +197,15 @@ $(document).ready(function(){
                               <input type="submit" name="quinta01" class="btn botao-vermelho-config botao-vermelho"
                                      role="button" value="3">
                               </input>
-                        </p>    
+                              </h4>    
                           </form>
-                        <br>                                               
+                                                                      
                       </td>
                       <!-- Final do TD -->                                          
                       
                       <td>                                    
                           <form class="btnsubmit" action="<?php echo HOME;?>professor/organizaHorario/<?php echo $prof['id_professor']?>" method="post">
-                        <p> 
+                              <h4> 
                           <input type="submit" name="sexta01" class="btn botao-verde-config    botao-verde"  
                                  role="button" value="1">
                               </input>                              
@@ -204,9 +215,9 @@ $(document).ready(function(){
                               <input type="submit" name="sexta01" class="btn botao-vermelho-config botao-vermelho"
                                      role="button" value="3">
                               </input>
-                        </p>    
+                              </h4>    
                           </form>
-                        <br>                                               
+                                                                      
                       </td>
                       <!-- Final do TD -->                    
                     </tr>                                      
@@ -214,7 +225,7 @@ $(document).ready(function(){
                     
                     <td>
                           <form class="btnsubmit" action="<?php echo HOME;?>professor/organizaHorario/<?php echo $prof['id_professor']?>" method="post">
-                        <p> 
+                              <h4> 
                           <input type="submit" name="segunda02" class="btn botao-verde-config    botao-verde"  
                                  role="button" value="1">
                               </input>                              
@@ -224,16 +235,16 @@ $(document).ready(function(){
                               <input type="submit" name="segunda02" class="btn botao-vermelho-config botao-vermelho"
                                      role="button" value="3">
                               </input>
-                        </p>    
+                              </h4>    
                           </form>
-                        <br>                                               
+                                                                    
                       </td>
                       <!-- Final do TD -->                    
                       
                       <td>
             
                           <form class="btnsubmit" action="<?php echo HOME;?>professor/organizaHorario/<?php echo $prof['id_professor']?>" method="post">
-                        <p> 
+                              <h4> 
                           <input type="submit" name="terca02" class="btn botao-verde-config    botao-verde"  
                                  role="button" value="1">
                               </input>                              
@@ -243,15 +254,15 @@ $(document).ready(function(){
                               <input type="submit" name="terca02" class="btn botao-vermelho-config botao-vermelho"
                                      role="button" value="3">
                               </input> 
-                        </p>
+                              </h4>
                           </form>
-                        <br>                                               
+                                                                 
                       </td>
                       <!-- Final do TD -->        
                       
                       <td>                                    
                           <form class="btnsubmit" action="<?php echo HOME;?>professor/organizaHorario/<?php echo $prof['id_professor']?>" method="post">
-                        <p> 
+                              <h4> 
                           <input type="submit" name="quarta02" class="btn botao-verde-config    botao-verde"  
                                  role="button" value="1">
                               </input>                              
@@ -261,15 +272,15 @@ $(document).ready(function(){
                               <input type="submit" name="quarta02" class="btn botao-vermelho-config botao-vermelho "
                                      role="button" value="3">
                               </input> 
-                        </p>                                   
+                              </h4>                                   
                             </form>                                        
-                        <br>                                               
+                                                                       
                       </td>
                       <!-- Final do TD -->                    
                       
                       <td>                                      
                           <form class="btnsubmit" action="<?php echo HOME;?>professor/organizaHorario/<?php echo $prof['id_professor']?>" method="post">
-                        <p> 
+                              <h4> 
                           <input type="submit" name="quinta02" class="btn botao-verde-config    botao-verde"  
                                  role="button" value="1">
                               </input>                              
@@ -279,15 +290,15 @@ $(document).ready(function(){
                               <input type="submit" name="quinta02" class="btn botao-vermelho-config botao-vermelho"
                                      role="button" value="3">
                               </input>
-                        </p>    
+                              </h4>    
                           </form>
-                        <br>                                               
+                                                                       
                       </td>
                       <!-- Final do TD -->                                          
                       
                       <td>                                    
                           <form class="btnsubmit" action="<?php echo HOME;?>professor/organizaHorario/<?php echo $prof['id_professor']?>" method="post">
-                        <p> 
+                              <h4> 
                           <input type="submit" name="sexta02" class="btn botao-verde-config    botao-verde"  
                                  role="button" value="1">
                               </input>                              
@@ -297,9 +308,9 @@ $(document).ready(function(){
                               <input type="submit" name="sexta02" class="btn botao-vermelho-config botao-vermelho"
                                      role="button" value="3">
                               </input>
-                        </p>    
+                              </h4>    
                           </form>
-                        <br>                                               
+                                                                       
                       </td>
                       <!-- Final do TD -->                    
                     </tr>                                      
@@ -307,7 +318,7 @@ $(document).ready(function(){
                     
                    <td>
                           <form class="btnsubmit" action="<?php echo HOME;?>professor/organizaHorario/<?php echo $prof['id_professor']?>" method="post">
-                        <p> 
+                              <h4> 
                           <input type="submit" name="segunda03" class="btn botao-verde-config    botao-verde"  
                                  role="button" value="1">
                               </input>                              
@@ -317,16 +328,16 @@ $(document).ready(function(){
                               <input type="submit" name="segunda03" class="btn botao-vermelho-config botao-vermelho"
                                      role="button" value="3">
                               </input>
-                        </p>    
+                              </h4>    
                           </form>
-                        <br>                                               
+                                                                       
                       </td>
                       <!-- Final do TD -->                    
                       
                       <td>
             
                           <form class="btnsubmit" action="<?php echo HOME;?>professor/organizaHorario/<?php echo $prof['id_professor']?>" method="post">
-                        <p> 
+                              <h4> 
                           <input type="submit" name="terca03" class="btn botao-verde-config    botao-verde"  
                                  role="button" value="1">
                               </input>                              
@@ -336,15 +347,15 @@ $(document).ready(function(){
                               <input type="submit" name="terca03" class="btn botao-vermelho-config botao-vermelho"
                                      role="button" value="3">
                               </input> 
-                        </p>
+                            </h4>
                           </form>
-                        <br>                                               
+                                                                 
                       </td>
                       <!-- Final do TD -->        
                       
                       <td>                                    
                           <form class="btnsubmit" action="<?php echo HOME;?>professor/organizaHorario/<?php echo $prof['id_professor']?>" method="post">
-                        <p> 
+                        <h4> 
                           <input type="submit" name="quarta03" class="btn botao-verde-config    botao-verde"  
                                  role="button" value="1">
                               </input>                              
@@ -354,15 +365,15 @@ $(document).ready(function(){
                               <input type="submit" name="quarta03" class="btn botao-vermelho-config botao-vermelho "
                                      role="button" value="3">
                               </input> 
-                        </p>                                   
+                        </h4>                                   
                             </form>                                        
-                        <br>                                               
+                                                                       
                       </td>
                       <!-- Final do TD -->                    
                       
                       <td>                                      
                           <form class="btnsubmit" action="<?php echo HOME;?>professor/organizaHorario/<?php echo $prof['id_professor']?>" method="post">
-                        <p> 
+                        <h4> 
                           <input type="submit" name="quinta03" class="btn botao-verde-config    botao-verde"  
                                  role="button" value="1">
                               </input>                              
@@ -372,15 +383,15 @@ $(document).ready(function(){
                               <input type="submit" name="quinta03" class="btn botao-vermelho-config botao-vermelho"
                                      role="button" value="3">
                               </input>
-                        </p>    
+                        </h4>    
                           </form>
-                        <br>                                               
+                                                                       
                       </td>
                       <!-- Final do TD -->                                          
                       
                       <td>                                    
                           <form class="btnsubmit" action="<?php echo HOME;?>professor/organizaHorario/<?php echo $prof['id_professor']?>" method="post">
-                        <p> 
+                        <h4> 
                           <input type="submit" name="sexta03" class="btn botao-verde-config    botao-verde"  
                                  role="button" value="1">
                               </input>                              
@@ -390,9 +401,9 @@ $(document).ready(function(){
                               <input type="submit" name="sexta03" class="btn botao-vermelho-config botao-vermelho"
                                      role="button" value="3">
                               </input>
-                        </p>    
+                        </h4>    
                           </form>
-                        <br>                                               
+                                                                       
                       </td>
                       <!-- Final do TD -->                    
                     </tr>                                      
@@ -400,7 +411,7 @@ $(document).ready(function(){
                     
                     <td>
                           <form class="btnsubmit" action="<?php echo HOME;?>professor/organizaHorario/<?php echo $prof['id_professor']?>" method="post">
-                        <p> 
+                              <h4> 
                           <input type="submit" name="segunda04" class="btn botao-verde-config    botao-verde"  
                                  role="button" value="1">
                               </input>                              
@@ -410,16 +421,16 @@ $(document).ready(function(){
                               <input type="submit" name="segunda04" class="btn botao-vermelho-config botao-vermelho"
                                      role="button" value="3">
                               </input>
-                        </p>    
+                        </h4>    
                           </form>
-                        <br>                                               
+                                                                       
                       </td>
                       <!-- Final do TD -->                    
                       
                       <td>
             
                           <form class="btnsubmit" action="<?php echo HOME;?>professor/organizaHorario/<?php echo $prof['id_professor']?>" method="post">
-                        <p> 
+                              <h4> 
                           <input type="submit" name="terca04" class="btn botao-verde-config    botao-verde"  
                                  role="button" value="1">
                               </input>                              
@@ -429,15 +440,15 @@ $(document).ready(function(){
                               <input type="submit" name="terca04" class="btn botao-vermelho-config botao-vermelho"
                                      role="button" value="3">
                               </input> 
-                        </p>
+                        </h4>
                           </form>
-                        <br>                                               
+                                                                       
                       </td>
                       <!-- Final do TD -->        
                       
                       <td>                                    
                           <form class="btnsubmit" action="<?php echo HOME;?>professor/organizaHorario/<?php echo $prof['id_professor']?>" method="post">
-                        <p> 
+                              <h4> 
                           <input type="submit" name="quarta04" class="btn botao-verde-config    botao-verde"  
                                  role="button" value="1">
                               </input>                              
@@ -447,15 +458,15 @@ $(document).ready(function(){
                               <input type="submit" name="quarta04" class="btn botao-vermelho-config botao-vermelho "
                                      role="button" value="3">
                               </input> 
-                        </p>                                   
+                              </h4>                                   
                             </form>                                        
-                        <br>                                               
+                                                                       
                       </td>
                       <!-- Final do TD -->                    
                       
                       <td>                                      
                           <form class="btnsubmit" action="<?php echo HOME;?>professor/organizaHorario/<?php echo $prof['id_professor']?>" method="post">
-                        <p> 
+                              <h4> 
                           <input type="submit" name="quinta04" class="btn botao-verde-config    botao-verde"  
                                  role="button" value="1">
                               </input>                              
@@ -465,15 +476,15 @@ $(document).ready(function(){
                               <input type="submit" name="quinta04" class="btn botao-vermelho-config botao-vermelho"
                                      role="button" value="3">
                               </input>
-                        </p>    
+                              </h4>    
                           </form>
-                        <br>                                               
+                                                                       
                       </td>
                       <!-- Final do TD -->                                          
                       
                       <td>                                    
                           <form class="btnsubmit" action="<?php echo HOME;?>professor/organizaHorario/<?php echo $prof['id_professor']?>" method="post">
-                        <p> 
+                              <h4> 
                           <input type="submit" name="sexta04" class="btn botao-verde-config    botao-verde"  
                                  role="button" value="1">
                               </input>                              
@@ -483,9 +494,9 @@ $(document).ready(function(){
                               <input type="submit" name="sexta04" class="btn botao-vermelho-config botao-vermelho"
                                      role="button" value="3">
                               </input>
-                        </p>    
+                              </h4>    
                           </form>
-                        <br>                                               
+                                                                       
                       </td>
                       <!-- Final do TD -->                    
                     </tr>                                      
@@ -493,7 +504,7 @@ $(document).ready(function(){
   
                     <td>
                           <form class="btnsubmit" action="<?php echo HOME;?>professor/organizaHorario/<?php echo $prof['id_professor']?>" method="post">
-                        <p> 
+                              <h4> 
                           <input type="submit" name="segunda05" class="btn botao-verde-config    botao-verde"  
                                  role="button" value="1">
                               </input>                              
@@ -503,16 +514,16 @@ $(document).ready(function(){
                               <input type="submit" name="segunda05" class="btn botao-vermelho-config botao-vermelho"
                                      role="button" value="3">
                               </input>
-                        </p>    
+                        </h4>    
                           </form>
-                        <br>                                               
+                                                                       
                       </td>
                       <!-- Final do TD -->                    
                       
                       <td>
             
                           <form class="btnsubmit" action="<?php echo HOME;?>professor/organizaHorario/<?php echo $prof['id_professor']?>" method="post">
-                        <p> 
+                              <h4> 
                           <input type="submit" name="terca05" class="btn botao-verde-config    botao-verde"  
                                  role="button" value="1">
                               </input>                              
@@ -522,15 +533,15 @@ $(document).ready(function(){
                               <input type="submit" name="terca05" class="btn botao-vermelho-config botao-vermelho"
                                      role="button" value="3">
                               </input> 
-                        </p>
+                              </h4>
                           </form>
-                        <br>                                               
+                                                                       
                       </td>
                       <!-- Final do TD -->        
                       
                       <td>                                    
                           <form class="btnsubmit" action="<?php echo HOME;?>professor/organizaHorario/<?php echo $prof['id_professor']?>" method="post">
-                        <p> 
+                              <h4> 
                           <input type="submit" name="quarta05" class="btn botao-verde-config    botao-verde"  
                                  role="button" value="1">
                               </input>                              
@@ -540,15 +551,15 @@ $(document).ready(function(){
                               <input type="submit" name="quarta05" class="btn botao-vermelho-config botao-vermelho "
                                      role="button" value="3">
                               </input> 
-                        </p>                                   
+                              </h4>                                   
                             </form>                                        
-                        <br>                                               
+                                                                       
                       </td>
                       <!-- Final do TD -->                    
                       
                       <td>                                      
                           <form class="btnsubmit" action="<?php echo HOME;?>professor/organizaHorario/<?php echo $prof['id_professor']?>" method="post">
-                        <p> 
+                        <h4> 
                           <input type="submit" name="quinta05" class="btn botao-verde-config    botao-verde"  
                                  role="button" value="1">
                               </input>                              
@@ -558,15 +569,15 @@ $(document).ready(function(){
                               <input type="submit" name="quinta05" class="btn botao-vermelho-config botao-vermelho"
                                      role="button" value="3">
                               </input>
-                        </p>    
+                        </h4>    
                           </form>
-                        <br>                                               
+                                                                       
                       </td>
                       <!-- Final do TD -->                                          
                       
                       <td>                                    
                           <form class="btnsubmit" action="<?php echo HOME;?>professor/organizaHorario/<?php echo $prof['id_professor']?>" method="post">
-                        <p> 
+                              <h4> 
                           <input type="submit" name="sexta05" class="btn botao-verde-config    botao-verde"  
                                  role="button" value="1">
                               </input>                              
@@ -576,9 +587,9 @@ $(document).ready(function(){
                               <input type="submit" name="sexta05" class="btn botao-vermelho-config botao-vermelho"
                                      role="button" value="3">
                               </input>
-                        </p>    
+                              </h4>    
                           </form>
-                        <br>                                               
+                                                                       
                       </td>
                       <!-- Final do TD -->                    
                     </tr>                                      
@@ -586,7 +597,7 @@ $(document).ready(function(){
                     
                     <td>
                           <form class="btnsubmit" action="<?php echo HOME;?>professor/organizaHorario/<?php echo $prof['id_professor']?>" method="post">
-                        <p> 
+                              <h4> 
                           <input type="submit" name="segunda06" class="btn botao-verde-config    botao-verde"  
                                  role="button" value="1">
                               </input>                              
@@ -596,16 +607,16 @@ $(document).ready(function(){
                               <input type="submit" name="segunda06" class="btn botao-vermelho-config botao-vermelho"
                                      role="button" value="3">
                               </input>
-                        </p>    
+                              </h4>    
                           </form>
-                        <br>                                               
+                                                                       
                       </td>
                       <!-- Final do TD -->                    
                       
                       <td>
             
                           <form class="btnsubmit" action="<?php echo HOME;?>professor/organizaHorario/<?php echo $prof['id_professor']?>" method="post">
-                        <p> 
+                              <h4> 
                           <input type="submit" name="terca06" class="btn botao-verde-config    botao-verde"  
                                  role="button" value="1">
                               </input>                              
@@ -615,15 +626,15 @@ $(document).ready(function(){
                               <input type="submit" name="terca06" class="btn botao-vermelho-config botao-vermelho"
                                      role="button" value="3">
                               </input> 
-                        </p>
+                        </h4>
                           </form>
-                        <br>                                               
+                                                                       
                       </td>
                       <!-- Final do TD -->        
                       
                       <td>                                    
                           <form class="btnsubmit" action="<?php echo HOME;?>professor/organizaHorario/<?php echo $prof['id_professor']?>" method="post">
-                        <p> 
+                              <h4> 
                           <input type="submit" name="quarta06" class="btn botao-verde-config    botao-verde"  
                                  role="button" value="1">
                               </input>                              
@@ -633,15 +644,15 @@ $(document).ready(function(){
                               <input type="submit" name="quarta06" class="btn botao-vermelho-config botao-vermelho "
                                      role="button" value="3">
                               </input> 
-                        </p>                                   
+                              </h4>                                   
                             </form>                                        
-                        <br>                                               
+                                                                       
                       </td>
                       <!-- Final do TD -->                    
                       
                       <td>                                      
                           <form class="btnsubmit" action="<?php echo HOME;?>professor/organizaHorario/<?php echo $prof['id_professor']?>" method="post">
-                        <p> 
+                              <h4> 
                           <input type="submit" name="quinta06" class="btn botao-verde-config    botao-verde"  
                                  role="button" value="1">
                               </input>                              
@@ -651,15 +662,15 @@ $(document).ready(function(){
                               <input type="submit" name="quinta06" class="btn botao-vermelho-config botao-vermelho"
                                      role="button" value="3">
                               </input>
-                        </p>    
+                              </h4>    
                           </form>
-                        <br>                                               
+                                                                       
                       </td>
                       <!-- Final do TD -->                                          
                       
                       <td>                                    
                           <form class="btnsubmit" action="<?php echo HOME;?>professor/organizaHorario/<?php echo $prof['id_professor']?>" method="post">
-                        <p> 
+                              <h4> 
                           <input type="submit" name="sexta06" class="btn botao-verde-config    botao-verde"  
                                  role="button" value="1">
                               </input>                              
@@ -669,9 +680,9 @@ $(document).ready(function(){
                               <input type="submit" name="sexta06" class="btn botao-vermelho-config botao-vermelho"
                                      role="button" value="3">
                               </input>
-                        </p>    
+                              </h4>    
                           </form>
-                        <br>                                               
+                                                                       
                       </td>
                       <!-- Final do TD -->                    
                     </tr>                                      

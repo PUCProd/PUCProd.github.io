@@ -32,7 +32,7 @@
             </table>
             <div class="tabelaSimples">
                 <br>
-                <input class="btn btn-lg btn-primary" value="Enviar" type="submit">                      
+                <input class="btn btn-lg btn-primary" value="Salvar" type="submit">                      
             </div>
         </form>        
         <p>
