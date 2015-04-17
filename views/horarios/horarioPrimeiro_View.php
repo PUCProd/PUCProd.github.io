@@ -44,7 +44,7 @@ Não solte o botão "DRAG/DROP TESTE sobre algum combobox.
     <p><option id="drag1" draggable="true" ondragstart="drag(event)" 
     name="seg_01" class="btn botao-verde-config    botao-verde"  
     role="button"  value="<?php echo $resultado_disc['id'];?>">
-        <?php echo $resultado_disc['nome'];?>
+        <?php echo $resultado_disc['apelido'];?>
     </option></p>
     <?php
     
