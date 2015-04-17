@@ -16,6 +16,7 @@ function drop(ev) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
     ev.target.appendChild(document.getElementById(data));
+    alert(document.getElementById(this));
 }
 </script>
     <script type="text/javascript" src="jquery-1.3.2.min.js"></script>
@@ -33,11 +34,23 @@ function drop(ev) {
 <!-- Main component for a primary marketing message or call to action -->
 <!--teste-->
 Não solte o botão "DRAG/DROP TESTE sobre algum combobox.
+<?php $disciplina = Disciplina::getListaNome();?>
 <div id="scrollingDiv" class = "jumbotron" style="float:right"
      ondrop="drop(event)" ondragover="allowDrop(event)"> 
-    <input id="drag1" draggable="true" ondragstart="drag(event)" 
+    <?php
+    while($resultado_disc = mysql_fetch_array($disciplina))
+    {
+    ?>
+    <option id="drag1" draggable="true" ondragstart="drag(event)" 
     name="seg_01" class="btn botao-verde-config    botao-verde"  
-                                 role="button"  value="DRAG/DROP TESTE">
+    role="button"  value="<?php echo $resultado_disc['id'];?>">
+        <?php echo $resultado_disc['nome'];?>
+    </option>
+    <?php
+    
+    }
+    ?>
+    
     </div>
 <div class="jumbotron" style="float: left">
     
@@ -68,10 +81,8 @@ Não solte o botão "DRAG/DROP TESTE sobre algum combobox.
                 </tr>
                 <tr>
                     <td ondrop="drop(event)" ondragover="allowDrop(event)">
-                        <?php $disciplina = Disciplina::getListaNome();?>
-                        <?php //mostrar as disciplinas desse horário?>
-                        <form action="" method="post" name="form"> <!--chamar alguma função
-                                                                    que irá deixar marcado :P-->
+                        
+                        <form action="" method="post" name="form">
                             <select name="segunda01" size="1" onchange="submitSeg01.submit();">
                                 <?php
                                 while($resultado_disc = mysql_fetch_array($disciplina)){
@@ -84,9 +95,6 @@ Não solte o botão "DRAG/DROP TESTE sobre algum combobox.
                                 ?>
                             </select>
                             <input class="btn botao-confirmar-config  botao-confirmar" type="submit" value="✔">
-                            <!--<input class="btn botao-confirmar-config  botao-confirmar" 
-                                   type="hidden" name="id_prof" 
-                                   value="">-->
                         </form>
                         
                         <br>                                               
