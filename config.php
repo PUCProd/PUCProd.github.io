@@ -1,6 +1,7 @@
 <?php
 
 define("HOME", "http://localhost/MVC/");
+
 /*define("SERVER", "localhost");
 define("USER", "root");
 define("PASSWORD", "");//*/

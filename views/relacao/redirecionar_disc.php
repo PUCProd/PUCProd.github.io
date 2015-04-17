@@ -1,16 +1,18 @@
 <!DOCTYPE html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
+
+    <meta http-equiv="refresh" content="1;URL='<?php echo HOME;?>relacao/pageView/disc'">   <!-- Cria um redirecionamento para a página relacao     -->
     <meta name="author" content="">
-    <meta http-equiv="Content-Style-Type" content="text/css">
     <link rel="icon" href="../../favicon.ico">
 
     <title>Engenharia de Produção</title>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
     <!-- Bootstrap core CSS -->
     <link href="bootstrap-3.2.0-dist/css/bootstrap.min.css" rel="stylesheet">
     
@@ -40,9 +42,9 @@
     <![endif]-->
     
     <!-- CSS MATHEUS -->
-    <link rel="stylesheet" href="bootstrap-3.2.0-dist/css/formatacao.css" type="text/css"></link>
+    <link href="bootstrap-3.2.0-dist/css/formatacao.css" rel="stylesheet">
 
-<script type="text/javascript">
+            <script type="text/javascript">
         function EmptyField(id){//Script para apagar o campo do filtro ao ser clicado e tirar o que está escrito
             var Fid = document.getElementById(id);
             var TheDefaultValue = Fid.defaultValue;
@@ -52,55 +54,8 @@
                 Fid.value ='';
             }
         }
-</script>
-
-
-
-<style>
-.botao-verde{
-    background-color: #006600;
-    color:#fff;
-    border-color:#285e8e
-}
-.botao-verde-config{
-    padding:4px 6px;
-    font-size:9px;
-    line-height:1.33;
-    border-radius:10px
-}
-
-.botao-amarelo{
-    background-color: #666600;
-    color:#fff;
-    border-color:#285e8e
-}
-.botao-amarelo-config{
-    padding:4px 6px;
-    font-size:9px;
-    line-height:1.33;
-    border-radius:10px
-}
-
-.botao-vermelho{
-    background-color: #660000   ;
-    color:#fff;
-    border-color:#285e8e
-}
-.botao-vermelho-config{
-    padding:4px 6px;
-    font-size:9px;
-    line-height:1.33;
-    border-radius:10px
-}
-#scrollingDiv{ 
-    overflow: auto;
-    height: auto;
-    margin: 5px 0px 0px 590px;  
-    width: 34px;   
-}
-</style>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script>
+    </script>
+     <script>
     $(document).ready(function(){
       $(".btn1").click(function(){
         $("#list").slideUp();
@@ -127,27 +82,15 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="<?php echo HOME;?>">Engenharia de Produção</a>
+            <a class="navbar-brand" href="index">Engenharia de Produção</a>
           </div>
           <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li><a href="<?php echo HOME;?>professor/pageView ">Professores</a></li>
                 <li><a href="<?php echo HOME;?>disciplina/pageView">Disciplinas</a></li>
-                <li><a href="<?php echo HOME;?>relacao/pageView/prof">Relação Prof/Disc</a></li>
-                <li><a href="<?php echo HOME;?>disciplina/organizarDisciplina">Horarios Semestre</a></li>
-   
+                <li><a href="<?php echo HOME;?>relacao/pageView">Relação Prof/Disc</a></li>
+
             </ul>
-            <div class="btn-group" role="group">
-            <button type="button" class="btn navbar-btn btn-default dropdown-toggle" 
-                    data-toggle="dropdown" aria-expanded="false">
-                Cadastrar
-                <span class="caret"></span>
-            </button>
-              <ul class="dropdown-menu" role="menu">
-                  <li><a href="<?php echo HOME;?>professor/cadastroView">Professor</a></li>
-                  <li><a href="<?php echo HOME;?>disciplina/cadastroView">Disciplina</a></li>
-              </ul>
-            </div> <!-- grupo de botoes-->
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
       </div>

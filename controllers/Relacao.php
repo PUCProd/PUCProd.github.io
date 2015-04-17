@@ -16,11 +16,11 @@ class Relacao extends Controller{
             $this->view->render('relacao/relacao_disc_view');
         }
     }
-    function relacionar()
+    function relacionar($args = false)
     {
         require_once 'models/relacao_model.php';
         $model = new Relacao_Model();
-        $model->relacionar();
+        $model->relacionar($args);
     }
     function getRelacao($args = false)
     {

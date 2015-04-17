@@ -6,9 +6,12 @@ class Relacao_Model extends Model{
         parent::__construct();
     }
     
-    function relacionar() 
+    function relacionar($args = false) 
     {
-        require_once 'views/relacao/redirecionar.php';
+        if($args)
+            require_once 'views/relacao/redirecionar_disc.php';
+        else
+            require_once 'views/relacao/redirecionar.php';
         require_once 'views/center.php';
         $id_disc = $_POST['select']; // Seleciona o id da matéria
         $id_prof = $_POST['id_prof']; // Pega o id do professor 

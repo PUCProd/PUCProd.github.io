@@ -8,9 +8,9 @@ require_once 'controllers/Professor.php';
                 <div class="tabelaSimples"> <!-- Div do filtro e botão cadastrar -->                     
                     <form method="post" action="<?php echo HOME;?>professor/filtrar">
                         <h2>
-                            <a class="btn btn-lg btn-primary" href="<?php echo HOME;?>professor/cadastroView" role="button">Cadastrar</a>
-                            <input type="text" size="30" name="filtrar" placeholder="&nbsp;
-                                   Pesquisar" id="bSite" onfocus="EmptyField(this.id)"> 
+                            <input type="text" size="30" name="filtrar" 
+                                       placeholder="&nbsp;Pesquisar" id="bSite" 
+                                       onfocus="EmptyField(this.id)">
                         </h2>                            
                     </form>                        
                 </div>                                 
@@ -49,7 +49,8 @@ require_once 'controllers/Professor.php';
                           </h5>
                       </td>
                       <td>
-                          <a href="<?php echo 'http://localhost/MVC/professor/excluir/'.$row["id_professor"]; ?>" class="btn botao-excluir-configbotao-excluir">
+                          <a href="<?php echo 'http://localhost/MVC/professor/excluir/'.$row["id_professor"]; ?>" 
+                             class="btn botao-excluir-configbotao-excluir">
                               ✘
                           </a>
                       </td>

@@ -8,9 +8,10 @@ require_once 'controllers/Relacao.php';
       <div class="jumbotron">          
         <div class="tabelaSimples"> <!-- Div do filtro e botão cadastrar -->
             <form method="post" action="">
-            <h2><a class="btn btn-lg btn-primary" href="<?php echo HOME;?>relacao/pageView/prof" role="button">Por Professor</a>
-                <a class="btn btn-lg btn-primary" href="<?php echo HOME;?>relacao/pageView/disc" role="button">Por Disciplina</a>
-                <input type="text" size="30" name="filtrar" value="&nbsp;Pesquisar" id="bSite" onfocus="EmptyField(this.id)">
+            <h2>
+                <input type="text" size="30" name="filtrar" 
+                                       placeholder="&nbsp;Pesquisar" id="bSite" 
+                                       onfocus="EmptyField(this.id)"> 
             </h2>
             </form>
         </div>
@@ -93,4 +94,6 @@ require_once 'controllers/Relacao.php';
             }
             ?>
         </table>
+        <a class="btn btn-lg btn-primary" href="<?php echo HOME;?>relacao/pageView/prof" role="button">Por Professor</a>
+        <a class="btn btn-lg btn-primary" href="<?php echo HOME;?>relacao/pageView/disc" role="button">Por Disciplina</a>
       </div>

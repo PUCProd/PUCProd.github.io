@@ -16,7 +16,6 @@ function drop(ev) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
     ev.target.appendChild(document.getElementById(data));
-    alert(document.getElementById(this));
 }
 </script>
     <script type="text/javascript" src="jquery-1.3.2.min.js"></script>
@@ -38,21 +37,26 @@ Não solte o botão "DRAG/DROP TESTE sobre algum combobox.
 <div id="scrollingDiv" class = "jumbotron" style="float:right"
      ondrop="drop(event)" ondragover="allowDrop(event)"> 
     <?php
+    $i = 0;
     while($resultado_disc = mysql_fetch_array($disciplina))
     {
-    ?>
+        while($i < $resultado_disc["carga_horaria"])
+        {
+        ?>
     <p><option id="drag1" draggable="true" ondragstart="drag(event)" 
     name="seg_01" class="btn botao-verde-config    botao-verde"  
     role="button"  value="<?php echo $resultado_disc['id'];?>">
         <?php echo $resultado_disc['apelido'];?>
     </option></p>
     <?php
-    
+        $i++;
+        }
+        $i = 0;
     }
     ?>
     
     </div>
-<div class="jumbotron" style="float: left">
+<div class="jumbotron" style="float:left; position:absolute">
     
     <div><!--Inicializa a tabela dos horários -->     
 
