@@ -41,11 +41,11 @@ Não solte o botão "DRAG/DROP TESTE sobre algum combobox.
     while($resultado_disc = mysql_fetch_array($disciplina))
     {
     ?>
-    <option id="drag1" draggable="true" ondragstart="drag(event)" 
+    <p><option id="drag1" draggable="true" ondragstart="drag(event)" 
     name="seg_01" class="btn botao-verde-config    botao-verde"  
     role="button"  value="<?php echo $resultado_disc['id'];?>">
         <?php echo $resultado_disc['nome'];?>
-    </option>
+    </option></p>
     <?php
     
     }
