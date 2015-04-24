@@ -1,4 +1,4 @@
-    <?php 
+<?php 
 require_once 'controllers/Professor.php';
 require_once 'controllers/Disciplina.php';
 require_once 'controllers/Relacao.php';
@@ -16,7 +16,6 @@ function drop(ev) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
     ev.target.appendChild(document.getElementById(data));
-    alert(data);
 }
 </script>
     <script type="text/javascript" src="jquery-1.3.2.min.js"></script>
@@ -34,7 +33,12 @@ function drop(ev) {
 <!-- Main component for a primary marketing message or call to action -->
 <!--teste-->
 <?php $disciplina = Disciplina::getListaNome();?>
-<div id="scrollingDiv" class = "jumbotron" style="float:right"
+
+<div class="jumbotron" style="position:absolute">
+    
+    
+    <div><!--Inicializa a tabela dos horários -->     
+        <div id="scrollingDiv" class = "jumbotron" style="float:right"
      ondrop="drop(event)" ondragover="allowDrop(event)"> 
     <?php
     $i = 0;
@@ -43,7 +47,7 @@ function drop(ev) {
         while($i < $resultado_disc["carga_horaria"])
         {
         ?>
-    <p><option id="drag1" draggable="true" ondragstart="drag(event)" 
+    <p><option id="<?php echo $resultado_disc['apelido'];?>" draggable="true" ondragstart="drag(event)" 
     name="<?php echo $resultado_disc['periodo'];?>" class="btn botao-verde-config botao-verde"  
     role="button"  value="<?php echo $resultado_disc['id'];?>">
         <?php echo $resultado_disc['apelido'];?>
@@ -56,34 +60,36 @@ function drop(ev) {
     ?>
     
     </div>
-<div class="jumbotron" style="position:absolute">
-    
-    <div><!--Inicializa a tabela dos horários -->     
-
         <br>
-            <table class="table table-bordered 
+            <table class="table-bordered 
                    table-condensed table-hover table-responsive table-striped">
-                <div class="tabelaSimples">
+                <div>
                     <h3 style = "text-align: center">Primeiro Período</h3>
                 </div>      
                 <tr>
                     <th>
-                        <p>Segunda-Feira</p>
+                        <h5>Horario</h5>
                     </th>
                     <th>
-                        <p>Terça-Feira</p>
+                        <h5>Segunda<br>Feira</h5>
                     </th>
                     <th>
-                        <p>Quarta-Feira</p>
+                        <h5>Terça<br>Feira</h5>
                     </th>
                     <th>
-                        <p>Quinta-Feira</p>
+                        <h5>Quarta<br>Feira</h5>
                     </th>
                     <th>
-                        <p>Sexta-Feira</p>
+                        <h5>Quinta<br>Feira</h5>
+                    </th>
+                    <th>
+                        <h5>Sexta<br>Feira</h5>
                     </th>
                 </tr>
                 <tr>
+                    <td>
+                        <h6>07:00 às 07:50</h6>
+                    </td>
                     <td name="segunda01" 
                         ondrop="drop(event)" 
                         ondragover="allowDrop(event)">
@@ -122,641 +128,207 @@ function drop(ev) {
                     <!-- Final do TR -->                    
                     
                     <tr>
-                       <td ondrop="drop(event)" ondragover="allowDrop(event)">                              
-                        <?php $disciplina = Disciplina::getListaNome();?>
-                        <?php //mostrar as disciplinas desse horário?>
-                        <form action="" method="post" name="form"> <!--chamar alguma função
-                                                                    que irá deixar marcado :P-->
-                            <select name="segunda02" size="1" onchange="submitSeg02.submit();">
-                                <?php
-                                while($resultado_disc = mysql_fetch_array($disciplina)){
-                                ?>
-                                <option value="<?php echo $resultado_disc['id'];?>">
-                                    <?php echo $resultado_disc['nome'];?>
-                                </option>
-                                <?php
-                                }
-                                ?>
-                            </select>
-                            <input class="btn botao-confirmar-config  botao-confirmar" type="submit" value="✔">
-                            <!--<input class="btn botao-confirmar-config  botao-confirmar" 
-                                   type="hidden" name="id_prof" 
-                                   value="">-->
-                        </form>
+                        <td>
+                            <h6>07:00 às 07:50</h6>
+                        </td>
+                      <td name="segunda02" 
+                        ondrop="drop(event)" 
+                        ondragover="allowDrop(event)">
+                        <br>                                               
+                    </td>
+                      <!-- Final do TD -->                    
+                      
+                      <td name="terca02"
+                          ondrop="drop(event)" 
+                          ondragover="allowDrop(event)">
                         <br>                                               
                       </td>
-                      <!-- Final do TD -->
-            
-                       <td ondrop="drop(event)" ondragover="allowDrop(event)">    
-                          <?php $disciplina = Disciplina::getListaNome();?>
-                        <?php //mostrar as disciplinas desse horário?>
-                        <form action="" method="post" name="form"> <!--chamar alguma função
-                                                                    que irá deixar marcado :P-->
-                            <select name="terca02" size="1" onchange="submitTer02.submit();">
-                                <?php
-                                while($resultado_disc = mysql_fetch_array($disciplina)){
-                                ?>
-                                <option value="<?php echo $resultado_disc['id'];?>">
-                                    <?php echo $resultado_disc['nome'];?>
-                                </option>
-                                <?php
-                                }
-                                ?>
-                            </select>
-                            <input class="btn botao-confirmar-config  botao-confirmar" type="submit" value="✔">
-                            <!--<input class="btn botao-confirmar-config  botao-confirmar" 
-                                   type="hidden" name="id_prof" 
-                                   value="">-->
-                        </form>
+                      <!-- Final do TD -->        
+                      
+                      <td name="quarta02"
+                          ondrop="drop(event)" 
+                          ondragover="allowDrop(event)">
                         <br>                                               
                       </td>
                       <!-- Final do TD -->                    
                       
-                       <td ondrop="drop(event)" ondragover="allowDrop(event)">                              
-                          <?php $disciplina = Disciplina::getListaNome();?>
-                        <?php //mostrar as disciplinas desse horário?>
-                        <form action="" method="post" name="form"> <!--chamar alguma função
-                                                                    que irá deixar marcado :P-->
-                            <select name="quarta02" size="1" onchange="submitQua01.submit();">
-                                <?php
-                                while($resultado_disc = mysql_fetch_array($disciplina)){
-                                ?>
-                                <option value="<?php echo $resultado_disc['id'];?>">
-                                    <?php echo $resultado_disc['nome'];?>
-                                </option>
-                                <?php
-                                }
-                                ?>
-                            </select>
-                            <input class="btn botao-confirmar-config  botao-confirmar" type="submit" value="✔">
-                            <!--<input class="btn botao-confirmar-config  botao-confirmar" 
-                                   type="hidden" name="id_prof" 
-                                   value="">-->
-                        </form>
-                        <br>                                               
-                      </td>
-                      <!-- Final do TD -->                    
-
-                       <td ondrop="drop(event)" ondragover="allowDrop(event)">                                       
-                          <?php $disciplina = Disciplina::getListaNome();?>
-                        <?php //mostrar as disciplinas desse horário?>
-                        <form action="" method="post" name="form"> <!--chamar alguma função
-                                                                    que irá deixar marcado :P-->
-                            <select name="quinta02" size="1" onchange="submitQui01.submit();">
-                                <?php
-                                while($resultado_disc = mysql_fetch_array($disciplina)){
-                                ?>
-                                <option value="<?php echo $resultado_disc['id'];?>">
-                                    <?php echo $resultado_disc['nome'];?>
-                                </option>
-                                <?php
-                                }
-                                ?>
-                            </select>
-                            <input class="btn botao-confirmar-config  botao-confirmar" type="submit" value="✔">
-                            <!--<input class="btn botao-confirmar-config  botao-confirmar" 
-                                   type="hidden" name="id_prof" 
-                                   value="">-->
-                        </form>
-                        <br>                                               
-                      </td>
-                      <!-- Final do TD -->                                  
-                      
-                       <td ondrop="drop(event)" ondragover="allowDrop(event)">                                      
-                          <?php $disciplina = Disciplina::getListaNome();?>
-                        <?php //mostrar as disciplinas desse horário?>
-                        <form action="" method="post" name="form"> <!--chamar alguma função
-                                                                    que irá deixar marcado :P-->
-                            <select name="sexta02" size="1" onchange="submitSex02.submit();">
-                                <?php
-                                while($resultado_disc = mysql_fetch_array($disciplina)){
-                                ?>
-                                <option value="<?php echo $resultado_disc['id'];?>">
-                                    <?php echo $resultado_disc['nome'];?>
-                                </option>
-                                <?php
-                                }
-                                ?>
-                            </select>
-                            <input class="btn botao-confirmar-config  botao-confirmar" type="submit" value="✔">
-                            <!--<input class="btn botao-confirmar-config  botao-confirmar" 
-                                   type="hidden" name="id_prof" 
-                                   value="">-->
-                        </form>
+                       <td name="quinta02"
+                           ondrop="drop(event)" 
+                           ondragover="allowDrop(event)">
                         <br>                                               
                       </td>
                       <!-- Final do TD -->                                          
+                      
+                       <td name="sexta02"
+                           ondrop="drop(event)" 
+                           ondragover="allowDrop(event)">                                                      
+                        <br>                                               
+                      </td>
+                      <!-- Final do TD -->                                     
                     </tr>
                     <!-- Final do TR -->                                            
                     
                     <tr>
-                       <td ondrop="drop(event)" ondragover="allowDrop(event)">    
-                        <?php $disciplina = Disciplina::getListaNome();?>
-                        <?php //mostrar as disciplinas desse horário?>
-                        <form action="" method="post" name="form"> <!--chamar alguma função
-                                                                    que irá deixar marcado :P-->
-                            <select name="segunda03" size="1" onchange="submitSeg03.submit();">
-                                <?php
-                                while($resultado_disc = mysql_fetch_array($disciplina)){
-                                ?>
-                                <option value="<?php echo $resultado_disc['id'];?>">
-                                    <?php echo $resultado_disc['nome'];?>
-                                </option>
-                                <?php
-                                }
-                                ?>
-                            </select>
-                            <input class="btn botao-confirmar-config  botao-confirmar" type="submit" value="✔">
-                            <!--<input class="btn botao-confirmar-config  botao-confirmar" 
-                                   type="hidden" name="id_prof" 
-                                   value="">-->
-                        </form>
+                       <td>
+                            <h6>07:00 às 07:50</h6>
+                        </td>
+                      <td name="segunda03" 
+                        ondrop="drop(event)" 
+                        ondragover="allowDrop(event)">
+                        <br>                                               
+                    </td>
+                      <!-- Final do TD -->                    
+                      
+                      <td name="terca03"
+                          ondrop="drop(event)" 
+                          ondragover="allowDrop(event)">
                         <br>                                               
                       </td>
-                      <!-- Final do TD -->                                            
+                      <!-- Final do TD -->        
                       
-                       <td ondrop="drop(event)" ondragover="allowDrop(event)">                                   
-                        <?php $disciplina = Disciplina::getListaNome();?>
-                        <?php //mostrar as disciplinas desse horário?>
-                        <form action="" method="post" name="form"> <!--chamar alguma função
-                                                                    que irá deixar marcado :P-->
-                            <select name="terca03" size="1" onchange="submitTer03.submit();">
-                                <?php
-                                while($resultado_disc = mysql_fetch_array($disciplina)){
-                                ?>
-                                <option value="<?php echo $resultado_disc['id'];?>">
-                                    <?php echo $resultado_disc['nome'];?>
-                                </option>
-                                <?php
-                                }
-                                ?>
-                            </select>
-                            <input class="btn botao-confirmar-config  botao-confirmar" type="submit" value="✔">
-                            <!--<input class="btn botao-confirmar-config  botao-confirmar" 
-                                   type="hidden" name="id_prof" 
-                                   value="">-->
-                        </form>
+                      <td name="quarta03"
+                          ondrop="drop(event)" 
+                          ondragover="allowDrop(event)">
                         <br>                                               
                       </td>
                       <!-- Final do TD -->                    
                       
-                       <td ondrop="drop(event)" ondragover="allowDrop(event)">             
-                        <?php $disciplina = Disciplina::getListaNome();?>
-                        <?php //mostrar as disciplinas desse horário?>
-                        <form action="" method="post" name="form"> <!--chamar alguma função
-                                                                    que irá deixar marcado :P-->
-                            <select name="quarta03" size="1" onchange="submitQua03.submit();">
-                                <?php
-                                while($resultado_disc = mysql_fetch_array($disciplina)){
-                                ?>
-                                <option value="<?php echo $resultado_disc['id'];?>">
-                                    <?php echo $resultado_disc['nome'];?>
-                                </option>
-                                <?php
-                                }
-                                ?>
-                            </select>
-                            <input class="btn botao-confirmar-config  botao-confirmar" type="submit" value="✔">
-                            <!--<input class="btn botao-confirmar-config  botao-confirmar" 
-                                   type="hidden" name="id_prof" 
-                                   value="">-->
-                        </form>
+                       <td name="quinta03"
+                           ondrop="drop(event)" 
+                           ondragover="allowDrop(event)">
                         <br>                                               
                       </td>
                       <!-- Final do TD -->                                          
                       
-                       <td ondrop="drop(event)" ondragover="allowDrop(event)"> 
-                          <?php $disciplina = Disciplina::getListaNome();?>
-                        <?php //mostrar as disciplinas desse horário?>
-                        <form action="" method="post" name="form"> <!--chamar alguma função
-                                                                    que irá deixar marcado :P-->
-                            <select name="quinta03" size="1" onchange="submitQui03.submit();">
-                                <?php
-                                while($resultado_disc = mysql_fetch_array($disciplina)){
-                                ?>
-                                <option value="<?php echo $resultado_disc['id'];?>">
-                                    <?php echo $resultado_disc['nome'];?>
-                                </option>
-                                <?php
-                                }
-                                ?>
-                            </select>
-                            <input class="btn botao-confirmar-config  botao-confirmar" type="submit" value="✔">
-                            <!--<input class="btn botao-confirmar-config  botao-confirmar" 
-                                   type="hidden" name="id_prof" 
-                                   value="">-->
-                        </form>
+                       <td name="sexta03"
+                           ondrop="drop(event)" 
+                           ondragover="allowDrop(event)">                                                      
                         <br>                                               
                       </td>
-                      <!-- Final do TD -->                                  
-                                            
-                       <td ondrop="drop(event)" ondragover="allowDrop(event)">                                     
-                        <?php $disciplina = Disciplina::getListaNome();?>
-                        <?php //mostrar as disciplinas desse horário?>
-                        <form action="" method="post" name="form"> <!--chamar alguma função
-                                                                    que irá deixar marcado :P-->
-                            <select name="sexta03" size="1" onchange="submitSex03.submit();">
-                                <?php
-                                while($resultado_disc = mysql_fetch_array($disciplina)){
-                                ?>
-                                <option value="<?php echo $resultado_disc['id'];?>">
-                                    <?php echo $resultado_disc['nome'];?>
-                                </option>
-                                <?php
-                                }
-                                ?>
-                            </select>
-                            <input class="btn botao-confirmar-config  botao-confirmar" type="submit" value="✔">
-                            <!--<input class="btn botao-confirmar-config  botao-confirmar" 
-                                   type="hidden" name="id_prof" 
-                                   value="">-->
-                        </form>
-                        <br>                                               
-                      </td>
-                      <!-- Final do TD -->                                                                                      
+                      <!-- Final do TD -->                                                                                       
                     </tr>
                     <!-- Final do TR -->                                                                
                     
                     <tr>
-                       <td ondrop="drop(event)" ondragover="allowDrop(event)">
-                        <?php $disciplina = Disciplina::getListaNome();?>
-                        <?php //mostrar as disciplinas desse horário?>
-                        <form action="" method="post" name="form"> <!--chamar alguma função
-                                                                    que irá deixar marcado :P-->
-                            <select name="segunda04" size="1" onchange="submitSeg04.submit();">
-                                <?php
-                                while($resultado_disc = mysql_fetch_array($disciplina)){
-                                ?>
-                                <option value="<?php echo $resultado_disc['id'];?>">
-                                    <?php echo $resultado_disc['nome'];?>
-                                </option>
-                                <?php
-                                }
-                                ?>
-                            </select>
-                            <input class="btn botao-confirmar-config  botao-confirmar" type="submit" value="✔">
-                            <!--<input class="btn botao-confirmar-config  botao-confirmar" 
-                                   type="hidden" name="id_prof" 
-                                   value="">-->
-                        </form>
+                       <td>
+                            <h6>07:00 às 07:50</h6>
+                        </td>
+                      <td name="segunda04" 
+                        ondrop="drop(event)" 
+                        ondragover="allowDrop(event)">
+                        <br>                                               
+                    </td>
+                      <!-- Final do TD -->                    
+                      
+                      <td name="terca04"
+                          ondrop="drop(event)" 
+                          ondragover="allowDrop(event)">
                         <br>                                               
                       </td>
-                      <!-- Final do TD -->                                            
+                      <!-- Final do TD -->        
                       
-                       <td ondrop="drop(event)" ondragover="allowDrop(event)">
-                        <?php $disciplina = Disciplina::getListaNome();?>
-                        <?php //mostrar as disciplinas desse horário?>
-                        <form action="" method="post" name="form"> <!--chamar alguma função
-                                                                    que irá deixar marcado :P-->
-                            <select name="terca04" size="1" onchange="submitTer04.submit();">
-                                <?php
-                                while($resultado_disc = mysql_fetch_array($disciplina)){
-                                ?>
-                                <option value="<?php echo $resultado_disc['id'];?>">
-                                    <?php echo $resultado_disc['nome'];?>
-                                </option>
-                                <?php
-                                }
-                                ?>
-                            </select>
-                            <input class="btn botao-confirmar-config  botao-confirmar" type="submit" value="✔">
-                            <!--<input class="btn botao-confirmar-config  botao-confirmar" 
-                                   type="hidden" name="id_prof" 
-                                   value="">-->
-                        </form>
+                      <td name="quarta04"
+                          ondrop="drop(event)" 
+                          ondragover="allowDrop(event)">
                         <br>                                               
                       </td>
-                      <!-- Final do TD -->
+                      <!-- Final do TD -->                    
                       
-                       <td ondrop="drop(event)" ondragover="allowDrop(event)">                                                                 
-                        <?php $disciplina = Disciplina::getListaNome();?>
-                        <?php //mostrar as disciplinas desse horário?>
-                        <form action="" method="post" name="form"> <!--chamar alguma função
-                                                                    que irá deixar marcado :P-->
-                            <select name="quarta04" size="1" onchange="submitQua04.submit();">
-                                <?php
-                                while($resultado_disc = mysql_fetch_array($disciplina)){
-                                ?>
-                                <option value="<?php echo $resultado_disc['id'];?>">
-                                    <?php echo $resultado_disc['nome'];?>
-                                </option>
-                                <?php
-                                }
-                                ?>
-                            </select>
-                            <input class="btn botao-confirmar-config  botao-confirmar" type="submit" value="✔">
-                            <!--<input class="btn botao-confirmar-config  botao-confirmar" 
-                                   type="hidden" name="id_prof" 
-                                   value="">-->
-                        </form>
+                       <td name="quinta04"
+                           ondrop="drop(event)" 
+                           ondragover="allowDrop(event)">
                         <br>                                               
                       </td>
                       <!-- Final do TD -->                                          
                       
-                       <td ondrop="drop(event)" ondragover="allowDrop(event)">                                                                
-                        <?php $disciplina = Disciplina::getListaNome();?>
-                        <?php //mostrar as disciplinas desse horário?>
-                        <form action="" method="post" name="form"> <!--chamar alguma função
-                                                                    que irá deixar marcado :P-->
-                            <select name="quinta04" size="1" onchange="submitQui04.submit();">
-                                <?php
-                                while($resultado_disc = mysql_fetch_array($disciplina)){
-                                ?>
-                                <option value="<?php echo $resultado_disc['id'];?>">
-                                    <?php echo $resultado_disc['nome'];?>
-                                </option>
-                                <?php
-                                }
-                                ?>
-                            </select>
-                            <input class="btn botao-confirmar-config  botao-confirmar" type="submit" value="✔">
-                            <!--<input class="btn botao-confirmar-config  botao-confirmar" 
-                                   type="hidden" name="id_prof" 
-                                   value="">-->
-                        </form>
+                       <td name="sexta04"
+                           ondrop="drop(event)" 
+                           ondragover="allowDrop(event)">                                                      
                         <br>                                               
                       </td>
-                      <!-- Final do TD -->                                  
-                      
-                       <td ondrop="drop(event)" ondragover="allowDrop(event)">        
-                        <?php $disciplina = Disciplina::getListaNome();?>
-                        <?php //mostrar as disciplinas desse horário?>
-                        <form action="" method="post" name="form"> <!--chamar alguma função
-                                                                    que irá deixar marcado :P-->
-                            <select name="sexta04" size="1" onchange="submitSex04.submit();">
-                                <?php
-                                while($resultado_disc = mysql_fetch_array($disciplina)){
-                                ?>
-                                <option value="<?php echo $resultado_disc['id'];?>">
-                                    <?php echo $resultado_disc['nome'];?>
-                                </option>
-                                <?php
-                                }
-                                ?>
-                            </select>
-                            <input class="btn botao-confirmar-config  botao-confirmar" type="submit" value="✔">
-                            <!--<input class="btn botao-confirmar-config  botao-confirmar" 
-                                   type="hidden" name="id_prof" 
-                                   value="">-->
-                        </form>
-                        <br>                                               
-                      </td>
-                      <!-- Final do TD -->                                                                
+                      <!-- Final do TD -->                                                                 
                     </tr>
                     <!-- Final do TR -->                     
                     
                     <tr>
-                       <td ondrop="drop(event)" ondragover="allowDrop(event)">                                       
-                        <?php $disciplina = Disciplina::getListaNome();?>
-                        <?php //mostrar as disciplinas desse horário?>
-                        <form action="" method="post" name="form"> <!--chamar alguma função
-                                                                    que irá deixar marcado :P-->
-                            <select name="segunda05" size="1" onchange="submitSeg05.submit();">
-                                <?php
-                                while($resultado_disc = mysql_fetch_array($disciplina)){
-                                ?>
-                                <option value="<?php echo $resultado_disc['id'];?>">
-                                    <?php echo $resultado_disc['nome'];?>
-                                </option>
-                                <?php
-                                }
-                                ?>
-                            </select>
-                            <input class="btn botao-confirmar-config  botao-confirmar" type="submit" value="✔">
-                            <!--<input class="btn botao-confirmar-config  botao-confirmar" 
-                                   type="hidden" name="id_prof" 
-                                   value="">-->
-                        </form>
+                       <td>
+                           <h6>07:00 às 07:50</h6>
+                        </td>
+                      <td name="segunda05" 
+                        ondrop="drop(event)" 
+                        ondragover="allowDrop(event)">
+                        <br>                                               
+                    </td>
+                      <!-- Final do TD -->                    
+                      
+                      <td name="terca05"
+                          ondrop="drop(event)" 
+                          ondragover="allowDrop(event)">
                         <br>                                               
                       </td>
-                      <!-- Final do TD -->                                            
+                      <!-- Final do TD -->        
                       
-                       <td ondrop="drop(event)" ondragover="allowDrop(event)">                                      
-                          <?php $disciplina = Disciplina::getListaNome();?>
-                        <?php //mostrar as disciplinas desse horário?>
-                        <form action="" method="post" name="form"> <!--chamar alguma função
-                                                                    que irá deixar marcado :P-->
-                            <select name="terca05" size="1" onchange="submitTer05.submit();">
-                                <?php
-                                while($resultado_disc = mysql_fetch_array($disciplina)){
-                                ?>
-                                <option value="<?php echo $resultado_disc['id'];?>">
-                                    <?php echo $resultado_disc['nome'];?>
-                                </option>
-                                <?php
-                                }
-                                ?>
-                            </select>
-                            <input class="btn botao-confirmar-config  botao-confirmar" type="submit" value="✔">
-                            <!--<input class="btn botao-confirmar-config  botao-confirmar" 
-                                   type="hidden" name="id_prof" 
-                                   value="">-->
-                        </form>
+                      <td name="quarta05"
+                          ondrop="drop(event)" 
+                          ondragover="allowDrop(event)">
                         <br>                                               
                       </td>
                       <!-- Final do TD -->                    
                       
-                       <td ondrop="drop(event)" ondragover="allowDrop(event)">              
-                        <?php $disciplina = Disciplina::getListaNome();?>
-                        <?php //mostrar as disciplinas desse horário?>
-                        <form action="" method="post" name="form"> <!--chamar alguma função
-                                                                    que irá deixar marcado :P-->
-                            <select name="quarta05" size="1" onchange="submitQua05.submit();">
-                                <?php
-                                while($resultado_disc = mysql_fetch_array($disciplina)){
-                                ?>
-                                <option value="<?php echo $resultado_disc['id'];?>">
-                                    <?php echo $resultado_disc['nome'];?>
-                                </option>
-                                <?php
-                                }
-                                ?>
-                            </select>
-                            <input class="btn botao-confirmar-config  botao-confirmar" type="submit" value="✔">
-                            <!--<input class="btn botao-confirmar-config  botao-confirmar" 
-                                   type="hidden" name="id_prof" 
-                                   value="">-->
-                        </form>
+                       <td name="quinta05"
+                           ondrop="drop(event)" 
+                           ondragover="allowDrop(event)">
                         <br>                                               
                       </td>
                       <!-- Final do TD -->                                          
                       
-                       <td ondrop="drop(event)" ondragover="allowDrop(event)">
-                        <?php $disciplina = Disciplina::getListaNome();?>
-                        <?php //mostrar as disciplinas desse horário?>
-                        <form action="" method="post" name="form"> <!--chamar alguma função
-                                                                    que irá deixar marcado :P-->
-                            <select name="quinta05" size="1" onchange="submitQui05.submit();">
-                                <?php
-                                while($resultado_disc = mysql_fetch_array($disciplina)){
-                                ?>
-                                <option value="<?php echo $resultado_disc['id'];?>">
-                                    <?php echo $resultado_disc['nome'];?>
-                                </option>
-                                <?php
-                                }
-                                ?>
-                            </select>
-                            <input class="btn botao-confirmar-config  botao-confirmar" type="submit" value="✔">
-                            <!--<input class="btn botao-confirmar-config  botao-confirmar" 
-                                   type="hidden" name="id_prof" 
-                                   value="">-->
-                        </form>
+                       <td name="sexta05"
+                           ondrop="drop(event)" 
+                           ondragover="allowDrop(event)">                                                      
                         <br>                                               
                       </td>
-                      <!-- Final do TD -->                                                        
-                      
-                       <td ondrop="drop(event)" ondragover="allowDrop(event)">                                                             
-                        <?php $disciplina = Disciplina::getListaNome();?>
-                        <?php //mostrar as disciplinas desse horário?>
-                        <form action="" method="post" name="form"> <!--chamar alguma função
-                                                                    que irá deixar marcado :P-->
-                            <select name="sexta05" size="1" onchange="submitSex05.submit();">
-                                <?php
-                                while($resultado_disc = mysql_fetch_array($disciplina)){
-                                ?>
-                                <option value="<?php echo $resultado_disc['id'];?>">
-                                    <?php echo $resultado_disc['nome'];?>
-                                </option>
-                                <?php
-                                }
-                                ?>
-                            </select>
-                            <input class="btn botao-confirmar-config  botao-confirmar" type="submit" value="✔">
-                            <!--<input class="btn botao-confirmar-config  botao-confirmar" 
-                                   type="hidden" name="id_prof" 
-                                   value="">-->
-                        </form>
-                        <br>                                               
-                      </td>
-                      <!-- Final do TD -->                                                                
+                      <!-- Final do TD -->                                                                 
                     </tr>
                     <!-- Final do TR -->                                         
                     
                     <tr>
-                       <td ondrop="drop(event)" ondragover="allowDrop(event)">                                       
-                        <?php $disciplina = Disciplina::getListaNome();?>
-                        <?php //mostrar as disciplinas desse horário?>
-                        <form action="" method="post" name="form"> <!--chamar alguma função
-                                                                    que irá deixar marcado :P-->
-                            <select name="segunda06" size="1" onchange="submitSeg06.submit();">
-                                <?php
-                                while($resultado_disc = mysql_fetch_array($disciplina)){
-                                ?>
-                                <option value="<?php echo $resultado_disc['id'];?>">
-                                    <?php echo $resultado_disc['nome'];?>
-                                </option>
-                                <?php
-                                }
-                                ?>
-                            </select>
-                            <input class="btn botao-confirmar-config  botao-confirmar" type="submit" value="✔">
-                            <!--<input class="btn botao-confirmar-config  botao-confirmar" 
-                                   type="hidden" name="id_prof" 
-                                   value="">-->
-                        </form>
+                       <td>
+                            <h6>07:00 às 07:50</h6>
+                        </td>
+                      <td name="segunda06" 
+                        ondrop="drop(event)" 
+                        ondragover="allowDrop(event)">
+                        <br>                                               
+                    </td>
+                      <!-- Final do TD -->                    
+                      
+                      <td name="terca06"
+                          ondrop="drop(event)" 
+                          ondragover="allowDrop(event)">
                         <br>                                               
                       </td>
-                      <!-- Final do TD -->                                            
+                      <!-- Final do TD -->        
                       
-                       <td ondrop="drop(event)" ondragover="allowDrop(event)">                                                                  
-                        <?php $disciplina = Disciplina::getListaNome();?>
-                        <?php //mostrar as disciplinas desse horário?>
-                        <form action="" method="post" name="form"> <!--chamar alguma função
-                                                                    que irá deixar marcado :P-->
-                            <select name="terca06" size="1" onchange="submitTer06.submit();">
-                                <?php
-                                while($resultado_disc = mysql_fetch_array($disciplina)){
-                                ?>
-                                <option value="<?php echo $resultado_disc['id'];?>">
-                                    <?php echo $resultado_disc['nome'];?>
-                                </option>
-                                <?php
-                                }
-                                ?>
-                            </select>
-                            <input class="btn botao-confirmar-config  botao-confirmar" type="submit" value="✔">
-                            <!--<input class="btn botao-confirmar-config  botao-confirmar" 
-                                   type="hidden" name="id_prof" 
-                                   value="">-->
-                        </form>
+                      <td name="quarta06"
+                          ondrop="drop(event)" 
+                          ondragover="allowDrop(event)">
                         <br>                                               
                       </td>
                       <!-- Final do TD -->                    
-
-                       <td ondrop="drop(event)" ondragover="allowDrop(event)">                                        
-                        <?php $disciplina = Disciplina::getListaNome();?>
-                        <?php //mostrar as disciplinas desse horário?>
-                        <form action="" method="post" name="form"> <!--chamar alguma função
-                                                                    que irá deixar marcado :P-->
-                            <select name="quarta06" size="1" onchange="submitQua06.submit();">
-                                <?php
-                                while($resultado_disc = mysql_fetch_array($disciplina)){
-                                ?>
-                                <option value="<?php echo $resultado_disc['id'];?>">
-                                    <?php echo $resultado_disc['nome'];?>
-                                </option>
-                                <?php
-                                }
-                                ?>
-                            </select>
-                            <input class="btn botao-confirmar-config  botao-confirmar" type="submit" value="✔">
-                            <!--<input class="btn botao-confirmar-config  botao-confirmar" 
-                                   type="hidden" name="id_prof" 
-                                   value="">-->
-                        </form>
-                        <br>                                               
-                      </td>
-                      <!-- Final do TD -->                                                                
                       
-                       <td ondrop="drop(event)" ondragover="allowDrop(event)">                                      
-                        <?php $disciplina = Disciplina::getListaNome();?>
-                        <?php //mostrar as disciplinas desse horário?>
-                        <form action="" method="post" name="form"> <!--chamar alguma função
-                                                                    que irá deixar marcado :P-->
-                            <select name="quinta06" size="1" onchange="submitQui06.submit();">
-                                <?php
-                                while($resultado_disc = mysql_fetch_array($disciplina)){
-                                ?>
-                                <option value="<?php echo $resultado_disc['id'];?>">
-                                    <?php echo $resultado_disc['nome'];?>
-                                </option>
-                                <?php
-                                }
-                                ?>
-                            </select>
-                            <input class="btn botao-confirmar-config  botao-confirmar" type="submit" value="✔">
-                            <!--<input class="btn botao-confirmar-config  botao-confirmar" 
-                                   type="hidden" name="id_prof" 
-                                   value="">-->
-                        </form>
+                       <td name="quinta06"
+                           ondrop="drop(event)" 
+                           ondragover="allowDrop(event)">
                         <br>                                               
                       </td>
-                      <!-- Final do TD -->                                                        
-                       <td ondrop="drop(event)" ondragover="allowDrop(event)">                 
-                        <?php $disciplina = Disciplina::getListaNome();?>
-                        <?php //mostrar as disciplinas desse horário?>
-                        <form action="" method="post" name="form"> <!--chamar alguma função
-                                                                    que irá deixar marcado :P-->
-                            <select name="sexta06" size="1" onchange="submitSex06.submit();">
-                                <?php
-                                while($resultado_disc = mysql_fetch_array($disciplina)){
-                                ?>
-                                <option value="<?php echo $resultado_disc['id'];?>">
-                                    <?php echo $resultado_disc['nome'];?>
-                                </option>
-                                <?php
-                                }
-                                ?>
-                            </select>
-                            <input class="btn botao-confirmar-config  botao-confirmar" type="submit" value="✔">
-                            <!--<input class="btn botao-confirmar-config  botao-confirmar" 
-                                   type="hidden" name="id_prof" 
-                                   value="">-->
-                        </form>
+                      <!-- Final do TD -->                                          
+                      
+                       <td name="sexta06"
+                           ondrop="drop(event)" 
+                           ondragover="allowDrop(event)">                                                      
                         <br>                                               
                       </td>
-                      <!-- Final do TD -->                                                                                                            
+                      <!-- Final do TD -->                                                                                                             
                     </tr>
                     <!-- Final do TR -->                                                             
                     
