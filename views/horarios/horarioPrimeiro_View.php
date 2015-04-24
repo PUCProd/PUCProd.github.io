@@ -33,12 +33,7 @@ function drop(ev) {
 <!-- Main component for a primary marketing message or call to action -->
 <!--teste-->
 <?php $disciplina = Disciplina::getListaNome();?>
-
-<div class="jumbotron" style="position:absolute">
-    
-    
-    <div><!--Inicializa a tabela dos horários -->     
-        <div id="scrollingDiv" class = "jumbotron" style="float:right"
+       <div id="scrollingDiv" class = "jumbotron" style="float:right"
      ondrop="drop(event)" ondragover="allowDrop(event)"> 
     <?php
     $i = 0;
@@ -60,8 +55,13 @@ function drop(ev) {
     ?>
     
     </div>
+<div class="jumbotron" style="float:left;position: absolute">
+    
+    
+    <div style=""><!--Inicializa a tabela dos horários -->     
+ 
         <br>
-            <table class="table-bordered 
+            <table class="table table-bordered 
                    table-condensed table-hover table-responsive table-striped">
                 <div>
                     <h3 style = "text-align: center">Primeiro Período</h3>
