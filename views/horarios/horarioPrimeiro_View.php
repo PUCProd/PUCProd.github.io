@@ -10,12 +10,20 @@ function allowDrop(ev) {
 
 function drag(ev) {
     ev.dataTransfer.setData("text", ev.target.id);
+    
 }
 
 function drop(ev) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
     ev.target.appendChild(document.getElementById(data));
+    ///PARA PEGAR O ID DO OBJETO DROPADO
+    alert("ID: "+document.getElementById(data).getAttribute("value")
+           +"\nNome da materia: "+document.getElementById(data).getAttribute("name")
+            +"\nSera salvo na coluna: "+ev.target.id
+            +"\nBloqueie esses alertas...");
+
+    
 }
 </script>
     <script type="text/javascript" src="jquery-1.3.2.min.js"></script>
@@ -33,22 +41,24 @@ function drop(ev) {
 <!-- Main component for a primary marketing message or call to action -->
 <!--teste-->
 <?php $disciplina = Disciplina::getListaNome();?>
-       <div id="scrollingDiv" class = "jumbotron" style="float:right"
-     ondrop="drop(event)" ondragover="allowDrop(event)"> 
+    <div id="scrollingDiv" ondrop="drop(event)" ondragover="allowDrop(event)"
+        class = "jumbotron" style="float:right">
     <?php
     $i = 0;
+    $id = 0;
     while($resultado_disc = mysql_fetch_array($disciplina))
     {
         while($i < $resultado_disc["carga_horaria"])
         {
         ?>
-    <p><option id="<?php echo $resultado_disc['apelido'];?>" draggable="true" ondragstart="drag(event)" 
-    name="<?php echo $resultado_disc['periodo'];?>" class="btn botao-verde-config botao-verde"  
+    <option id="<?php echo $id;?>" draggable="true" ondragstart="drag(event)" 
+    name="<?php echo $resultado_disc['apelido'];?>" class="btn botao-verde-config botao-verde"  
     role="button"  value="<?php echo $resultado_disc['id'];?>">
         <?php echo $resultado_disc['apelido'];?>
-    </option></p>
+    </option><br>
     <?php
         $i++;
+        $id++;
         }
         $i = 0;
     }
@@ -90,35 +100,36 @@ function drop(ev) {
                     <td>
                         <h6>07:00 às 07:50</h6>
                     </td>
-                    <td name="segunda01" 
+                    <td id="segunda01" 
                         ondrop="drop(event)" 
-                        ondragover="allowDrop(event)">
+                        ondragover="allowDrop(event)"
+                        id="primeiro">
                         <br>                                               
                     </td>
                       <!-- Final do TD -->                    
                       
-                      <td name="terca01"
+                      <td id="terca01"
                           ondrop="drop(event)" 
                           ondragover="allowDrop(event)">
                         <br>                                               
                       </td>
                       <!-- Final do TD -->        
                       
-                      <td name="quarta01"
+                      <td id="quarta01"
                           ondrop="drop(event)" 
                           ondragover="allowDrop(event)">
                         <br>                                               
                       </td>
                       <!-- Final do TD -->                    
                       
-                       <td name="quinta01"
+                       <td id="quinta01"
                            ondrop="drop(event)" 
                            ondragover="allowDrop(event)">
                         <br>                                               
                       </td>
                       <!-- Final do TD -->                                          
                       
-                       <td name="sexta01"
+                       <td id="sexta01"
                            ondrop="drop(event)" 
                            ondragover="allowDrop(event)">                                                      
                         <br>                                               
@@ -129,37 +140,37 @@ function drop(ev) {
                     
                     <tr>
                         <td>
-                            <h6>07:00 às 07:50</h6>
+                            <h6>07:50 às 08:40</h6>
                         </td>
-                      <td name="segunda02" 
+                      <td id="segunda02" 
                         ondrop="drop(event)" 
                         ondragover="allowDrop(event)">
                         <br>                                               
                     </td>
                       <!-- Final do TD -->                    
                       
-                      <td name="terca02"
+                      <td id="terca02"
                           ondrop="drop(event)" 
                           ondragover="allowDrop(event)">
                         <br>                                               
                       </td>
                       <!-- Final do TD -->        
                       
-                      <td name="quarta02"
+                      <td id="quarta02"
                           ondrop="drop(event)" 
                           ondragover="allowDrop(event)">
                         <br>                                               
                       </td>
                       <!-- Final do TD -->                    
                       
-                       <td name="quinta02"
+                       <td id="quinta02"
                            ondrop="drop(event)" 
                            ondragover="allowDrop(event)">
                         <br>                                               
                       </td>
                       <!-- Final do TD -->                                          
                       
-                       <td name="sexta02"
+                       <td id="sexta02"
                            ondrop="drop(event)" 
                            ondragover="allowDrop(event)">                                                      
                         <br>                                               
@@ -170,37 +181,37 @@ function drop(ev) {
                     
                     <tr>
                        <td>
-                            <h6>07:00 às 07:50</h6>
+                            <h6>08:50 às 09:40</h6>
                         </td>
-                      <td name="segunda03" 
+                      <td id="segunda03" 
                         ondrop="drop(event)" 
                         ondragover="allowDrop(event)">
                         <br>                                               
                     </td>
                       <!-- Final do TD -->                    
                       
-                      <td name="terca03"
+                      <td id="terca03"
                           ondrop="drop(event)" 
                           ondragover="allowDrop(event)">
                         <br>                                               
                       </td>
                       <!-- Final do TD -->        
                       
-                      <td name="quarta03"
+                      <td id="quarta03"
                           ondrop="drop(event)" 
                           ondragover="allowDrop(event)">
                         <br>                                               
                       </td>
                       <!-- Final do TD -->                    
                       
-                       <td name="quinta03"
+                       <td id="quinta03"
                            ondrop="drop(event)" 
                            ondragover="allowDrop(event)">
                         <br>                                               
                       </td>
                       <!-- Final do TD -->                                          
                       
-                       <td name="sexta03"
+                       <td id="sexta03"
                            ondrop="drop(event)" 
                            ondragover="allowDrop(event)">                                                      
                         <br>                                               
@@ -211,37 +222,37 @@ function drop(ev) {
                     
                     <tr>
                        <td>
-                            <h6>07:00 às 07:50</h6>
+                            <h6>09:40 às 10:30</h6>
                         </td>
-                      <td name="segunda04" 
+                      <td id="segunda04" 
                         ondrop="drop(event)" 
                         ondragover="allowDrop(event)">
                         <br>                                               
                     </td>
                       <!-- Final do TD -->                    
                       
-                      <td name="terca04"
+                      <td id="terca04"
                           ondrop="drop(event)" 
                           ondragover="allowDrop(event)">
                         <br>                                               
                       </td>
                       <!-- Final do TD -->        
                       
-                      <td name="quarta04"
+                      <td id="quarta04"
                           ondrop="drop(event)" 
                           ondragover="allowDrop(event)">
                         <br>                                               
                       </td>
                       <!-- Final do TD -->                    
                       
-                       <td name="quinta04"
+                       <td id="quinta04"
                            ondrop="drop(event)" 
                            ondragover="allowDrop(event)">
                         <br>                                               
                       </td>
                       <!-- Final do TD -->                                          
                       
-                       <td name="sexta04"
+                       <td id="sexta04"
                            ondrop="drop(event)" 
                            ondragover="allowDrop(event)">                                                      
                         <br>                                               
@@ -252,37 +263,37 @@ function drop(ev) {
                     
                     <tr>
                        <td>
-                           <h6>07:00 às 07:50</h6>
+                           <h6>10:40 às 11:30</h6>
                         </td>
-                      <td name="segunda05" 
+                      <td id="segunda05" 
                         ondrop="drop(event)" 
                         ondragover="allowDrop(event)">
                         <br>                                               
                     </td>
                       <!-- Final do TD -->                    
                       
-                      <td name="terca05"
+                      <td id="terca05"
                           ondrop="drop(event)" 
                           ondragover="allowDrop(event)">
                         <br>                                               
                       </td>
                       <!-- Final do TD -->        
                       
-                      <td name="quarta05"
+                      <td id="quarta05"
                           ondrop="drop(event)" 
                           ondragover="allowDrop(event)">
                         <br>                                               
                       </td>
                       <!-- Final do TD -->                    
                       
-                       <td name="quinta05"
+                       <td id="quinta05"
                            ondrop="drop(event)" 
                            ondragover="allowDrop(event)">
                         <br>                                               
                       </td>
                       <!-- Final do TD -->                                          
                       
-                       <td name="sexta05"
+                       <td id="sexta05"
                            ondrop="drop(event)" 
                            ondragover="allowDrop(event)">                                                      
                         <br>                                               
@@ -293,37 +304,37 @@ function drop(ev) {
                     
                     <tr>
                        <td>
-                            <h6>07:00 às 07:50</h6>
+                            <h6>11:30 às 12:20</h6>
                         </td>
-                      <td name="segunda06" 
+                      <td id="segunda06" 
                         ondrop="drop(event)" 
                         ondragover="allowDrop(event)">
                         <br>                                               
                     </td>
                       <!-- Final do TD -->                    
                       
-                      <td name="terca06"
+                      <td id="terca06"
                           ondrop="drop(event)" 
                           ondragover="allowDrop(event)">
                         <br>                                               
                       </td>
                       <!-- Final do TD -->        
                       
-                      <td name="quarta06"
+                      <td id="quarta06"
                           ondrop="drop(event)" 
                           ondragover="allowDrop(event)">
                         <br>                                               
                       </td>
                       <!-- Final do TD -->                    
                       
-                       <td name="quinta06"
+                       <td id="quinta06"
                            ondrop="drop(event)" 
                            ondragover="allowDrop(event)">
                         <br>                                               
                       </td>
                       <!-- Final do TD -->                                          
                       
-                       <td name="sexta06"
+                       <td id="sexta06"
                            ondrop="drop(event)" 
                            ondragover="allowDrop(event)">                                                      
                         <br>                                               
