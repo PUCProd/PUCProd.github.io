@@ -11,7 +11,7 @@ class Horarios_Model extends Model {
         //require_once 'views/disciplina/redirecionar.php';
        // require_once 'views/center.php';
         
-        echo '<h>Nao implementei os inserts<h><br><br>';
+        echo 'Nao implementei os insert<br><br>';
         if(isset($_POST['segunda01']))
         {
             $com = "SELECT * FROM disciplina WHERE id = ".$_POST['segunda01'];
@@ -28,7 +28,7 @@ class Horarios_Model extends Model {
                 echo "<br>";
                 echo "periodo da disciplina: ".$rows["periodo"];
                 echo "<br>";
-                echo "1 = teorico - 2 = lab ".$rows["tipo_disciplina"];
+                echo "tipo de disciplina: ".$rows["tipo_disciplina"];
                 echo "<br>";
                 echo "quantidade de grupos: ".$rows["qt_grupos"];
                 echo "<br>";
