@@ -2,7 +2,7 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script>
 $(document).ready(function(){
-    $(".btnsubmit").submit(function(){
+ /*   $(".btnsubmit").submit(function(){
             $.ajax({				
 		// Captura a URL de envio do form
 		url: $(this).attr('action'),
@@ -18,24 +18,37 @@ $(document).ready(function(){
 		contentType: false  	
                 }); 
             return false;
-        });
-    var x = <?php echo $row['seg_01']; ?>;
+        });*/
+        var x = 1;
+      //  while(x<7)
+      //  {
+            var id = '.'+x;
+       // alert($(id).);
+       // }
+});
+</script>
+<script>
+function teste(x){
+    
+    alert("deu bom");
     $(".botao-verde").each(function(){ //teste
-        if(x == 1)
+        if(x === 1)
         {
             $(".seg11").attr("style", "background-color: #00FF00");    
         }
     });
     $(".botao-amarelo").each(function(){
-        if(x == 2)
+        if(x === 2)
             $(".seg12").attr("style", "background-color: #FFFF00");
         });
     $(".botao-vermelho").ready(function(){
-        if(x == 3)
+        if(x === 3)
             $(".seg13").attr("style", "background-color: #FF0000");
     });
-});
+    }    
 </script>
+    
+
     
 <!-- Main component for a primary marketing message or call to action -->
 <div class="jumbotron">
@@ -130,20 +143,22 @@ $(document).ready(function(){
                 </tr>
                 <tr>
                     <td>
+                        <div  id="1" title="<?php echo $row['seg_01']?>">
                         <form class="btnsubmit" action="<?php echo HOME;?>professor/organizaHorario/<?php echo $prof['id_professor']?>" 
-                               method="post">
+                              method="post">
                             <h4>
-                          <input type="submit" name="seg_01" class="btn botao-verde-config    botao-verde seg11"  
-                                 role="button"  value="1">
-                              </input>                              
-                          <input type="submit" name="seg_01" class="btn botao-amarelo-config  botao-amarelo seg12" 
-                                 role="button" value="2">
+                             <input type="submit" name="segunda01" class="btn botao-verde-config    botao-verde seg11"  
+                                    role="button"  value="1" onclick="teste(<?php echo $row['seg_01'];?>)">
+                              </input> 
+                          <input type="submit" name="segunda01" class="btn botao-amarelo-config  botao-amarelo seg12" 
+                                 role="button" value="2" onclick="teste(<?php echo $row['seg_01'];?>)">
                               </input>
-                              <input type="submit" name="seg_01" class="btn botao-vermelho-config botao-vermelho seg13"
-                                     role="button" value="3">
+                              <input type="submit" name="segunda01" class="btn botao-vermelho-config botao-vermelho seg13"
+                                     role="button" value="3" onclick="teste(<?php echo $row['seg_01'];?>)">
                               </input>
                             </h4>
                           </form>
+                            </div>
                                                                       
                       </td>
                       <!-- Final do TD -->                    
@@ -152,9 +167,16 @@ $(document).ready(function(){
             
                           <form class="btnsubmit" action="<?php echo HOME;?>professor/organizaHorario/<?php echo $prof['id_professor']?>" method="post">
                               <h4> 
+                           
+                                   <?php echo $row['ter_01'];if($row['ter_01'] != 1){?>
                           <input type="submit" name="terca01" class="btn botao-verde-config    botao-verde"  
-                                 role="button" value="1">
-                              </input>                              
+                                 role="button"  value="1"   >
+                              </input> 
+                          <?php }else if($row['ter_01'] == 1) {?>
+                              <input type="submit" name="terca01" class="btn botao-verde-config    botao-verde"  
+                                 role="button"  value="1" style="background-color: #00FF00">
+                              </input>
+                              <?php }?>                           
                           <input type="submit" name="terca01" class="btn botao-amarelo-config  botao-amarelo" 
                                  role="button" value="2">
                               </input>

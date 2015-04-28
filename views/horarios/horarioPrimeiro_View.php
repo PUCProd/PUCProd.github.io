@@ -10,19 +10,46 @@ function allowDrop(ev) {
 
 function drag(ev) {
     ev.dataTransfer.setData("text", ev.target.id);
-    
+    var parent = document.getElementById(ev.target.id).parentNode;
+    var id = parent.getAttribute("id")
+    if( id !== "scrollingDiv")
+        deletInput(id);
 }
 
 function drop(ev) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
+    var col = document.getElementById(data).getAttribute("value");
     ev.target.appendChild(document.getElementById(data));
     ///PARA PEGAR O ID DO OBJETO DROPADO
-    alert("ID: "+document.getElementById(data).getAttribute("value")
+   /* alert("ID: "+document.getElementById(data).getAttribute("value")
            +"\nNome da materia: "+document.getElementById(data).getAttribute("name")
             +"\nSera salvo na coluna: "+ev.target.id
-            +"\nBloqueie esses alertas...");
-
+            +"\nBloqueie esses alertas...");*/
+        
+        createForm(ev.target.id, col);
+}
+function createForm(id, idDisc)
+{
+    var discId = idDisc;
+    var colId = id;
+    var theForm = document.forms["seg01"];
+    var input = document.createElement('input');
+    input.type = 'hidden';
+    input.name = id;
+    input.value = idDisc;
+    input.id = id;
+    theForm.appendChild(input);
+}
+function dropSubmit()
+{
+     document.forms["seg01"].submit();
+}
+function deletInput(id)
+{
+    var theForm = document.forms["seg01"];
+    var input = document.getElementById(id);
+    theForm.removeChild(input);
     
 }
 </script>
@@ -44,18 +71,25 @@ function drop(ev) {
     <div id="scrollingDiv" ondrop="drop(event)" ondragover="allowDrop(event)"
         class = "jumbotron" style="float:right">
     <?php
+    $var = 0;
     $i = 0;
     $id = 0;
+    $name = 0;
     while($resultado_disc = mysql_fetch_array($disciplina))
     {
         while($i < $resultado_disc["carga_horaria"])
         {
         ?>
-    <option id="<?php echo $id;?>" draggable="true" ondragstart="drag(event)" 
-    name="<?php echo $resultado_disc['apelido'];?>" class="btn botao-verde-config botao-verde"  
-    role="button"  value="<?php echo $resultado_disc['id'];?>">
+    <option id="<?php echo $id;?>" 
+            draggable="true" 
+            ondragstart="drag(event)"
+            class="btn botao-verde-config botao-verde"  
+            role="button"
+            value="<?php echo $resultado_disc['id'];?>"
+          >
         <?php echo $resultado_disc['apelido'];?>
-    </option><br>
+    </option>
+    <br>
     <?php
         $i++;
         $id++;
@@ -63,8 +97,12 @@ function drop(ev) {
         $i = 0;
     }
     ?>
-    
-    </div>
+    </div>  
+<form action="<?php echo HOME?>Horarios/add/" 
+                              method="post"
+                              id = "seg01">
+                        </form>
+<input type="button" onclick = "dropSubmit()" value = "Salvar">
 <div class="jumbotron" style="float:left;position: absolute">
     
     
@@ -342,7 +380,6 @@ function drop(ev) {
                       <!-- Final do TD -->                                                                                                             
                     </tr>
                     <!-- Final do TR -->                                                             
-                    
               </table> <!--Finaliza a tabela -->
           </div>
           <br>        

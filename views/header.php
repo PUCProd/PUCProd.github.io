@@ -96,7 +96,8 @@
     overflow: auto;
     height: auto;
     margin: 5px 0px 0px 0px;  
-    width: 0px;   
+    width: 0px;
+    float: right;
 }
 </style>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>

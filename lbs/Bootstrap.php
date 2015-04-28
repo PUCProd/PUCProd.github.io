@@ -10,6 +10,8 @@ class Bootstrap {
        $url = rtrim($url, '.php');
        $url = explode('/',$url);
        
+       
+       
        //se não tiver nada depois de MVC/ redireciona para pagina principal
        if(empty($url[0]))
        {
