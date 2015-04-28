@@ -11,8 +11,8 @@ class Horarios_Model extends Model {
         //require_once 'views/disciplina/redirecionar.php';
        // require_once 'views/center.php';
         
-        echo 'Nao implementei os insert<br><br>';
-        if(isset($_POST['segunda01']))
+        echo 'Nao implementei os insert';
+        if(isset($_POST["segunda01"]))
         {
             $com = "SELECT * FROM disciplina WHERE id = ".$_POST['segunda01'];
             $row = mysql_query($com);
@@ -36,8 +36,8 @@ class Horarios_Model extends Model {
                 echo "<br>";
                 echo "na coluna: segunda01";
             }
-                    
         }
+        echo "<br>";
          if(isset($_POST['segunda02']))
         {
             $com = "SELECT * FROM disciplina WHERE id = ".$_POST['segunda02'];
@@ -54,7 +54,7 @@ class Horarios_Model extends Model {
                 echo "<br>";
                 echo "periodo da disciplina: ".$rows["periodo"];
                 echo "<br>";
-                echo "1 = teorico - 2 = lab ".$rows["tipo_disciplina"];
+                echo "tipo de disciplina: ".$rows["tipo_disciplina"];
                 echo "<br>";
                 echo "quantidade de grupos: ".$rows["qt_grupos"];
                 echo "<br>";
@@ -64,6 +64,7 @@ class Horarios_Model extends Model {
             }
                     
         }
+        echo "<br>";
          if(isset($_POST['segunda03']))
         {
             $com = "SELECT * FROM disciplina WHERE id = ".$_POST['segunda03'];
@@ -80,7 +81,7 @@ class Horarios_Model extends Model {
                 echo "<br>";
                 echo "periodo da disciplina: ".$rows["periodo"];
                 echo "<br>";
-                echo "1 = teorico - 2 = lab ".$rows["tipo_disciplina"];
+                echo "tipo de disciplina: ".$rows["tipo_disciplina"];
                 echo "<br>";
                 echo "quantidade de grupos: ".$rows["qt_grupos"];
                 echo "<br>";
@@ -90,6 +91,7 @@ class Horarios_Model extends Model {
             }
                     
         }
+         
          if(isset($_POST['segunda04']))
         {
             $com = "SELECT * FROM disciplina WHERE id = ".$_POST['segunda04'];
@@ -106,7 +108,7 @@ class Horarios_Model extends Model {
                 echo "<br>";
                 echo "periodo da disciplina: ".$rows["periodo"];
                 echo "<br>";
-                echo "1 = teorico - 2 = lab ".$rows["tipo_disciplina"];
+                echo "tipo de disciplina: ".$rows["tipo_disciplina"];
                 echo "<br>";
                 echo "quantidade de grupos: ".$rows["qt_grupos"];
                 echo "<br>";
@@ -116,6 +118,7 @@ class Horarios_Model extends Model {
             }
                     
         }
+         
          if(isset($_POST['segunda05']))
         {
             $com = "SELECT * FROM disciplina WHERE id = ".$_POST['segunda05'];
@@ -132,7 +135,7 @@ class Horarios_Model extends Model {
                 echo "<br>";
                 echo "periodo da disciplina: ".$rows["periodo"];
                 echo "<br>";
-                echo "1 = teorico - 2 = lab ".$rows["tipo_disciplina"];
+                echo "tipo de disciplina: ".$rows["tipo_disciplina"];
                 echo "<br>";
                 echo "quantidade de grupos: ".$rows["qt_grupos"];
                 echo "<br>";
@@ -142,6 +145,7 @@ class Horarios_Model extends Model {
             }
                     
         }
+         
         if(isset($_POST['segunda06']))
             {
                 $com = "SELECT * FROM disciplina WHERE id = ".$_POST['segunda06'];
@@ -156,7 +160,7 @@ class Horarios_Model extends Model {
                 echo "<br>";
                 echo "periodo da disciplina: ".$rows["periodo"];
                 echo "<br>";
-                echo "1 = teorico - 2 = lab ".$rows["tipo_disciplina"];
+                echo "tipo de disciplina: ".$rows["tipo_disciplina"];
                 echo "<br>";
                 echo "quantidade de grupos: ".$rows["qt_grupos"];
                 echo "<br>";
@@ -166,7 +170,7 @@ class Horarios_Model extends Model {
             }
                     
         }
-        
+         
         if(isset($_POST['terca01']))
         {
             $com = "SELECT * FROM disciplina WHERE id = ".$_POST['terca01'];
@@ -183,7 +187,7 @@ class Horarios_Model extends Model {
                 echo "<br>";
                 echo "periodo da disciplina: ".$rows["periodo"];
                 echo "<br>";
-                echo "1 = teorico - 2 = lab ".$rows["tipo_disciplina"];
+                echo "tipo de disciplina: ".$rows["tipo_disciplina"];
                 echo "<br>";
                 echo "quantidade de grupos: ".$rows["qt_grupos"];
                 echo "<br>";
@@ -193,6 +197,7 @@ class Horarios_Model extends Model {
             }
                     
         }
+         
          if(isset($_POST['terca02']))
         {
             $com = "SELECT * FROM disciplina WHERE id = ".$_POST['terca02'];
@@ -209,7 +214,7 @@ class Horarios_Model extends Model {
                 echo "<br>";
                 echo "periodo da disciplina: ".$rows["periodo"];
                 echo "<br>";
-                echo "1 = teorico - 2 = lab ".$rows["tipo_disciplina"];
+                echo "tipo de disciplina: ".$rows["tipo_disciplina"];
                 echo "<br>";
                 echo "quantidade de grupos: ".$rows["qt_grupos"];
                 echo "<br>";
@@ -219,6 +224,7 @@ class Horarios_Model extends Model {
             }
                     
         }
+         
          if(isset($_POST['terca03']))
         {
             $com = "SELECT * FROM disciplina WHERE id = ".$_POST['terca03'];
@@ -235,7 +241,7 @@ class Horarios_Model extends Model {
                 echo "<br>";
                 echo "periodo da disciplina: ".$rows["periodo"];
                 echo "<br>";
-                echo "1 = teorico - 2 = lab ".$rows["tipo_disciplina"];
+                echo "tipo de disciplina: ".$rows["tipo_disciplina"];
                 echo "<br>";
                 echo "quantidade de grupos: ".$rows["qt_grupos"];
                 echo "<br>";
@@ -245,6 +251,7 @@ class Horarios_Model extends Model {
             }
                     
         }
+         
          if(isset($_POST['terca04']))
         {
             $com = "SELECT * FROM disciplina WHERE id = ".$_POST['terca04'];
@@ -261,7 +268,7 @@ class Horarios_Model extends Model {
                 echo "<br>";
                 echo "periodo da disciplina: ".$rows["periodo"];
                 echo "<br>";
-                echo "1 = teorico - 2 = lab ".$rows["tipo_disciplina"];
+                echo "tipo de disciplina: ".$rows["tipo_disciplina"];
                 echo "<br>";
                 echo "quantidade de grupos: ".$rows["qt_grupos"];
                 echo "<br>";
@@ -271,6 +278,7 @@ class Horarios_Model extends Model {
             }
                     
         }
+         
          if(isset($_POST['terca05']))
         {
             $com = "SELECT * FROM disciplina WHERE id = ".$_POST['terca05'];
@@ -287,7 +295,7 @@ class Horarios_Model extends Model {
                 echo "<br>";
                 echo "periodo da disciplina: ".$rows["periodo"];
                 echo "<br>";
-                echo "1 = teorico - 2 = lab ".$rows["tipo_disciplina"];
+                echo "tipo de disciplina: ".$rows["tipo_disciplina"];
                 echo "<br>";
                 echo "quantidade de grupos: ".$rows["qt_grupos"];
                 echo "<br>";
@@ -297,6 +305,7 @@ class Horarios_Model extends Model {
             }
                     
         }
+         
         if(isset($_POST['terca06']))
             {
                 $com = "SELECT * FROM disciplina WHERE id = ".$_POST['terca06'];
@@ -311,7 +320,7 @@ class Horarios_Model extends Model {
                 echo "<br>";
                 echo "periodo da disciplina: ".$rows["periodo"];
                 echo "<br>";
-                echo "1 = teorico - 2 = lab ".$rows["tipo_disciplina"];
+                echo "tipo de disciplina: ".$rows["tipo_disciplina"];
                 echo "<br>";
                 echo "quantidade de grupos: ".$rows["qt_grupos"];
                 echo "<br>";
@@ -321,6 +330,7 @@ class Horarios_Model extends Model {
             }
                     
         }
+         
         if(isset($_POST['quarta01']))
         {
             $com = "SELECT * FROM disciplina WHERE id = ".$_POST['quarta01'];
@@ -337,7 +347,7 @@ class Horarios_Model extends Model {
                 echo "<br>";
                 echo "periodo da disciplina: ".$rows["periodo"];
                 echo "<br>";
-                echo "1 = teorico - 2 = lab ".$rows["tipo_disciplina"];
+                echo "tipo de disciplina: ".$rows["tipo_disciplina"];
                 echo "<br>";
                 echo "quantidade de grupos: ".$rows["qt_grupos"];
                 echo "<br>";
@@ -347,6 +357,7 @@ class Horarios_Model extends Model {
             }
                     
         }
+         
          if(isset($_POST['quarta02']))
         {
             $com = "SELECT * FROM disciplina WHERE id = ".$_POST['quarta02'];
@@ -363,7 +374,7 @@ class Horarios_Model extends Model {
                 echo "<br>";
                 echo "periodo da disciplina: ".$rows["periodo"];
                 echo "<br>";
-                echo "1 = teorico - 2 = lab ".$rows["tipo_disciplina"];
+                echo "tipo de disciplina: ".$rows["tipo_disciplina"];
                 echo "<br>";
                 echo "quantidade de grupos: ".$rows["qt_grupos"];
                 echo "<br>";
@@ -373,6 +384,7 @@ class Horarios_Model extends Model {
             }
                     
         }
+         
          if(isset($_POST['quarta03']))
         {
             $com = "SELECT * FROM disciplina WHERE id = ".$_POST['quarta03'];
@@ -389,7 +401,7 @@ class Horarios_Model extends Model {
                 echo "<br>";
                 echo "periodo da disciplina: ".$rows["periodo"];
                 echo "<br>";
-                echo "1 = teorico - 2 = lab ".$rows["tipo_disciplina"];
+                echo "tipo de disciplina: ".$rows["tipo_disciplina"];
                 echo "<br>";
                 echo "quantidade de grupos: ".$rows["qt_grupos"];
                 echo "<br>";
@@ -399,6 +411,7 @@ class Horarios_Model extends Model {
             }
                     
         }
+         
          if(isset($_POST['quarta04']))
         {
             $com = "SELECT * FROM disciplina WHERE id = ".$_POST['quarta04'];
@@ -415,7 +428,7 @@ class Horarios_Model extends Model {
                 echo "<br>";
                 echo "periodo da disciplina: ".$rows["periodo"];
                 echo "<br>";
-                echo "1 = teorico - 2 = lab ".$rows["tipo_disciplina"];
+                echo "tipo de disciplina: ".$rows["tipo_disciplina"];
                 echo "<br>";
                 echo "quantidade de grupos: ".$rows["qt_grupos"];
                 echo "<br>";
@@ -425,6 +438,7 @@ class Horarios_Model extends Model {
             }
                     
         }
+         
          if(isset($_POST['quarta05']))
         {
             $com = "SELECT * FROM disciplina WHERE id = ".$_POST['quarta05'];
@@ -441,7 +455,7 @@ class Horarios_Model extends Model {
                 echo "<br>";
                 echo "periodo da disciplina: ".$rows["periodo"];
                 echo "<br>";
-                echo "1 = teorico - 2 = lab ".$rows["tipo_disciplina"];
+                echo "tipo de disciplina: ".$rows["tipo_disciplina"];
                 echo "<br>";
                 echo "quantidade de grupos: ".$rows["qt_grupos"];
                 echo "<br>";
@@ -451,8 +465,9 @@ class Horarios_Model extends Model {
             }
                     
         }
+         
         if(isset($_POST['quarta06']))
-            {
+        {
                 $com = "SELECT * FROM disciplina WHERE id = ".$_POST['quarta06'];
                 $row = mysql_query($com);
             while($rows = mysql_fetch_array($row))
@@ -465,7 +480,7 @@ class Horarios_Model extends Model {
                 echo "<br>";
                 echo "periodo da disciplina: ".$rows["periodo"];
                 echo "<br>";
-                echo "1 = teorico - 2 = lab ".$rows["tipo_disciplina"];
+                echo "tipo de disciplina: ".$rows["tipo_disciplina"];
                 echo "<br>";
                 echo "quantidade de grupos: ".$rows["qt_grupos"];
                 echo "<br>";
@@ -475,7 +490,7 @@ class Horarios_Model extends Model {
             }
                     
         }
-        
+         
         if(isset($_POST['quinta01']))
         {
             $com = "SELECT * FROM disciplina WHERE id = ".$_POST['quinta01'];
@@ -492,7 +507,7 @@ class Horarios_Model extends Model {
                 echo "<br>";
                 echo "periodo da disciplina: ".$rows["periodo"];
                 echo "<br>";
-                echo "1 = teorico - 2 = lab ".$rows["tipo_disciplina"];
+                echo "tipo de disciplina: ".$rows["tipo_disciplina"];
                 echo "<br>";
                 echo "quantidade de grupos: ".$rows["qt_grupos"];
                 echo "<br>";
@@ -502,6 +517,7 @@ class Horarios_Model extends Model {
             }
                     
         }
+         
          if(isset($_POST['quinta02']))
         {
             $com = "SELECT * FROM disciplina WHERE id = ".$_POST['quinta02'];
@@ -518,7 +534,7 @@ class Horarios_Model extends Model {
                 echo "<br>";
                 echo "periodo da disciplina: ".$rows["periodo"];
                 echo "<br>";
-                echo "1 = teorico - 2 = lab ".$rows["tipo_disciplina"];
+                echo "tipo de disciplina: ".$rows["tipo_disciplina"];
                 echo "<br>";
                 echo "quantidade de grupos: ".$rows["qt_grupos"];
                 echo "<br>";
@@ -528,6 +544,7 @@ class Horarios_Model extends Model {
             }
                     
         }
+         
          if(isset($_POST['quinta03']))
         {
             $com = "SELECT * FROM disciplina WHERE id = ".$_POST['quinta03'];
@@ -544,7 +561,7 @@ class Horarios_Model extends Model {
                 echo "<br>";
                 echo "periodo da disciplina: ".$rows["periodo"];
                 echo "<br>";
-                echo "1 = teorico - 2 = lab ".$rows["tipo_disciplina"];
+                echo "tipo de disciplina: ".$rows["tipo_disciplina"];
                 echo "<br>";
                 echo "quantidade de grupos: ".$rows["qt_grupos"];
                 echo "<br>";
@@ -554,6 +571,7 @@ class Horarios_Model extends Model {
             }
                     
         }
+         
          if(isset($_POST['quinta04']))
         {
             $com = "SELECT * FROM disciplina WHERE id = ".$_POST['quinta04'];
@@ -570,7 +588,7 @@ class Horarios_Model extends Model {
                 echo "<br>";
                 echo "periodo da disciplina: ".$rows["periodo"];
                 echo "<br>";
-                echo "1 = teorico - 2 = lab ".$rows["tipo_disciplina"];
+                echo "tipo de disciplina: ".$rows["tipo_disciplina"];
                 echo "<br>";
                 echo "quantidade de grupos: ".$rows["qt_grupos"];
                 echo "<br>";
@@ -580,6 +598,7 @@ class Horarios_Model extends Model {
             }
                     
         }
+         
          if(isset($_POST['quinta05']))
         {
             $com = "SELECT * FROM disciplina WHERE id = ".$_POST['quinta05'];
@@ -596,7 +615,7 @@ class Horarios_Model extends Model {
                 echo "<br>";
                 echo "periodo da disciplina: ".$rows["periodo"];
                 echo "<br>";
-                echo "1 = teorico - 2 = lab ".$rows["tipo_disciplina"];
+                echo "tipo de disciplina: ".$rows["tipo_disciplina"];
                 echo "<br>";
                 echo "quantidade de grupos: ".$rows["qt_grupos"];
                 echo "<br>";
@@ -606,8 +625,9 @@ class Horarios_Model extends Model {
             }
                     
         }
+         
         if(isset($_POST['quinta06']))
-            {
+        {
                 $com = "SELECT * FROM disciplina WHERE id = ".$_POST['quinta06'];
                 $row = mysql_query($com);
             while($rows = mysql_fetch_array($row))
@@ -620,7 +640,7 @@ class Horarios_Model extends Model {
                 echo "<br>";
                 echo "periodo da disciplina: ".$rows["periodo"];
                 echo "<br>";
-                echo "1 = teorico - 2 = lab ".$rows["tipo_disciplina"];
+                echo "tipo de disciplina: ".$rows["tipo_disciplina"];
                 echo "<br>";
                 echo "quantidade de grupos: ".$rows["qt_grupos"];
                 echo "<br>";
@@ -630,10 +650,10 @@ class Horarios_Model extends Model {
             }
                     
         }
-        
+         
         if(isset($_POST['sexta01']))
         {
-            $com = "SELECT * FROM disciplina WHERE id = ".$_POST['quinta01'];
+            $com = "SELECT * FROM disciplina WHERE id = ".$_POST['sexta01'];
             $row = mysql_query($com);
             
             
@@ -647,19 +667,20 @@ class Horarios_Model extends Model {
                 echo "<br>";
                 echo "periodo da disciplina: ".$rows["periodo"];
                 echo "<br>";
-                echo "1 = teorico - 2 = lab ".$rows["tipo_disciplina"];
+                echo "tipo de disciplina: ".$rows["tipo_disciplina"];
                 echo "<br>";
                 echo "quantidade de grupos: ".$rows["qt_grupos"];
                 echo "<br>";
                 echo "carga horaria: ".$rows['carga_horaria'];
                 echo "<br>";
-                echo "na coluna: quinta01";
+                echo "na coluna: sexta01";
             }
                     
         }
-         if(isset($_POST['quinta02']))
+         
+         if(isset($_POST['sexta02']))
         {
-            $com = "SELECT * FROM disciplina WHERE id = ".$_POST['quinta02'];
+            $com = "SELECT * FROM disciplina WHERE id = ".$_POST['sexta02'];
             $row = mysql_query($com);
             
             
@@ -673,19 +694,20 @@ class Horarios_Model extends Model {
                 echo "<br>";
                 echo "periodo da disciplina: ".$rows["periodo"];
                 echo "<br>";
-                echo "1 = teorico - 2 = lab ".$rows["tipo_disciplina"];
+                echo "tipo de disciplina: ".$rows["tipo_disciplina"];
                 echo "<br>";
                 echo "quantidade de grupos: ".$rows["qt_grupos"];
                 echo "<br>";
                 echo "carga horaria: ".$rows['carga_horaria'];
                 echo "<br>";
-                echo "na coluna: quinta02";
+                echo "na coluna: sexta02";
             }
                     
         }
-         if(isset($_POST['quinta03']))
+         
+         if(isset($_POST['sexta03']))
         {
-            $com = "SELECT * FROM disciplina WHERE id = ".$_POST['quinta03'];
+            $com = "SELECT * FROM disciplina WHERE id = ".$_POST['sexta03'];
             $row = mysql_query($com);
             
             
@@ -699,19 +721,20 @@ class Horarios_Model extends Model {
                 echo "<br>";
                 echo "periodo da disciplina: ".$rows["periodo"];
                 echo "<br>";
-                echo "1 = teorico - 2 = lab ".$rows["tipo_disciplina"];
+                echo "tipo de disciplina: ".$rows["tipo_disciplina"];
                 echo "<br>";
                 echo "quantidade de grupos: ".$rows["qt_grupos"];
                 echo "<br>";
                 echo "carga horaria: ".$rows['carga_horaria'];
                 echo "<br>";
-                echo "na coluna: quinta03";
+                echo "na coluna: sexta03";
             }
                     
         }
-         if(isset($_POST['quinta04']))
+         
+         if(isset($_POST['sexta04']))
         {
-            $com = "SELECT * FROM disciplina WHERE id = ".$_POST['quinta04'];
+            $com = "SELECT * FROM disciplina WHERE id = ".$_POST['sexta04'];
             $row = mysql_query($com);
             
             
@@ -725,19 +748,20 @@ class Horarios_Model extends Model {
                 echo "<br>";
                 echo "periodo da disciplina: ".$rows["periodo"];
                 echo "<br>";
-                echo "1 = teorico - 2 = lab ".$rows["tipo_disciplina"];
+                echo "tipo de disciplina: ".$rows["tipo_disciplina"];
                 echo "<br>";
                 echo "quantidade de grupos: ".$rows["qt_grupos"];
                 echo "<br>";
                 echo "carga horaria: ".$rows['carga_horaria'];
                 echo "<br>";
-                echo "na coluna: quinta04";
+                echo "na coluna: sexta04";
             }
                     
         }
-         if(isset($_POST['quinta05']))
+         
+         if(isset($_POST['sexta05']))
         {
-            $com = "SELECT * FROM disciplina WHERE id = ".$_POST['quinta05'];
+            $com = "SELECT * FROM disciplina WHERE id = ".$_POST['sexta05'];
             $row = mysql_query($com);
             
             
@@ -751,19 +775,20 @@ class Horarios_Model extends Model {
                 echo "<br>";
                 echo "periodo da disciplina: ".$rows["periodo"];
                 echo "<br>";
-                echo "1 = teorico - 2 = lab ".$rows["tipo_disciplina"];
+                echo "tipo de disciplina: ".$rows["tipo_disciplina"];
                 echo "<br>";
                 echo "quantidade de grupos: ".$rows["qt_grupos"];
                 echo "<br>";
                 echo "carga horaria: ".$rows['carga_horaria'];
                 echo "<br>";
-                echo "na coluna: quinta05";
+                echo "na coluna: sexta05";
             }
                     
         }
-        if(isset($_POST['quinta06']))
+         
+        if(isset($_POST['sexta06']))
             {
-                $com = "SELECT * FROM disciplina WHERE id = ".$_POST['quinta06'];
+                $com = "SELECT * FROM disciplina WHERE id = ".$_POST['sexta06'];
                 $row = mysql_query($com);
             while($rows = mysql_fetch_array($row))
             {
@@ -775,14 +800,14 @@ class Horarios_Model extends Model {
                 echo "<br>";
                 echo "periodo da disciplina: ".$rows["periodo"];
                 echo "<br>";
-                echo "1 = teorico - 2 = lab ".$rows["tipo_disciplina"];
+                echo "tipo de disciplina: ".$rows["tipo_disciplina"];
                 echo "<br>";
                 echo "quantidade de grupos: ".$rows["qt_grupos"];
                 echo "<br>";
                 echo "carga horaria: ".$rows['carga_horaria'];
                 echo "<br>";
-                echo "na coluna: quinta06";
-            }
+                echo "na coluna: sexta06";
+            }   
                     
         }
        // require_once 'views/footer.php';
@@ -799,3 +824,4 @@ class Horarios_Model extends Model {
    {
    }
 }
+        

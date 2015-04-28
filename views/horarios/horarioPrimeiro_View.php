@@ -10,24 +10,19 @@ function allowDrop(ev) {
 
 function drag(ev) {
     ev.dataTransfer.setData("text", ev.target.id);
-    var parent = document.getElementById(ev.target.id).parentNode;
-    var id = parent.getAttribute("id")
-    if( id !== "scrollingDiv")
-        deletInput(id);
 }
 
 function drop(ev) {
+    
     ev.preventDefault();
+    
     var data = ev.dataTransfer.getData("text");
     var col = document.getElementById(data).getAttribute("value");
+    if (validate(data,ev.target.id))
+    {
     ev.target.appendChild(document.getElementById(data));
-    ///PARA PEGAR O ID DO OBJETO DROPADO
-   /* alert("ID: "+document.getElementById(data).getAttribute("value")
-           +"\nNome da materia: "+document.getElementById(data).getAttribute("name")
-            +"\nSera salvo na coluna: "+ev.target.id
-            +"\nBloqueie esses alertas...");*/
-        
-        createForm(ev.target.id, col);
+    createForm(ev.target.id, col);
+    }
 }
 function createForm(id, idDisc)
 {
@@ -38,7 +33,7 @@ function createForm(id, idDisc)
     input.type = 'hidden';
     input.name = id;
     input.value = idDisc;
-    input.id = id;
+//    input.id = id;
     theForm.appendChild(input);
 }
 function dropSubmit()
@@ -51,6 +46,18 @@ function deletInput(id)
     var input = document.getElementById(id);
     theForm.removeChild(input);
     
+}
+function validate(from, col)
+{
+    var parent = document.getElementById(from).parentNode;
+    var id = parent.getAttribute("id");
+    var to = document.getElementById(col).getAttribute("value");
+    if(to !== null)
+        return false;
+    else
+    if( id !== "scrollingDiv")
+        deletInput(id);
+    return true;
 }
 </script>
     <script type="text/javascript" src="jquery-1.3.2.min.js"></script>
@@ -141,36 +148,30 @@ function deletInput(id)
                     <td id="segunda01" 
                         ondrop="drop(event)" 
                         ondragover="allowDrop(event)"
-                        id="primeiro">
-                        <br>                                               
-                    </td>
+                        id="primeiro"></td>
                       <!-- Final do TD -->                    
                       
                       <td id="terca01"
                           ondrop="drop(event)" 
-                          ondragover="allowDrop(event)">
-                        <br>                                               
-                      </td>
+                          ondragover="allowDrop(event)"></td>
                       <!-- Final do TD -->        
                       
                       <td id="quarta01"
                           ondrop="drop(event)" 
-                          ondragover="allowDrop(event)">
-                        <br>                                               
-                      </td>
+                          ondragover="allowDrop(event)"></td>
                       <!-- Final do TD -->                    
                       
                        <td id="quinta01"
                            ondrop="drop(event)" 
                            ondragover="allowDrop(event)">
-                        <br>                                               
+                                                                     
                       </td>
                       <!-- Final do TD -->                                          
                       
                        <td id="sexta01"
                            ondrop="drop(event)" 
                            ondragover="allowDrop(event)">                                                      
-                        <br>                                               
+                                                                     
                       </td>
                       <!-- Final do TD -->                    
                     </tr>                                      
@@ -183,35 +184,31 @@ function deletInput(id)
                       <td id="segunda02" 
                         ondrop="drop(event)" 
                         ondragover="allowDrop(event)">
-                        <br>                                               
+                                                                      
                     </td>
                       <!-- Final do TD -->                    
                       
                       <td id="terca02"
                           ondrop="drop(event)" 
                           ondragover="allowDrop(event)">
-                        <br>                                               
                       </td>
                       <!-- Final do TD -->        
                       
                       <td id="quarta02"
                           ondrop="drop(event)" 
                           ondragover="allowDrop(event)">
-                        <br>                                               
                       </td>
                       <!-- Final do TD -->                    
                       
                        <td id="quinta02"
                            ondrop="drop(event)" 
                            ondragover="allowDrop(event)">
-                        <br>                                               
                       </td>
                       <!-- Final do TD -->                                          
                       
                        <td id="sexta02"
                            ondrop="drop(event)" 
                            ondragover="allowDrop(event)">                                                      
-                        <br>                                               
                       </td>
                       <!-- Final do TD -->                                     
                     </tr>
@@ -224,35 +221,34 @@ function deletInput(id)
                       <td id="segunda03" 
                         ondrop="drop(event)" 
                         ondragover="allowDrop(event)">
-                        <br>                                               
                     </td>
                       <!-- Final do TD -->                    
                       
                       <td id="terca03"
                           ondrop="drop(event)" 
                           ondragover="allowDrop(event)">
-                        <br>                                               
+                                                                       
                       </td>
                       <!-- Final do TD -->        
                       
                       <td id="quarta03"
                           ondrop="drop(event)" 
                           ondragover="allowDrop(event)">
-                        <br>                                               
+                                                                       
                       </td>
                       <!-- Final do TD -->                    
                       
                        <td id="quinta03"
                            ondrop="drop(event)" 
                            ondragover="allowDrop(event)">
-                        <br>                                               
+                                                                       
                       </td>
                       <!-- Final do TD -->                                          
                       
                        <td id="sexta03"
                            ondrop="drop(event)" 
                            ondragover="allowDrop(event)">                                                      
-                        <br>                                               
+                                                                       
                       </td>
                       <!-- Final do TD -->                                                                                       
                     </tr>
@@ -265,35 +261,35 @@ function deletInput(id)
                       <td id="segunda04" 
                         ondrop="drop(event)" 
                         ondragover="allowDrop(event)">
-                        <br>                                               
+                                                                       
                     </td>
                       <!-- Final do TD -->                    
                       
                       <td id="terca04"
                           ondrop="drop(event)" 
                           ondragover="allowDrop(event)">
-                        <br>                                               
+                                                                       
                       </td>
                       <!-- Final do TD -->        
                       
                       <td id="quarta04"
                           ondrop="drop(event)" 
                           ondragover="allowDrop(event)">
-                        <br>                                               
+                                                                       
                       </td>
                       <!-- Final do TD -->                    
                       
                        <td id="quinta04"
                            ondrop="drop(event)" 
                            ondragover="allowDrop(event)">
-                        <br>                                               
+                                                                       
                       </td>
                       <!-- Final do TD -->                                          
                       
                        <td id="sexta04"
                            ondrop="drop(event)" 
                            ondragover="allowDrop(event)">                                                      
-                        <br>                                               
+                                                                       
                       </td>
                       <!-- Final do TD -->                                                                 
                     </tr>
@@ -306,35 +302,35 @@ function deletInput(id)
                       <td id="segunda05" 
                         ondrop="drop(event)" 
                         ondragover="allowDrop(event)">
-                        <br>                                               
+                                                                       
                     </td>
                       <!-- Final do TD -->                    
                       
                       <td id="terca05"
                           ondrop="drop(event)" 
                           ondragover="allowDrop(event)">
-                        <br>                                               
+                                                                      
                       </td>
                       <!-- Final do TD -->        
                       
                       <td id="quarta05"
                           ondrop="drop(event)" 
                           ondragover="allowDrop(event)">
-                        <br>                                               
+                                                                       
                       </td>
                       <!-- Final do TD -->                    
                       
                        <td id="quinta05"
                            ondrop="drop(event)" 
                            ondragover="allowDrop(event)">
-                        <br>                                               
+                                                                       
                       </td>
                       <!-- Final do TD -->                                          
                       
                        <td id="sexta05"
                            ondrop="drop(event)" 
                            ondragover="allowDrop(event)">                                                      
-                        <br>                                               
+                                                                       
                       </td>
                       <!-- Final do TD -->                                                                 
                     </tr>
@@ -347,35 +343,35 @@ function deletInput(id)
                       <td id="segunda06" 
                         ondrop="drop(event)" 
                         ondragover="allowDrop(event)">
-                        <br>                                               
+                                                                       
                     </td>
                       <!-- Final do TD -->                    
                       
                       <td id="terca06"
                           ondrop="drop(event)" 
                           ondragover="allowDrop(event)">
-                        <br>                                               
+                                                                       
                       </td>
                       <!-- Final do TD -->        
                       
                       <td id="quarta06"
                           ondrop="drop(event)" 
                           ondragover="allowDrop(event)">
-                        <br>                                               
+                                                                       
                       </td>
                       <!-- Final do TD -->                    
                       
                        <td id="quinta06"
                            ondrop="drop(event)" 
                            ondragover="allowDrop(event)">
-                        <br>                                               
+                                                                       
                       </td>
                       <!-- Final do TD -->                                          
                       
                        <td id="sexta06"
                            ondrop="drop(event)" 
                            ondragover="allowDrop(event)">                                                      
-                        <br>                                               
+                                                                       
                       </td>
                       <!-- Final do TD -->                                                                                                             
                     </tr>
