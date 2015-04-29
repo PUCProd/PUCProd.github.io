@@ -11,7 +11,7 @@ class Professor extends Controller{
         $this->view->render('professor/professor_view');
         
     }
-    function getListaNome()
+    function getListaNome($args = null)
     {   
 
             require_once 'models/professor_model.php';

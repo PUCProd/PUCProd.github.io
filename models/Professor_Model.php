@@ -64,8 +64,13 @@ class Professor_Model extends Model{
        require_once 'views/footer.php';
 
     }
-    function getListaNome()
+    function getListaNome($args = null)
     {
+           if(isset($args))
+           {
+               $row = mysql_query("SELECT * FROM professor WHERE id = ".$args);
+           }
+           else
            $row = mysql_query("SELECT * FROM professor ORDER BY nome ASC"); 
         return $row;
     }
