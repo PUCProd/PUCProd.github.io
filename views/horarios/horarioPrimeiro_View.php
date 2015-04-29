@@ -36,7 +36,7 @@ function createForm(id, idDisc,periodo)
     var theForm = document.forms["seg01"];
     var input = document.createElement('input');
     input.type = 'hidden';
-    input.name = id;
+    input.name = id+"|"+periodo;
     input.value = idDisc;
     input.id = id+"|"+periodo;
     theForm.appendChild(input);

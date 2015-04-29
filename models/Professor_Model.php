@@ -27,7 +27,7 @@ class Professor_Model extends Model{
             $erro = 1;
         }    
         if($erro == 0){
-                   if(mysql_query("INSERT INTO professor (id_professor, nome, apelido, "
+                if(mysql_query("INSERT INTO professor (id_professor, nome, apelido, "
                     . "carga_horaria) VALUES (0, '$nome', '$apelido', '$horario')"))
                   {
                     //  echo 'Professor '.$nome.' adicionado com sucesso!';
