@@ -135,7 +135,6 @@ function validate(destiny, disc)
 <!-- Main component for a primary marketing message or call to action -->
 <!--teste-->
 <?php $disciplina = Disciplina::getListaNome();?>
-Não se assuste com o layout! Será corrigido após a implementação das tabelas!
 <form action="<?php echo HOME?>Horarios/add/" 
                               method="post"
                               id = "seg01">
