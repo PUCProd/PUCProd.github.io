@@ -23,22 +23,28 @@ function drop(ev) {
     var disc = document.getElementById(data); //pega o element da disciplina
 
     var periodo = document.getElementById(data).getAttribute("periodo"); //periodo da disciplina
+    var professor = document.getElementById(data).getAttribute("professor");
     if (validate(table,disc))
     {
       ev.target.appendChild(document.getElementById(data));
       if(ev.target.id !== "scrollingDiv")
-        createForm(ev.target.id, idDisc,periodo);
+        createForm(ev.target.id, idDisc,periodo,professor);
     }
     
 }
-function createForm(id, idDisc,periodo)
+function createForm(id, idDisc,periodo, professor)
 {
     var theForm = document.forms["seg01"];
     var input = document.createElement('input');
+    
     input.type = 'hidden';
     input.name = id+"|"+periodo;
     input.value = idDisc;
-    input.id = id+"|"+periodo;
+    if (typeof professor !== typeof undefined && professor !== false)
+        input.id = id+"|"+periodo+"|"+professor;
+    else
+        input.id = id+"|"+periodo+"|sem_professor";
+
     theForm.appendChild(input);
 }
 function dropSubmit()
@@ -60,15 +66,44 @@ function validate(destiny, disc)
     
     var discID = disc.getAttribute("value"); //pega o valor a ser passado para o $_POST;
     var discPeriod = disc.getAttribute("periodo"); //pega o periodo da disciplina
-    var discGroups = disc.getAttribute("grupos");
+    var discGroups = disc.getAttribute("grupos"); //quantos grupos
+    var discProf = disc.getAttribute("professor"); //professor
     
     var origin = disc.parentNode;   //pega a origem do elemento;
     var originID = origin.getAttribute("id");
         
-    var removeID = origin.getAttribute("id")+"|"+discPeriod;  //monta o ID para remoção;
+    var removeID = origin.getAttribute("id")+"|"+discPeriod+"|"+discProf;  //monta o ID para remoção;
+    
+    var cont; // variável contadora;
+    
+    var stringID; //string que irá formar o ID de todas as aulas no mesmo horário;
     
     if(destiny === origin) //origin e destino são iguais
         return false;
+    //checa se o professor dá outra aula no mesmo horário
+    
+    if(discProf !== "sem_professor")
+    {
+        for(cont = 1; cont < 11; cont++)
+        {
+            var element; //quando esse elemento não for undefined, o professor dá aula no mesmo horario.
+            if(cont === parseInt(destinyPeriod))      //não funciona caso for dois grupos diferentes com o mesmo prof
+                continue;
+            
+            stringID = destinyID+"|"+cont+"|"+discProf;
+
+            element = document.getElementById(stringID);
+            
+            if (typeof element !== typeof undefined && element !== false
+                    && element !== null)
+            {
+                alert("Professor já dá aula neste horário!");
+                return false;
+            }
+            
+
+        }
+    }
     if(destinyID === "scrollingDiv") //caso tirar da tabela, apenas tirar o o input do formulario;
     {
         deleteInput(removeID);
