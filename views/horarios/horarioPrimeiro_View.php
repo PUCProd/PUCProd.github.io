@@ -172,6 +172,8 @@ function validate(destiny, disc)
 <!--teste-->
 <?php $table = Horarios::getListaNome(1);?>
 <?php $disciplina = Disciplina::getListaNome();?>
+ <?php
+ ?>
 <form action="<?php echo HOME?>Horarios/add/" 
                               method="post"
                               id = "seg01">
@@ -247,12 +249,16 @@ function validate(destiny, disc)
                              $i = 0;
                              $id = 0;
                              $name = 0;
+                             while($resultado_horaio = mysql_fetch_array($table))
+                             {
                              while($resultado_disc = mysql_fetch_array($disciplina))
                              {
+                                
                                  if($resultado_disc['periodo'] == 1)
                                  {
-                                 $prof = "sem_prof";
-                                 $rel = Relacao::getRelacao(1);
+                                    $prof = "sem_prof";
+                                    $rel = Relacao::getRelacao(1);
+                                    
                                  while($relacao = mysql_fetch_array($rel))
                                  {
                                      if($resultado_disc['id'] == 
@@ -262,6 +268,19 @@ function validate(destiny, disc)
                                          }
                                      }
                                  }
+                                        $coluna = array("seg_0","ter_0","qua_0","qui_0","sex_0");
+                                        for($controle = 0; $controle < 5; $controle++)
+                                        {
+                                            for($linha = 1; $linha < 7; $linha++)
+                                            {
+                                                if(isset($resultado_horaio[$coluna[$controle].$linha]))
+                                                        if($resultado_horaio[$coluna[$controle].$linha] == $resultado_disc['id'])
+                                                            $i++;
+                                                            
+                                               
+                                            }
+                                        }
+                                    }
                                      while($i < $resultado_disc["carga_horaria"])
                                      {
                                      ?>
@@ -278,13 +297,14 @@ function validate(destiny, disc)
                                        >
                                          <?php echo $resultado_disc['apelido'];?>
                                  </div>
-                                <?php
-                                    $i++;
-                                    $id++;
-                                    }
+                                    <?php
+                                        $i++;
+                                        $id++;
+                                        }
 
-                                $i = 0;
-                            }
+                                    $i = 0;
+                                    }
+                             
                             }
                             ?>
                             </div>  
