@@ -86,7 +86,6 @@ class Horarios_Model extends Model {
                 $column[strlen($column)-1] = ")";
                 if($periodo == 1)
                 {
-                    
                     mysql_query("INSERT INTO HorarioPrimeiro ".$column." VALUES ".$insert);
                 }
                 if($periodo == 2)
