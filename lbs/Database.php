@@ -54,12 +54,10 @@ class Database{
             echo 'criou organizar_horario';
         }
         
-        
-        
-        
-        
-        
-        
+    }
+    
+    function criarTabelaHorarios()
+    {
         $sql0 = "CREATE TABLE HorarioPrimeiro (id_Primeiro INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, "
                 . "seg_01 INT (1), seg_02 INT (1), seg_03 INT (1), seg_04 INT (1),"
                 . "seg_05 INT (1), seg_06 INT (1), ter_01 INT (1), ter_02 INT (1),"
@@ -70,10 +68,7 @@ class Database{
                 . "sex_01 INT (1), sex_02 INT (1), sex_03 INT (1), sex_04 INT (1),"
                 . "sex_05 INT (1), sex_06 INT (1))";
         
-        if (mysql_query($sql0))
-        {
-            echo 'criou organizar_horario';
-        }
+        mysql_query($sql0);
         
         $sql1 = "CREATE TABLE HorarioSegundo (id_Primeiro INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,"
                 . "seg_01 INT (1), seg_02 INT (1), seg_03 INT (1), seg_04 INT (1),"
@@ -85,10 +80,7 @@ class Database{
                 . "sex_01 INT (1), sex_02 INT (1), sex_03 INT (1), sex_04 INT (1),"
                 . "sex_05 INT (1), sex_06 INT (1))";
         
-        if (mysql_query($sql1))
-        {
-            echo 'criou organizar_horario';
-        }
+        mysql_query($sql1);
         $sql2 = "CREATE TABLE HorarioTerceiro (id_Primeiro INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,"
                 . "seg_01 INT (1), seg_02 INT (1), seg_03 INT (1), seg_04 INT (1),"
                 . "seg_05 INT (1), seg_06 INT (1), ter_01 INT (1), ter_02 INT (1),"
@@ -99,10 +91,7 @@ class Database{
                 . "sex_01 INT (1), sex_02 INT (1), sex_03 INT (1), sex_04 INT (1),"
                 . "sex_05 INT (1), sex_06 INT (1))";
         
-        if (mysql_query($sql2))
-        {
-            echo 'criou organizar_horario';
-        }
+        mysql_query($sql2);
         
         $sql3 = "CREATE TABLE HorarioQuarto (id_Primeiro INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,"
                 . "seg_01 INT (1), seg_02 INT (1), seg_03 INT (1), seg_04 INT (1),"
@@ -114,11 +103,7 @@ class Database{
                 . "sex_01 INT (1), sex_02 INT (1), sex_03 INT (1), sex_04 INT (1),"
                 . "sex_05 INT (1), sex_06 INT (1))";
         
-        if (mysql_query($sql3))
-        {
-            echo 'criou organizar_horario';
-        }
-        
+       mysql_query($sql3);
         $sql4 = "CREATE TABLE HorarioQuinto (id_Primeiro INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,"
                 . "seg_01 INT (1), seg_02 INT (1), seg_03 INT (1), seg_04 INT (1),"
                 . "seg_05 INT (1), seg_06 INT (1), ter_01 INT (1), ter_02 INT (1),"
@@ -129,10 +114,7 @@ class Database{
                 . "sex_01 INT (1), sex_02 INT (1), sex_03 INT (1), sex_04 INT (1),"
                 . "sex_05 INT (1), sex_06 INT (1))";
         
-        if (mysql_query($sql4))
-        {
-            echo 'criou organizar_horario';
-        }
+        mysql_query($sql4);
         
         $sql5 = "CREATE TABLE HorarioSexto (id_Primeiro INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,"
                 . "seg_01 INT (1), seg_02 INT (1), seg_03 INT (1), seg_04 INT (1),"
@@ -144,10 +126,7 @@ class Database{
                 . "sex_01 INT (1), sex_02 INT (1), sex_03 INT (1), sex_04 INT (1),"
                 . "sex_05 INT (1), sex_06 INT (1))";
         
-        if (mysql_query($sql5))
-        {
-            echo 'criou organizar_horario';
-        }
+        mysql_query($sql5);
         
         $sql6 = "CREATE TABLE HorarioSetimo (id_Primeiro INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,"
                 . "seg_01 INT (1), seg_02 INT (1), seg_03 INT (1), seg_04 INT (1),"
@@ -159,11 +138,7 @@ class Database{
                 . "sex_01 INT (1), sex_02 INT (1), sex_03 INT (1), sex_04 INT (1),"
                 . "sex_05 INT (1), sex_06 INT (1))";
         
-        if (mysql_query($sql6))
-        {
-            echo 'criou organizar_horario';
-        }
-        
+        mysql_query($sql6);
         $sql7 = "CREATE TABLE HorarioOitavo (id_Primeiro INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,"
                 . "seg_01 INT (1), seg_02 INT (1), seg_03 INT (1), seg_04 INT (1),"
                 . "seg_05 INT (1), seg_06 INT (1), ter_01 INT (1), ter_02 INT (1),"
@@ -174,10 +149,7 @@ class Database{
                 . "sex_01 INT (1), sex_02 INT (1), sex_03 INT (1), sex_04 INT (1),"
                 . "sex_05 INT (1), sex_06 INT (1))";
         
-        if (mysql_query($sql7))
-        {
-            echo 'criou organizar_horario';
-        }
+       mysql_query($sql7);
         
         $sql8 = "CREATE TABLE HorarioNono (id_Primeiro INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,"
                 . "seg_01 INT (1), seg_02 INT (1), seg_03 INT (1), seg_04 INT (1),"
@@ -189,11 +161,7 @@ class Database{
                 . "sex_01 INT (1), sex_02 INT (1), sex_03 INT (1), sex_04 INT (1),"
                 . "sex_05 INT (1), sex_06 INT (1))";
         
-        if (mysql_query($sql8))
-        {
-            echo 'criou organizar_horario';
-        }
-        
+        mysql_query($sql8);
         $sql9 = "CREATE TABLE HorarioDecimo (id_Primeiro INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,"
                 . "seg_01 INT (1), seg_02 INT (1), seg_03 INT (1), seg_04 INT (1),"
                 . "seg_05 INT (1), seg_06 INT (1), ter_01 INT (1), ter_02 INT (1),"
@@ -204,15 +172,40 @@ class Database{
                 . "sex_01 INT (1), sex_02 INT (1), sex_03 INT (1), sex_04 INT (1),"
                 . "sex_05 INT (1), sex_06 INT (1))";
         
-        if (mysql_query($sql9))
-        {
-            echo 'criou organizar_horario';
-        }
+        mysql_query($sql9);
     }
-    
-    function criarTabelaHorarios()
+    function dropTable()
     {
+        $sql0 = "DROP TABLE HorarioPrimeiro";
         
+        $sql1 = "DROP TABLE HorarioSegundo";
+
+        $sql2 = "DROP TABLE HorarioTerceiro";
+
+        $sql3 = "DROP TABLE HorarioQuarto";
+        
+        $sql4 = "DROP TABLE HorarioQuinto";
+        
+        $sql5 = "DROP TABLE HorarioSexto";
+        
+        $sql6 = "DROP TABLE HorarioSetimo";
+        
+        $sql7 = "DROP TABLE HorarioOitavo";
+        
+        $sql8 = "DROP TABLE HorarioNono";
+        
+        $sql9 = "DROP TABLE HorarioDecimo";
+        
+        mysql_query($sql0);
+        mysql_query($sql1);
+        mysql_query($sql2);
+        mysql_query($sql3);
+        mysql_query($sql4);
+        mysql_query($sql5);
+        mysql_query($sql6);
+        mysql_query($sql7);
+        mysql_query($sql8);
+        mysql_query($sql9);
     }
 
 }

@@ -2,6 +2,7 @@
 require_once 'controllers/Professor.php';
 require_once 'controllers/Disciplina.php';
 require_once 'controllers/Relacao.php';
+require_once 'controllers/Horarios.php';
 ?>
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <script>
@@ -169,12 +170,12 @@ function validate(destiny, disc)
 </script>
 <!-- Main component for a primary marketing message or call to action -->
 <!--teste-->
+<?php $table = Horarios::getListaNome(1);?>
 <?php $disciplina = Disciplina::getListaNome();?>
 <form action="<?php echo HOME?>Horarios/add/" 
                               method="post"
                               id = "seg01">
                         </form>
-
 <input type="button" onclick = "dropSubmit()" value = "Salvar">
 <div class="jumbotron">
     <div><!--Inicializa a tabela dos horários -->     

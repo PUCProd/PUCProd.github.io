@@ -4,25 +4,33 @@ class Horarios_Model extends Model {
 
     function __construct() {
         parent::__construct();
+        
     }
     
-    function add($id = NULL)
+    function add()
     {
         //require_once 'views/disciplina/redirecionar.php';
        // require_once 'views/center.php';
       
-        
-        echo 'Nao implementei os insert... Colocado apenas o ID da disciplina nas tabelas...';
+        parent::dropTable();
+        parent::criarTabelaHorarios();
+        echo 'Insert implementado!';
         $colunas = array("segunda0","terca0","quarta0","quinta0","sexta0");
-        $col = array("seg_0","ter_0","qua_0","qui_0","sex_0");
-        $insert = "";
-        for($conta = 1; $conta <= 10; $conta++)
+        
+        for($periodo = 1; $periodo <= 10; $periodo++)
         {
+            $insert="(";
+            $col[0] = array("seg_0","ter_0","qua_0","qui_0","sex_0");
+            $col[1] = array("seg_0","ter_0","qua_0","qui_0","sex_0");
+            $col[2] = array("seg_0","ter_0","qua_0","qui_0","sex_0");
+            $col[3] = array("seg_0","ter_0","qua_0","qui_0","sex_0");
+            $col[4] = array("seg_0","ter_0","qua_0","qui_0","sex_0");
+            $col[5] = array("seg_0","ter_0","qua_0","qui_0","sex_0");
             for($coluna = 1; $coluna <=6; $coluna++)
             {
                 for($linha = 0; $linha < 5; $linha++)
                 {
-                    $string = $colunas[$linha].$coluna."|".$conta;
+                    $string = $colunas[$linha].$coluna."|".$periodo;
                     if(isset($_POST[$string]))
                     {
                         $com = "SELECT * FROM disciplina WHERE id = ".$_POST[$string];
@@ -30,17 +38,7 @@ class Horarios_Model extends Model {
 
                         while($rows = mysql_fetch_array($row))
                         {
-                            echo "<br><br><h4>'$col[$linha]$coluna'</h4><br>";
-                           /* if($conta == 1)
-                            if($conta == 2)
-                            if($conta == 3)
-                            if($conta == 4)
-                            if($conta == 5)
-                            if($conta == 6)
-                            if($conta == 7)
-                            if($conta == 8)
-                            if($conta == 9)
-                            if($conta == 10)*/
+                            echo "<br><br><h4>".$col[$coluna-1][$linha].$coluna."</h4><br>";
                             $id[] = $rows["id"];
                             echo "id da disciplina: ".$rows["id"];
                             echo "<br>";
@@ -56,32 +54,153 @@ class Horarios_Model extends Model {
                             echo "<br>";
                             echo "carga horaria: ".$rows['carga_horaria'];
                             echo "<br>";
-                            echo "na coluna: ".$colunas[$linha].$coluna;
+                            echo "na coluna: ".$colunas[$linha].$coluna;    
+                            $col[$coluna-1][$linha] = $col[$coluna-1][$linha].$coluna;
                         }
                         echo "<br>"; 
                     }
                 }
             }
+            $column = "(";
+            if(isset($id))
+            {
+                for($controle = 0; $controle < sizeof($id); $controle++)
+                {
+                        $insert = $insert.$id[$controle].",";
+                }
+                $insert[strlen($insert)-1] = ")";
+                for($coluna = 0; $coluna < 6; $coluna++)
+                {
+                    for($linha = 0; $linha < 5; $linha++)
+                    {
+                        if(strlen($col[$coluna][$linha]) != 6)
+                        {
+                            unset($col[$coluna][$linha]);
+                        }
+                        else
+                        {
+                            $column = $column.$col[$coluna][$linha].",";
+                        }
+                    }
+                }
+                $column[strlen($column)-1] = ")";
+                if($periodo == 1)
+                {
+                    
+                    mysql_query("INSERT INTO HorarioPrimeiro ".$column." VALUES ".$insert);
+                }
+                if($periodo == 2)
+                {
+                    mysql_query("INSERT INTO HorarioSegundo ".$column." VALUES ".$insert);
+                }
+                if($periodo == 3)
+                {
+                    mysql_query("INSERT INTO HorarioTerceiro ".$column." VALUES ".$insert);
+                }
+                if($periodo == 4)
+                {
+                    mysql_query("INSERT INTO HorarioQuarto ".$column." VALUES ".$insert);
+                }
+                if($periodo == 5)
+                {
+                    mysql_query("INSERT INTO HorarioQuinto ".$column." VALUES ".$insert);
+                }
+                if($periodo == 6)
+                {
+                    mysql_query("INSERT INTO HorarioSexto ".$column." VALUES ".$insert);
+                }
+                if($periodo == 7)
+                {
+                    mysql_query("INSERT INTO HorarioSetimo ".$column." VALUES ".$insert);
+                }
+                if($periodo == 8)
+                {
+                    mysql_query("INSERT INTO HorarioOitavo ".$column." VALUES ".$insert);
+                }
+                if($periodo == 9)
+                {
+                    mysql_query("INSERT INTO HorarioNono ".$column." VALUES ".$insert);
+                }
+                if($periodo == 10)
+                {
+                    mysql_query("INSERT INTO HorarioDecimo ".$column." VALUES ".$insert);
+                }
+                unset($col);
+                unset($id);
+            }
+            
         }
-        for($controle = 0; $controle < sizeof($id); $controle++)
-        {
-            $insert = $insert.$id[$controle].",";
-        }
-       /*// $insert[strlen($insert)-1] = ")";
-                        echo $insert;//*/
+        
         
        // require_once 'views/footer.php';
    }
    
-   function getListaNome()
+   function getListaNome($periodo)
    {
+       
+       if(!isset($periodo))
+       {
+           return null;
+       }
+       
+       if($periodo == 1)
+       {      
+           
+            $query = mysql_query("SELECT * FROM HorarioPrimeiro");
+           return $query;
+       }
+        if($periodo == 2)
+        {
+            $query = mysql_query("SELECT * FROM HorarioSegundo");
+            return $query;
+        }
+        if($periodo == 3)
+        {
+           $query = mysql_query("SELECT * FROM HorarioTerceiro");
+           return $query;
+        }
+        if($periodo == 4)
+        {
+          $query =  mysql_query("SELECT * FROM HorarioQuarto");
+          return $query;
+        }
+        if($periodo == 5)
+        {
+          $query =  mysql_query("SELECT * FROM HorarioQuinto");
+          return $query;
+        }
+        if($periodo == 6)
+        {
+           $query = mysql_query("SELECT * FROM HorarioSexto");
+           return $query;
+        }
+        if($periodo == 7)
+        {
+          $query =  mysql_query("SELECT * FROM HorarioSetimo");
+          return $query;
+        }
+        if($periodo == 8)
+        {
+           $query = mysql_query("SELECT * FROM HorarioOitavo");
+           return $query;
+        }
+        if($periodo == 9)
+        {
+           $query = mysql_query("SELECT * FROM HorarioNono");
+           return $query;
+        }
+        if($periodo == 10)
+        {
+           $query = mysql_query("SELECT * FROM HorarioDecimo");
+           return $query;
+        }
    }
    
-   function excluir($id)
+  /* function excluir($id)
    {
    }
    function filtrar()
    {
-   }
+   }*/
 }
         
