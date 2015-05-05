@@ -29,7 +29,7 @@ function drop(ev) {
     {
       ev.target.appendChild(disc);
       if(ev.target.id !== "scrollingDiv")
-        createForm(ev.target.id, idDisc,periodo,professor);
+        createForm(ev.target.id, idDisc,periodo,professor,disc);
     }
 }
 function recoverTable(idDisc, col)
@@ -79,15 +79,15 @@ function recoverTable(idDisc, col)
        
    }
    colunaElemento.appendChild(discElemento);
-   createForm(coluna, discElemento.getAttribute("value"),discElemento.getAttribute("periodo"),discElemento.getAttribute("professor"));
+   createForm(coluna, discElemento.getAttribute("value"),discElemento.getAttribute("periodo"),discElemento);
 }
-function createForm(id, idDisc,periodo, professor)
+function createForm(id, idDisc,periodo, professor,disc)
 {
     var theForm = document.forms["seg01"];
     var input = document.createElement('input');
-    
+    var grupo = disc.getAttribute("grupo");
     input.type = 'hidden';
-    input.name = id+"|"+periodo;
+    input.name = id+"|"+periodo+"|"+grupo;
     input.value = idDisc;
     if (typeof professor !== typeof undefined && professor !== false)
         input.id = id+"|"+periodo+"|"+professor;
@@ -344,8 +344,10 @@ function validate(destiny, disc)
                                     
                                      while($i < $resultado_disc["carga_horaria"])
                                      {
+                                         for($j = 0; $j < $resultado_disc["qt_grupos"]; $j++)
+                                         {
                                      ?>
-                                 <div id="<?php echo $id;?>" 
+                                         <div id="<?php echo $id;?>" 
                                          draggable="true" 
                                          ondragstart="drag(event)"
                                          class="btn botao-verde-config botao-verde"  
@@ -354,14 +356,26 @@ function validate(destiny, disc)
                                          periodo="<?php echo $resultado_disc['periodo'];?>"
                                          professor="<?php echo $prof;?>"
                                          tipo="<?php echo $resultado_disc['tipo_disciplina'];?>"
-                                         grupos="<?php echo $resultado_disc['qt_grupos']?>"
+                                         grupos="<?php echo $resultado_disc['qt_grupos'];?>"
+                                         grupo="<?php echo $j;?>"
                                        >
-                                         <?php echo $resultado_disc['apelido'];?>
+                                         <?php 
+                                         if($resultado_disc['qt_grupos'] > 1)
+                                         {
+                                            echo $resultado_disc['apelido']." G".$j;
+                                         }
+                                         else
+                                         {
+                                             echo $resultado_disc['apelido'];
+                                         }
+                                         ?>
                                  </div>
                                     <?php
-                                    
-                                        $i++;
+                                     
+                           
                                         $id++;
+                                        }
+                                        $i++;
                                         }
 
                                     $i = 0;

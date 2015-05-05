@@ -56,121 +56,123 @@ class Database{
         
     }
     
+   
+    
     function criarTabelaHorarios()
     {
         $sql0 = "CREATE TABLE HorarioPrimeiro (id_Primeiro INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, "
-                . "seg_01 INT (1), seg_02 INT (1), seg_03 INT (1), seg_04 INT (1),"
-                . "seg_05 INT (1), seg_06 INT (1), ter_01 INT (1), ter_02 INT (1),"
-                . "ter_03 INT (1), ter_04 INT (1), ter_05 INT (1), ter_06 INT (1),"
-                . "qua_01 INT (1), qua_02 INT (1), qua_03 INT (1), qua_04 INT (1),"
-                . "qua_05 INT (1), qua_06 INT (1), qui_01 INT (1), qui_02 INT (1),"
-                . "qui_03 INT (1), qui_04 INT (1), qui_05 INT (1), qui_06 INT (1),"
-                . "sex_01 INT (1), sex_02 INT (1), sex_03 INT (1), sex_04 INT (1),"
-                . "sex_05 INT (1), sex_06 INT (1))";
+                . "seg_01 INT (5), seg_02 INT (5), seg_03 INT (5), seg_04 INT (5),"
+                . "seg_05 INT (5), seg_06 INT (5), ter_01 INT (5), ter_02 INT (5),"
+                . "ter_03 INT (5), ter_04 INT (5), ter_05 INT (5), ter_06 INT (5),"
+                . "qua_01 INT (5), qua_02 INT (5), qua_03 INT (5), qua_04 INT (5),"
+                . "qua_05 INT (5), qua_06 INT (5), qui_01 INT (5), qui_02 INT (5),"
+                . "qui_03 INT (5), qui_04 INT (5), qui_05 INT (5), qui_06 INT (5),"
+                . "sex_01 INT (5), sex_02 INT (5), sex_03 INT (5), sex_04 INT (5),"
+                . "sex_05 INT (5), sex_06 INT (5))";
         
         mysql_query($sql0);
         
         $sql1 = "CREATE TABLE HorarioSegundo (id_Primeiro INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,"
-                . "seg_01 INT (1), seg_02 INT (1), seg_03 INT (1), seg_04 INT (1),"
-                . "seg_05 INT (1), seg_06 INT (1), ter_01 INT (1), ter_02 INT (1),"
-                . "ter_03 INT (1), ter_04 INT (1), ter_05 INT (1), ter_06 INT (1),"
-                . "qua_01 INT (1), qua_02 INT (1), qua_03 INT (1), qua_04 INT (1),"
-                . "qua_05 INT (1), qua_06 INT (1), qui_01 INT (1), qui_02 INT (1),"
-                . "qui_03 INT (1), qui_04 INT (1), qui_05 INT (1), qui_06 INT (1),"
-                . "sex_01 INT (1), sex_02 INT (1), sex_03 INT (1), sex_04 INT (1),"
-                . "sex_05 INT (1), sex_06 INT (1))";
+                . "seg_01 INT (5), seg_02 INT (5), seg_03 INT (5), seg_04 INT (5),"
+                . "seg_05 INT (5), seg_06 INT (5), ter_01 INT (5), ter_02 INT (5),"
+                . "ter_03 INT (5), ter_04 INT (5), ter_05 INT (5), ter_06 INT (5),"
+                . "qua_01 INT (5), qua_02 INT (5), qua_03 INT (5), qua_04 INT (5),"
+                . "qua_05 INT (5), qua_06 INT (5), qui_01 INT (5), qui_02 INT (5),"
+                . "qui_03 INT (5), qui_04 INT (5), qui_05 INT (5), qui_06 INT (5),"
+                . "sex_01 INT (5), sex_02 INT (5), sex_03 INT (5), sex_04 INT (5),"
+                . "sex_05 INT (5), sex_06 INT (5))";
         
         mysql_query($sql1);
         $sql2 = "CREATE TABLE HorarioTerceiro (id_Primeiro INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,"
-                . "seg_01 INT (1), seg_02 INT (1), seg_03 INT (1), seg_04 INT (1),"
-                . "seg_05 INT (1), seg_06 INT (1), ter_01 INT (1), ter_02 INT (1),"
-                . "ter_03 INT (1), ter_04 INT (1), ter_05 INT (1), ter_06 INT (1),"
-                . "qua_01 INT (1), qua_02 INT (1), qua_03 INT (1), qua_04 INT (1),"
-                . "qua_05 INT (1), qua_06 INT (1), qui_01 INT (1), qui_02 INT (1),"
-                . "qui_03 INT (1), qui_04 INT (1), qui_05 INT (1), qui_06 INT (1),"
-                . "sex_01 INT (1), sex_02 INT (1), sex_03 INT (1), sex_04 INT (1),"
-                . "sex_05 INT (1), sex_06 INT (1))";
+                . "seg_01 INT (5), seg_02 INT (5), seg_03 INT (5), seg_04 INT (5),"
+                . "seg_05 INT (5), seg_06 INT (5), ter_01 INT (5), ter_02 INT (5),"
+                . "ter_03 INT (5), ter_04 INT (5), ter_05 INT (5), ter_06 INT (5),"
+                . "qua_01 INT (5), qua_02 INT (5), qua_03 INT (5), qua_04 INT (5),"
+                . "qua_05 INT (5), qua_06 INT (5), qui_01 INT (5), qui_02 INT (5),"
+                . "qui_03 INT (5), qui_04 INT (5), qui_05 INT (5), qui_06 INT (5),"
+                . "sex_01 INT (5), sex_02 INT (5), sex_03 INT (5), sex_04 INT (5),"
+                . "sex_05 INT (5), sex_06 INT (5))";
         
         mysql_query($sql2);
         
         $sql3 = "CREATE TABLE HorarioQuarto (id_Primeiro INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,"
-                . "seg_01 INT (1), seg_02 INT (1), seg_03 INT (1), seg_04 INT (1),"
-                . "seg_05 INT (1), seg_06 INT (1), ter_01 INT (1), ter_02 INT (1),"
-                . "ter_03 INT (1), ter_04 INT (1), ter_05 INT (1), ter_06 INT (1),"
-                . "qua_01 INT (1), qua_02 INT (1), qua_03 INT (1), qua_04 INT (1),"
-                . "qua_05 INT (1), qua_06 INT (1), qui_01 INT (1), qui_02 INT (1),"
-                . "qui_03 INT (1), qui_04 INT (1), qui_05 INT (1), qui_06 INT (1),"
-                . "sex_01 INT (1), sex_02 INT (1), sex_03 INT (1), sex_04 INT (1),"
-                . "sex_05 INT (1), sex_06 INT (1))";
+                . "seg_01 INT (5), seg_02 INT (5), seg_03 INT (5), seg_04 INT (5),"
+                . "seg_05 INT (5), seg_06 INT (5), ter_01 INT (5), ter_02 INT (5),"
+                . "ter_03 INT (5), ter_04 INT (5), ter_05 INT (5), ter_06 INT (5),"
+                . "qua_01 INT (5), qua_02 INT (5), qua_03 INT (5), qua_04 INT (5),"
+                . "qua_05 INT (5), qua_06 INT (5), qui_01 INT (5), qui_02 INT (5),"
+                . "qui_03 INT (5), qui_04 INT (5), qui_05 INT (5), qui_06 INT (5),"
+                . "sex_01 INT (5), sex_02 INT (5), sex_03 INT (5), sex_04 INT (5),"
+                . "sex_05 INT (5), sex_06 INT (5))";
         
        mysql_query($sql3);
         $sql4 = "CREATE TABLE HorarioQuinto (id_Primeiro INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,"
-                . "seg_01 INT (1), seg_02 INT (1), seg_03 INT (1), seg_04 INT (1),"
-                . "seg_05 INT (1), seg_06 INT (1), ter_01 INT (1), ter_02 INT (1),"
-                . "ter_03 INT (1), ter_04 INT (1), ter_05 INT (1), ter_06 INT (1),"
-                . "qua_01 INT (1), qua_02 INT (1), qua_03 INT (1), qua_04 INT (1),"
-                . "qua_05 INT (1), qua_06 INT (1), qui_01 INT (1), qui_02 INT (1),"
-                . "qui_03 INT (1), qui_04 INT (1), qui_05 INT (1), qui_06 INT (1),"
-                . "sex_01 INT (1), sex_02 INT (1), sex_03 INT (1), sex_04 INT (1),"
-                . "sex_05 INT (1), sex_06 INT (1))";
+                . "seg_01 INT (5), seg_02 INT (5), seg_03 INT (5), seg_04 INT (5),"
+                . "seg_05 INT (5), seg_06 INT (5), ter_01 INT (5), ter_02 INT (5),"
+                . "ter_03 INT (5), ter_04 INT (5), ter_05 INT (5), ter_06 INT (5),"
+                . "qua_01 INT (5), qua_02 INT (5), qua_03 INT (5), qua_04 INT (5),"
+                . "qua_05 INT (5), qua_06 INT (5), qui_01 INT (5), qui_02 INT (5),"
+                . "qui_03 INT (5), qui_04 INT (5), qui_05 INT (5), qui_06 INT (5),"
+                . "sex_01 INT (5), sex_02 INT (5), sex_03 INT (5), sex_04 INT (5),"
+                . "sex_05 INT (5), sex_06 INT (5))";
         
         mysql_query($sql4);
         
         $sql5 = "CREATE TABLE HorarioSexto (id_Primeiro INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,"
-                . "seg_01 INT (1), seg_02 INT (1), seg_03 INT (1), seg_04 INT (1),"
-                . "seg_05 INT (1), seg_06 INT (1), ter_01 INT (1), ter_02 INT (1),"
-                . "ter_03 INT (1), ter_04 INT (1), ter_05 INT (1), ter_06 INT (1),"
-                . "qua_01 INT (1), qua_02 INT (1), qua_03 INT (1), qua_04 INT (1),"
-                . "qua_05 INT (1), qua_06 INT (1), qui_01 INT (1), qui_02 INT (1),"
-                . "qui_03 INT (1), qui_04 INT (1), qui_05 INT (1), qui_06 INT (1),"
-                . "sex_01 INT (1), sex_02 INT (1), sex_03 INT (1), sex_04 INT (1),"
-                . "sex_05 INT (1), sex_06 INT (1))";
+                . "seg_01 INT (5), seg_02 INT (5), seg_03 INT (5), seg_04 INT (5),"
+                . "seg_05 INT (5), seg_06 INT (5), ter_01 INT (5), ter_02 INT (5),"
+                . "ter_03 INT (5), ter_04 INT (5), ter_05 INT (5), ter_06 INT (5),"
+                . "qua_01 INT (5), qua_02 INT (5), qua_03 INT (5), qua_04 INT (5),"
+                . "qua_05 INT (5), qua_06 INT (5), qui_01 INT (5), qui_02 INT (5),"
+                . "qui_03 INT (5), qui_04 INT (5), qui_05 INT (5), qui_06 INT (5),"
+                . "sex_01 INT (5), sex_02 INT (5), sex_03 INT (5), sex_04 INT (5),"
+                . "sex_05 INT (5), sex_06 INT (5))";
         
         mysql_query($sql5);
         
         $sql6 = "CREATE TABLE HorarioSetimo (id_Primeiro INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,"
-                . "seg_01 INT (1), seg_02 INT (1), seg_03 INT (1), seg_04 INT (1),"
-                . "seg_05 INT (1), seg_06 INT (1), ter_01 INT (1), ter_02 INT (1),"
-                . "ter_03 INT (1), ter_04 INT (1), ter_05 INT (1), ter_06 INT (1),"
-                . "qua_01 INT (1), qua_02 INT (1), qua_03 INT (1), qua_04 INT (1),"
-                . "qua_05 INT (1), qua_06 INT (1), qui_01 INT (1), qui_02 INT (1),"
-                . "qui_03 INT (1), qui_04 INT (1), qui_05 INT (1), qui_06 INT (1),"
-                . "sex_01 INT (1), sex_02 INT (1), sex_03 INT (1), sex_04 INT (1),"
-                . "sex_05 INT (1), sex_06 INT (1))";
+                . "seg_01 INT (5), seg_02 INT (5), seg_03 INT (5), seg_04 INT (5),"
+                . "seg_05 INT (5), seg_06 INT (5), ter_01 INT (5), ter_02 INT (5),"
+                . "ter_03 INT (5), ter_04 INT (5), ter_05 INT (5), ter_06 INT (5),"
+                . "qua_01 INT (5), qua_02 INT (5), qua_03 INT (5), qua_04 INT (5),"
+                . "qua_05 INT (5), qua_06 INT (5), qui_01 INT (5), qui_02 INT (5),"
+                . "qui_03 INT (5), qui_04 INT (5), qui_05 INT (5), qui_06 INT (5),"
+                . "sex_01 INT (5), sex_02 INT (5), sex_03 INT (5), sex_04 INT (5),"
+                . "sex_05 INT (5), sex_06 INT (5))";
         
         mysql_query($sql6);
         $sql7 = "CREATE TABLE HorarioOitavo (id_Primeiro INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,"
-                . "seg_01 INT (1), seg_02 INT (1), seg_03 INT (1), seg_04 INT (1),"
-                . "seg_05 INT (1), seg_06 INT (1), ter_01 INT (1), ter_02 INT (1),"
-                . "ter_03 INT (1), ter_04 INT (1), ter_05 INT (1), ter_06 INT (1),"
-                . "qua_01 INT (1), qua_02 INT (1), qua_03 INT (1), qua_04 INT (1),"
-                . "qua_05 INT (1), qua_06 INT (1), qui_01 INT (1), qui_02 INT (1),"
-                . "qui_03 INT (1), qui_04 INT (1), qui_05 INT (1), qui_06 INT (1),"
-                . "sex_01 INT (1), sex_02 INT (1), sex_03 INT (1), sex_04 INT (1),"
-                . "sex_05 INT (1), sex_06 INT (1))";
+                . "seg_01 INT (5), seg_02 INT (5), seg_03 INT (5), seg_04 INT (5),"
+                . "seg_05 INT (5), seg_06 INT (5), ter_01 INT (5), ter_02 INT (5),"
+                . "ter_03 INT (5), ter_04 INT (5), ter_05 INT (5), ter_06 INT (5),"
+                . "qua_01 INT (5), qua_02 INT (5), qua_03 INT (5), qua_04 INT (5),"
+                . "qua_05 INT (5), qua_06 INT (5), qui_01 INT (5), qui_02 INT (5),"
+                . "qui_03 INT (5), qui_04 INT (5), qui_05 INT (5), qui_06 INT (5),"
+                . "sex_01 INT (5), sex_02 INT (5), sex_03 INT (5), sex_04 INT (5),"
+                . "sex_05 INT (5), sex_06 INT (5))";
         
        mysql_query($sql7);
         
         $sql8 = "CREATE TABLE HorarioNono (id_Primeiro INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,"
-                . "seg_01 INT (1), seg_02 INT (1), seg_03 INT (1), seg_04 INT (1),"
-                . "seg_05 INT (1), seg_06 INT (1), ter_01 INT (1), ter_02 INT (1),"
-                . "ter_03 INT (1), ter_04 INT (1), ter_05 INT (1), ter_06 INT (1),"
-                . "qua_01 INT (1), qua_02 INT (1), qua_03 INT (1), qua_04 INT (1),"
-                . "qua_05 INT (1), qua_06 INT (1), qui_01 INT (1), qui_02 INT (1),"
-                . "qui_03 INT (1), qui_04 INT (1), qui_05 INT (1), qui_06 INT (1),"
-                . "sex_01 INT (1), sex_02 INT (1), sex_03 INT (1), sex_04 INT (1),"
-                . "sex_05 INT (1), sex_06 INT (1))";
+                . "seg_01 INT (5), seg_02 INT (5), seg_03 INT (5), seg_04 INT (5),"
+                . "seg_05 INT (5), seg_06 INT (5), ter_01 INT (5), ter_02 INT (5),"
+                . "ter_03 INT (5), ter_04 INT (5), ter_05 INT (5), ter_06 INT (5),"
+                . "qua_01 INT (5), qua_02 INT (5), qua_03 INT (5), qua_04 INT (5),"
+                . "qua_05 INT (5), qua_06 INT (5), qui_01 INT (5), qui_02 INT (5),"
+                . "qui_03 INT (5), qui_04 INT (5), qui_05 INT (5), qui_06 INT (5),"
+                . "sex_01 INT (5), sex_02 INT (5), sex_03 INT (5), sex_04 INT (5),"
+                . "sex_05 INT (5), sex_06 INT (5))";
         
         mysql_query($sql8);
         $sql9 = "CREATE TABLE HorarioDecimo (id_Primeiro INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,"
-                . "seg_01 INT (1), seg_02 INT (1), seg_03 INT (1), seg_04 INT (1),"
-                . "seg_05 INT (1), seg_06 INT (1), ter_01 INT (1), ter_02 INT (1),"
-                . "ter_03 INT (1), ter_04 INT (1), ter_05 INT (1), ter_06 INT (1),"
-                . "qua_01 INT (1), qua_02 INT (1), qua_03 INT (1), qua_04 INT (1),"
-                . "qua_05 INT (1), qua_06 INT (1), qui_01 INT (1), qui_02 INT (1),"
-                . "qui_03 INT (1), qui_04 INT (1), qui_05 INT (1), qui_06 INT (1),"
-                . "sex_01 INT (1), sex_02 INT (1), sex_03 INT (1), sex_04 INT (1),"
-                . "sex_05 INT (1), sex_06 INT (1))";
+                . "seg_01 INT (5), seg_02 INT (5), seg_03 INT (5), seg_04 INT (5),"
+                . "seg_05 INT (5), seg_06 INT (5), ter_01 INT (5), ter_02 INT (5),"
+                . "ter_03 INT (5), ter_04 INT (5), ter_05 INT (5), ter_06 INT (5),"
+                . "qua_01 INT (5), qua_02 INT (5), qua_03 INT (5), qua_04 INT (5),"
+                . "qua_05 INT (5), qua_06 INT (5), qui_01 INT (5), qui_02 INT (5),"
+                . "qui_03 INT (5), qui_04 INT (5), qui_05 INT (5), qui_06 INT (5),"
+                . "sex_01 INT (5), sex_02 INT (5), sex_03 INT (5), sex_04 INT (5),"
+                . "sex_05 INT (5), sex_06 INT (5))";
         
         mysql_query($sql9);
     }

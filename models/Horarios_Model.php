@@ -9,12 +9,11 @@ class Horarios_Model extends Model {
     
     function add()
     {
-        //require_once 'views/disciplina/redirecionar.php';
-       // require_once 'views/center.php';
+        
       
         parent::dropTable();
         parent::criarTabelaHorarios();
-        echo 'Insert implementado!';
+        echo 'Insert implementado!... Ainda precisa de voltar manualmente...';
         $colunas = array("segunda0","terca0","quarta0","quinta0","sexta0");
         
         for($periodo = 1; $periodo <= 10; $periodo++)
@@ -30,16 +29,21 @@ class Horarios_Model extends Model {
             {
                 for($linha = 0; $linha < 5; $linha++)
                 {
-                    $string = $colunas[$linha].$coluna."|".$periodo;
+                    $jafoi = false;
+                    for($grupo = 0; $grupo < 4; $grupo++)
+                    {
+                        
+                        $string = $colunas[$linha].$coluna."|".$periodo."|".$grupo;
                     if(isset($_POST[$string]))
                     {
+                       
                         $com = "SELECT * FROM disciplina WHERE id = ".$_POST[$string];
                         $row = mysql_query($com);
 
                         while($rows = mysql_fetch_array($row))
                         {
                             echo "<br><br><h4>".$col[$coluna-1][$linha].$coluna."</h4><br>";
-                            $id[] = $rows["id"];
+                            
                             echo "id da disciplina: ".$rows["id"];
                             echo "<br>";
                             echo "nome da disciplina: ".$rows["nome"];
@@ -54,10 +58,16 @@ class Horarios_Model extends Model {
                             echo "<br>";
                             echo "carga horaria: ".$rows['carga_horaria'];
                             echo "<br>";
-                            echo "na coluna: ".$colunas[$linha].$coluna;    
+                            echo "na coluna: ".$colunas[$linha].$coluna;
+                            if(!$jafoi)
+                            {
+                            $id[] = $rows["id"];
                             $col[$coluna-1][$linha] = $col[$coluna-1][$linha].$coluna;
+                            $jafoi = true;
+                            }
                         }
-                        echo "<br>"; 
+                      // echo "<br>"; 
+                    }
                     }
                 }
             }
@@ -127,11 +137,9 @@ class Horarios_Model extends Model {
                 unset($col);
                 unset($id);
             }
-            
+
         }
-        
-        
-       // require_once 'views/footer.php';
+
    }
    
    function getListaNome($periodo)
