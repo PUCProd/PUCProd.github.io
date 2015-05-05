@@ -129,7 +129,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="<?php echo HOME;?>">Engenharia de Produção</a>
+            <a class="navbar-brand" href="<?php echo HOME;?>">Engenharia de Produção ALPHA TEST</a>
           </div>
           <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
@@ -137,8 +137,9 @@
                 <li><a href="<?php echo HOME;?>disciplina/pageView">Disciplinas</a></li>
                 <li><a href="<?php echo HOME;?>relacao/pageView/prof">Relação Prof/Disc</a></li>
                 <li><a href="<?php echo HOME;?>disciplina/organizarDisciplina">Horarios Semestre</a></li>
-   
+                
             </ul>
+              
             <div class="btn-group" role="group">
             <button type="button" class="btn navbar-btn btn-default dropdown-toggle" 
                     data-toggle="dropdown" aria-expanded="false">

@@ -26,12 +26,12 @@
                         <option value="2">2º Período</option>
                         <option value="3">3º Período</option>
                         <option value="4">4º Período</option>
-                        <option value="4">5º Período</option>
-                        <option value="4">6º Período</option>
-                        <option value="4">7º Período</option>
-                        <option value="4">8º Período</option>
-                        <option value="4">9º Período</option>
-                        <option value="4">10º Período</option>
+                        <option value="5">5º Período</option>
+                        <option value="6">6º Período</option>
+                        <option value="7">7º Período</option>
+                        <option value="8">8º Período</option>
+                        <option value="9">9º Período</option>
+                        <option value="10">10º Período</option>
                     </select>                    
                 </td>
               </tr>

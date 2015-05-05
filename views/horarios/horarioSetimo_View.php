@@ -8,7 +8,7 @@
                 <div>
                     <h3 style = "text-align: center">Sétimo Período</h3>
                 </div>      
-                <tr>
+                <tr id = "row0\7">
                     <th>
                         <h5>Horario</h5>
                     </th>
@@ -31,7 +31,7 @@
                     <h5>Disciplinas</h5>
                     </th>
                 </tr>
-                <tr>
+                <tr id = "row1\7">
                     <td>
                         <h6>07:00 às 07:50</h6>
                     </td>
@@ -40,7 +40,6 @@
                         ondragover="allowDrop(event)"
                         ></td>
                       <!-- Final do TD -->                    
-                      
                       <td id="terca01"
                           ondrop="drop(event)" 
                           ondragover="allowDrop(event)"></td>
@@ -67,12 +66,16 @@
                              $var = 0;
                              $i = 0;
                              $name = 0;
+                             
                              while($resultado_disc = mysql_fetch_array($disciplina))
                              {
-                                 if($resultado_disc['periodo'] == 7)
+                                 
+                                 if(strcmp($resultado_disc['periodo'],"7") == 0)
                                  {
-                                 $prof = "sem_prof";
-                                 $rel = Relacao::getRelacao(1);
+                                     
+                                    $prof = "sem_prof";
+                                    $rel = Relacao::getRelacao(1);
+                                    
                                  while($relacao = mysql_fetch_array($rel))
                                  {
                                      if($resultado_disc['id'] == 
@@ -82,6 +85,34 @@
                                          }
                                      }
                                  }
+                                $table = Horarios::getListaNome(7);
+                                $conta=0;
+                                 while($resultado_horaio = mysql_fetch_array($table))
+                                  {
+                                        $coluna = array("seg_0","ter_0","qua_0","qui_0","sex_0");
+                                        
+                                        for($controle = 0; $controle < 5; $controle++)
+                                        {
+                                            for($linha = 1; $linha < 7; $linha++)
+                                            {
+                                                
+                                                if(isset($resultado_horaio[$coluna[$controle].$linha]))
+                                                {
+                                                        if($resultado_horaio[$coluna[$controle].$linha] == $resultado_disc['id'])
+                                                        {
+                                      
+                                                            $tabela[] = $resultado_horaio[$coluna[$controle].$linha];
+                                                            $posicao[] = $coluna[$controle].$linha;
+                                                            $idArr[] = $id+$conta; 
+                                                            $conta++;
+                                                        }
+                                                }
+
+                                            }
+                                        }
+                                    }
+                                    
+                                    
                                      while($i < $resultado_disc["carga_horaria"])
                                      {
                                      ?>
@@ -98,21 +129,22 @@
                                        >
                                          <?php echo $resultado_disc['apelido'];?>
                                  </div>
-                                <?php
-                                    $i++;
-                                    $id++;
-                                    }
+                                    <?php
+                                    
+                                        $i++;
+                                        $id++;
+                                        }
 
-                                $i = 0;
-                            }
-                            }
+                                    $i = 0;
+                                    }
+                             }
                             ?>
                             </div>  
                       </td>
                     </tr>                                      
                     <!-- Final do TR -->                    
                     
-                    <tr>
+                    <tr id = "row2\7">
                         <td>
                             <h6>07:50 às 08:40</h6>
                         </td>
@@ -143,7 +175,7 @@
                     </tr>
                     <!-- Final do TR -->                                            
                     
-                    <tr>
+                    <tr id = "row3\7">
                        <td>
                             <h6>08:50 às 09:40</h6>
                         </td>
@@ -174,7 +206,7 @@
                     </tr>
                     <!-- Final do TR -->                                                                
                     
-                    <tr>
+                    <tr id = "row4\7">
                        <td>
                             <h6>09:40 às 10:30</h6>
                         </td>
@@ -205,7 +237,7 @@
                     </tr>
                     <!-- Final do TR -->                     
                     
-                    <tr>
+                    <tr id = "row5\7">
                        <td>
                            <h6>10:40 às 11:30</h6>
                         </td>
@@ -236,7 +268,7 @@
                     </tr>
                     <!-- Final do TR -->                                         
                     
-                    <tr>
+                    <tr id = "row6\7">
                        <td>
                             <h6>11:30 às 12:20</h6>
                         </td>
@@ -268,4 +300,17 @@
                     <!-- Final do TR -->                                                             
               </table> <!--Finaliza a tabela -->
           </div>
+<input type="button" onclick = "dropSubmit()" value = "Salvar Tudo">
     <br>
+<?php
+if(isset($tabela))
+{
+    for($i = 0; $i < sizeof($tabela); $i++)
+    {
+        echo "<script>recoverTable('$idArr[$i]','$posicao[$i]')</script>";
+    }
+}
+unset($tabela);
+unset($idArr);
+unset($posicao);
+?>

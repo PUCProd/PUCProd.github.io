@@ -15,7 +15,7 @@ function drag(ev) {
 }
 
 function drop(ev) {
-    
+
     ev.preventDefault();
     
     var data = ev.dataTransfer.getData("text");
@@ -27,11 +27,59 @@ function drop(ev) {
     var professor = document.getElementById(data).getAttribute("professor");
     if (validate(table,disc))
     {
-      ev.target.appendChild(document.getElementById(data));
+      ev.target.appendChild(disc);
       if(ev.target.id !== "scrollingDiv")
         createForm(ev.target.id, idDisc,periodo,professor);
     }
-    
+}
+function recoverTable(idDisc, col)
+{
+   var linha = col[col.length-1];
+   var i;
+   var coluna = "";
+   var colunaElemento;
+   var discElemento = document.getElementById(idDisc);
+   var discPeriodo = discElemento.getAttribute("periodo");
+   
+   for(i = 0; i < 3; i++)
+   {
+    coluna = coluna+col[i];
+   }
+   if(coluna === "seg")
+   {
+       coluna = coluna+"unda0"+linha;
+   }
+   if(coluna === "ter")
+   {
+       coluna = coluna+"ca0"+linha;
+   }
+   if(coluna === "qua")
+   {
+       coluna = coluna+"rta0"+linha;
+   }
+   if(coluna === "qui")
+   {
+       coluna = coluna+"nta0"+linha;
+   }
+   if(coluna === "sex")
+   {
+       coluna = coluna+"ta0"+linha;
+   }
+
+   discElemento = document.getElementById(idDisc);
+   var row = document.getElementById("row"+linha+"\\"+discPeriodo);
+   for(var i = 0; i < row.childNodes.length; i++)
+   {
+       
+       if(row.childNodes[i].id === coluna)
+       {
+             colunaElemento = row.childNodes[i];
+             break;
+       }
+       
+   }
+   colunaElemento.appendChild(discElemento);
+   createForm(coluna, discElemento.getAttribute("value"),discElemento.getAttribute("periodo"),discElemento.getAttribute("professor"));
 }
 function createForm(id, idDisc,periodo, professor)
 {
@@ -57,7 +105,6 @@ function deleteInput(id)
     var theForm = document.forms["seg01"];
     var input = document.getElementById(id);
     theForm.removeChild(input);
-    
 }
 function validate(destiny, disc)
 {
@@ -83,7 +130,7 @@ function validate(destiny, disc)
         return false;
     //checa se o professor dá outra aula no mesmo horário
     
-    if(discProf !== "sem_professor")
+    if(discProf !== "sem_prof")
     {
         for(cont = 1; cont < 11; cont++)
         {
@@ -170,7 +217,6 @@ function validate(destiny, disc)
 </script>
 <!-- Main component for a primary marketing message or call to action -->
 <!--teste-->
-<?php $table = Horarios::getListaNome(1);?>
 <?php $disciplina = Disciplina::getListaNome();?>
  <?php
  ?>
@@ -178,7 +224,7 @@ function validate(destiny, disc)
                               method="post"
                               id = "seg01">
                         </form>
-<input type="button" onclick = "dropSubmit()" value = "Salvar">
+
 <div class="jumbotron">
     <div><!--Inicializa a tabela dos horários -->     
  
@@ -189,7 +235,7 @@ function validate(destiny, disc)
                 <div>
                     <h3 style = "text-align: center">Primeiro Período</h3>
                 </div>      
-                <tr>
+                <tr id = "row0\1">
                     <th>
                         <h5>Horario</h5>
                     </th>
@@ -212,7 +258,7 @@ function validate(destiny, disc)
                     <h5>Disciplinas</h5>
                     </th>
                 </tr>
-                <tr>
+                <tr id = "row1\1">
                     <td>
                         <h6>07:00 às 07:50</h6>
                     </td>
@@ -221,7 +267,6 @@ function validate(destiny, disc)
                         ondragover="allowDrop(event)"
                         ></td>
                       <!-- Final do TD -->                    
-                      
                       <td id="terca01"
                           ondrop="drop(event)" 
                           ondragover="allowDrop(event)"></td>
@@ -249,13 +294,13 @@ function validate(destiny, disc)
                              $i = 0;
                              $id = 0;
                              $name = 0;
-                             while($resultado_horaio = mysql_fetch_array($table))
-                             {
+                             
                              while($resultado_disc = mysql_fetch_array($disciplina))
                              {
-                                
-                                 if($resultado_disc['periodo'] == 1)
+                                 
+                                 if(strcmp($resultado_disc['periodo'],"1") == 0)
                                  {
+                                     
                                     $prof = "sem_prof";
                                     $rel = Relacao::getRelacao(1);
                                     
@@ -268,19 +313,35 @@ function validate(destiny, disc)
                                          }
                                      }
                                  }
+                                $table = Horarios::getListaNome(1);
+                                $conta=0;
+                                 while($resultado_horaio = mysql_fetch_array($table))
+                                  {
                                         $coluna = array("seg_0","ter_0","qua_0","qui_0","sex_0");
+                                        
                                         for($controle = 0; $controle < 5; $controle++)
                                         {
                                             for($linha = 1; $linha < 7; $linha++)
                                             {
+                                                
                                                 if(isset($resultado_horaio[$coluna[$controle].$linha]))
+                                                {
                                                         if($resultado_horaio[$coluna[$controle].$linha] == $resultado_disc['id'])
-                                                            $i++;
-                                                            
-                                               
+                                                        {
+                                      
+                                                            $tabela[] = $resultado_horaio[$coluna[$controle].$linha];
+                                                            $posicao[] = $coluna[$controle].$linha;
+                                                            $idArr[] = $id+$conta; 
+                                                           // var_dump($idArr);
+                                                            $conta++;
+                                                        }
+                                                }
+
                                             }
                                         }
                                     }
+                                    
+                                    
                                      while($i < $resultado_disc["carga_horaria"])
                                      {
                                      ?>
@@ -298,21 +359,21 @@ function validate(destiny, disc)
                                          <?php echo $resultado_disc['apelido'];?>
                                  </div>
                                     <?php
+                                    
                                         $i++;
                                         $id++;
                                         }
 
                                     $i = 0;
                                     }
-                             
-                            }
+                             }
                             ?>
                             </div>  
                       </td>
                     </tr>                                      
                     <!-- Final do TR -->                    
                     
-                    <tr>
+                    <tr id = "row2\1">
                         <td>
                             <h6>07:50 às 08:40</h6>
                         </td>
@@ -343,7 +404,7 @@ function validate(destiny, disc)
                     </tr>
                     <!-- Final do TR -->                                            
                     
-                    <tr>
+                    <tr id = "row3\1">
                        <td>
                             <h6>08:50 às 09:40</h6>
                         </td>
@@ -374,7 +435,7 @@ function validate(destiny, disc)
                     </tr>
                     <!-- Final do TR -->                                                                
                     
-                    <tr>
+                    <tr id = "row4\1">
                        <td>
                             <h6>09:40 às 10:30</h6>
                         </td>
@@ -405,7 +466,7 @@ function validate(destiny, disc)
                     </tr>
                     <!-- Final do TR -->                     
                     
-                    <tr>
+                    <tr id = "row5\1">
                        <td>
                            <h6>10:40 às 11:30</h6>
                         </td>
@@ -436,7 +497,7 @@ function validate(destiny, disc)
                     </tr>
                     <!-- Final do TR -->                                         
                     
-                    <tr>
+                    <tr id = "row6\1">
                        <td>
                             <h6>11:30 às 12:20</h6>
                         </td>
@@ -468,8 +529,20 @@ function validate(destiny, disc)
                     <!-- Final do TR -->                                                             
               </table> <!--Finaliza a tabela -->
           </div>
+    <input type="button" onclick = "dropSubmit()" value = "Salvar Tudo">
     <br>
-
+<?php
+if(isset($tabela))
+{
+    for($i = 0; $i < sizeof($tabela); $i++)
+    {
+        echo "<script>recoverTable('$idArr[$i]','$posicao[$i]')</script>";
+    }
+}
+unset($tabela);
+unset($idArr);
+unset($posicao);
+?>
           <?php require_once 'views/horarios/horarioSegundo_View.php';?>
           <?php require_once 'views/horarios/horarioTerceiro_View.php';?>
           <?php require_once 'views/horarios/horarioQuarta_View.php';?>
