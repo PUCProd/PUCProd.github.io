@@ -94,45 +94,116 @@ class Horarios_Model extends Model {
                     }
                 }
                 $column[strlen($column)-1] = ")";
+                echo"<br>INSERT INTO HorarioPrimeiro ".$column." VALUES ".$insert;
                 if($periodo == 1)
                 {
-                    mysql_query("INSERT INTO HorarioPrimeiro ".$column." VALUES ".$insert);
+                   if( mysql_query("INSERT INTO HorarioPrimeiro ".$column." VALUES ".$insert))
+                   {
+                       echo "<br> Inserido com sucesso!";
+                   }
+                   else
+                   {
+                       echo "<br> Erro<br> INSERT INTO HorarioPrimeiro ".$column." VALUES ".$insert;
+                   }
                 }
                 if($periodo == 2)
                 {
-                    mysql_query("INSERT INTO HorarioSegundo ".$column." VALUES ".$insert);
+                    if(mysql_query("INSERT INTO HorarioSegundo ".$column." VALUES ".$insert))
+                    {
+                        echo "<br> Inserido com sucesso!";
+                    }
+                    else
+                   {
+                       echo "<br> Erro<br> INSERT INTO HorarioPrimeiro ".$column." VALUES ".$insert;
+                   }
                 }
                 if($periodo == 3)
                 {
-                    mysql_query("INSERT INTO HorarioTerceiro ".$column." VALUES ".$insert);
+                    if(mysql_query("INSERT INTO HorarioTerceiro ".$column." VALUES ".$insert))
+                    {
+                        echo "<br> Inserido com sucesso!";
+                    }
+                    else
+                   {
+                       echo "<br> Erro<br> INSERT INTO HorarioPrimeiro ".$column." VALUES ".$insert;
+                   }
                 }
                 if($periodo == 4)
                 {
-                    mysql_query("INSERT INTO HorarioQuarto ".$column." VALUES ".$insert);
+                    if(mysql_query("INSERT INTO HorarioQuarto ".$column." VALUES ".$insert))
+                    {
+                        echo "<br> Inserido com sucesso!";
+                    }
+                    else
+                   {
+                       echo "<br> Erro<br> INSERT INTO HorarioPrimeiro ".$column." VALUES ".$insert;
+                   }
                 }
                 if($periodo == 5)
                 {
-                    mysql_query("INSERT INTO HorarioQuinto ".$column." VALUES ".$insert);
+                    if(mysql_query("INSERT INTO HorarioQuinto ".$column." VALUES ".$insert))
+                    {
+                        echo "<br> Inserido com sucesso!";
+                    }
+                    else
+                   {
+                       echo "<br> Erro<br> INSERT INTO HorarioPrimeiro ".$column." VALUES ".$insert;
+                   }
                 }
                 if($periodo == 6)
                 {
-                    mysql_query("INSERT INTO HorarioSexto ".$column." VALUES ".$insert);
+                    if(mysql_query("INSERT INTO HorarioSexto ".$column." VALUES ".$insert))
+                    {
+                        echo "<br> Inserido com sucesso!";
+                    }
+                    else
+                   {
+                       echo "<br> Erro<br> INSERT INTO HorarioPrimeiro ".$column." VALUES ".$insert;
+                   }
                 }
                 if($periodo == 7)
                 {
-                    mysql_query("INSERT INTO HorarioSetimo ".$column." VALUES ".$insert);
+                    if(mysql_query("INSERT INTO HorarioSetimo ".$column." VALUES ".$insert))
+                    {
+                        echo "<br> Inserido com sucesso!";
+                    }
+                    else
+                   {
+                       echo "<br> Erro<br> INSERT INTO HorarioPrimeiro ".$column." VALUES ".$insert;
+                   }
                 }
                 if($periodo == 8)
                 {
-                    mysql_query("INSERT INTO HorarioOitavo ".$column." VALUES ".$insert);
+                    if(mysql_query("INSERT INTO HorarioOitavo ".$column." VALUES ".$insert))
+                    {
+                        echo "<br> Inserido com sucesso!";
+                    }
+                    else
+                   {
+                       echo "<br> Erro<br> INSERT INTO HorarioPrimeiro ".$column." VALUES ".$insert;
+                   }
                 }
                 if($periodo == 9)
                 {
-                    mysql_query("INSERT INTO HorarioNono ".$column." VALUES ".$insert);
+                    if(mysql_query("INSERT INTO HorarioNono ".$column." VALUES ".$insert))
+                    {
+                        echo "<br> Inserido com sucesso!";
+                    }
+                    else
+                   {
+                       echo "<br> Erro<br> INSERT INTO HorarioPrimeiro ".$column." VALUES ".$insert;
+                   }
                 }
                 if($periodo == 10)
                 {
-                    mysql_query("INSERT INTO HorarioDecimo ".$column." VALUES ".$insert);
+                    if(mysql_query("INSERT INTO HorarioDecimo ".$column." VALUES ".$insert))
+                    {
+                        echo "<br> Inserido com sucesso!";
+                    }
+                    else
+                   {
+                       echo "<br> Erro<br> INSERT INTO HorarioPrimeiro ".$column." VALUES ".$insert;
+                   }
                 }
                 unset($col);
                 unset($id);

@@ -115,10 +115,12 @@
                                     }
                                     
                                     
-                                     while($i < $resultado_disc["carga_horaria"])
+                                   while($i < $resultado_disc["carga_horaria"])
                                      {
+                                         for($j = 0; $j < $resultado_disc["qt_grupos"]; $j++)
+                                         {
                                      ?>
-                                 <div id="<?php echo $id;?>" 
+                                         <div id="<?php echo $id;?>" 
                                          draggable="true" 
                                          ondragstart="drag(event)"
                                          class="btn botao-verde-config botao-verde"  
@@ -127,21 +129,33 @@
                                          periodo="<?php echo $resultado_disc['periodo'];?>"
                                          professor="<?php echo $prof;?>"
                                          tipo="<?php echo $resultado_disc['tipo_disciplina'];?>"
-                                         grupos="<?php echo $resultado_disc['qt_grupos']?>"
+                                         grupos="<?php echo $resultado_disc['qt_grupos'];?>"
+                                         grupo="<?php echo $j;?>"
                                        >
-                                         <?php echo $resultado_disc['apelido'];?>
+                                         <?php 
+                                         if($resultado_disc['qt_grupos'] > 1)
+                                         {
+                                            echo $resultado_disc['apelido']." G".$j;
+                                         }
+                                         else
+                                         {
+                                             echo $resultado_disc['apelido'];
+                                         }
+                                         ?>
                                  </div>
                                     <?php
-                                    
-                                        $i++;
+                                     
+                           
                                         $id++;
+                                        }
+                                        $i++;
                                         }
 
                                     $i = 0;
                                     }
                              }
                             ?>
-                            </div>  
+                            </div>   
                       </td>
                     </tr>                                      
                     <!-- Final do TR -->                    

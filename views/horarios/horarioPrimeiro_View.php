@@ -65,7 +65,6 @@ function recoverTable(idDisc, col)
    {
        coluna = coluna+"ta0"+linha;
    }
-
    discElemento = document.getElementById(idDisc);
    var row = document.getElementById("row"+linha+"\\"+discPeriodo);
    for(var i = 0; i < row.childNodes.length; i++)
@@ -79,7 +78,7 @@ function recoverTable(idDisc, col)
        
    }
    colunaElemento.appendChild(discElemento);
-   createForm(coluna, discElemento.getAttribute("value"),discElemento.getAttribute("periodo"),discElemento);
+   createForm(coluna, discElemento.getAttribute("value"),discElemento.getAttribute("periodo"),discElemento.getAttribute("professor") ,discElemento);
 }
 function createForm(id, idDisc,periodo, professor,disc)
 {
@@ -314,9 +313,11 @@ function validate(destiny, disc)
                                      }
                                  }
                                 $table = Horarios::getListaNome(1);
+                                
                                 $conta=0;
                                  while($resultado_horaio = mysql_fetch_array($table))
                                   {
+                                     
                                         $coluna = array("seg_0","ter_0","qua_0","qui_0","sex_0");
                                         
                                         for($controle = 0; $controle < 5; $controle++)
