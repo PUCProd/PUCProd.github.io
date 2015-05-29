@@ -16,6 +16,7 @@ class Horarios_Model extends Model {
         echo 'Insert implementado!... Ainda precisa de voltar manualmente...';
         $colunas = array("segunda0","terca0","quarta0","quinta0","sexta0");
         
+        
         for($periodo = 1; $periodo <= 10; $periodo++)
         {
             $insert="(";
@@ -25,15 +26,18 @@ class Horarios_Model extends Model {
             $col[3] = array("seg_0","ter_0","qua_0","qui_0","sex_0");
             $col[4] = array("seg_0","ter_0","qua_0","qui_0","sex_0");
             $col[5] = array("seg_0","ter_0","qua_0","qui_0","sex_0");
+            
             for($coluna = 1; $coluna <=6; $coluna++)
             {
-                for($linha = 0; $linha < 5; $linha++)
+                
+                for($grupo = 0; $grupo <= 4; $grupo++)
                 {
-                    $jafoi = false;
-                    for($grupo = 0; $grupo < 4; $grupo++)
+                    
+                    for($linha = 0; $linha < 5; $linha++)
                     {
-                        
+                            $jafoi = false;
                         $string = $colunas[$linha].$coluna."|".$periodo."|".$grupo;
+                       
                     if(isset($_POST[$string]))
                     {
                        
@@ -42,9 +46,17 @@ class Horarios_Model extends Model {
 
                         while($rows = mysql_fetch_array($row))
                         {
-                            echo "<br><br><h4>".$col[$coluna-1][$linha].$coluna."</h4><br>";
+                            if(!$jafoi)
+                            {                           
+                                if(strlen($col[$coluna-1][$linha]) < 6){
+                                     $col[$coluna-1][$linha] = $col[$coluna-1][$linha].$coluna;
+                                }
+                                //$jafoi = true;
+                            } 
+                            $id[$grupo][] = $rows["id"];
+                  //          echo "<br><br><h4>".$col[$coluna-1][$linha]."</h4><br>";
                             
-                            echo "id da disciplina: ".$rows["id"];
+                        /*    echo "id da disciplina: ".$rows["id"];
                             echo "<br>";
                             echo "nome da disciplina: ".$rows["nome"];
                             echo "<br>";
@@ -58,16 +70,14 @@ class Horarios_Model extends Model {
                             echo "<br>";
                             echo "carga horaria: ".$rows['carga_horaria'];
                             echo "<br>";
-                            echo "na coluna: ".$colunas[$linha].$coluna;
-                            if(!$jafoi)
-                            {
-                            $id[] = $rows["id"];
-                            $col[$coluna-1][$linha] = $col[$coluna-1][$linha].$coluna;
-                            $jafoi = true;
-                            }
+                            echo "na coluna: ".$colunas[$linha].$coluna;*/
+   
                         }
-                      // echo "<br>"; 
+                       $grupos[$grupo][] = $col[$coluna-1][$linha];
+                    //   echo"<br/><br/>";
+                     //  print_r($grupos);
                     }
+                    
                     }
                 }
             }
@@ -89,21 +99,38 @@ class Horarios_Model extends Model {
                         }
                         else
                         {
-                            $column = $column.$col[$coluna][$linha].",";
+                            $column = $column.$col[$coluna][$linha].","; 
                         }
                     }
                 }
                 $column[strlen($column)-1] = ")";
-                echo"<br>INSERT INTO HorarioPrimeiro ".$column." VALUES ".$insert;
+                
+                for($linha = 0; $linha < sizeof($grupos); $linha++){
+                    $teste[$linha] = "(";
+                    $ins[$linha] = "(";
+                    
+                    for($coluna = 0; $coluna < sizeof($grupos[$linha]); $coluna++){
+                        $teste[$linha] = $teste[$linha].$grupos[$linha][$coluna].",";
+                        $ins[$linha] = $ins[$linha].$id[$linha][$coluna].",";
+                    }
+                    $teste[$linha][strlen($teste[$linha])-1] = ")"; 
+                    $ins[$linha][strlen($ins[$linha])-1] = ")";
+                    echo"<br/><br/><br/>";
+                    echo $teste[$linha];
+                }
+
                 if($periodo == 1)
                 {
-                   if( mysql_query("INSERT INTO HorarioPrimeiro ".$column." VALUES ".$insert))
-                   {
-                       echo "<br> Inserido com sucesso!";
-                   }
-                   else
-                   {
-                       echo "<br> Erro<br> INSERT INTO HorarioPrimeiro ".$column." VALUES ".$insert;
+                   for($conta = 0; $conta < sizeof($teste); $conta++){
+                       echo"<br/><br/>INSERT INTO HorarioPrimeiro ".$teste[$conta]." VALUES ".$ins[$conta];
+                        if(mysql_query("INSERT INTO HorarioPrimeiro ".$teste[$conta]." VALUES ".$ins[$conta]))
+                        {
+                            echo "<br> Inserido com sucesso!";   
+                        }
+                        else
+                        {
+                            echo "<br> Erro<br> INSERT INTO HorarioPrimeiro ".$teste[$conta]." VALUES ".$ins[$conta];
+                        }
                    }
                 }
                 if($periodo == 2)
@@ -114,7 +141,7 @@ class Horarios_Model extends Model {
                     }
                     else
                    {
-                       echo "<br> Erro<br> INSERT INTO HorarioPrimeiro ".$column." VALUES ".$insert;
+                       echo "<br> Erro<br> INSERT INTO HorarioSegundo ".$column." VALUES ".$insert;
                    }
                 }
                 if($periodo == 3)
@@ -125,7 +152,7 @@ class Horarios_Model extends Model {
                     }
                     else
                    {
-                       echo "<br> Erro<br> INSERT INTO HorarioPrimeiro ".$column." VALUES ".$insert;
+                       echo "<br> Erro<br> INSERT INTO HorarioTerceiro ".$column." VALUES ".$insert;
                    }
                 }
                 if($periodo == 4)
@@ -136,7 +163,7 @@ class Horarios_Model extends Model {
                     }
                     else
                    {
-                       echo "<br> Erro<br> INSERT INTO HorarioPrimeiro ".$column." VALUES ".$insert;
+                       echo "<br> Erro<br> INSERT INTO HorarioQuarto ".$column." VALUES ".$insert;
                    }
                 }
                 if($periodo == 5)
@@ -147,7 +174,7 @@ class Horarios_Model extends Model {
                     }
                     else
                    {
-                       echo "<br> Erro<br> INSERT INTO HorarioPrimeiro ".$column." VALUES ".$insert;
+                       echo "<br> Erro<br> INSERT INTO HorarioQuinto ".$column." VALUES ".$insert;
                    }
                 }
                 if($periodo == 6)
@@ -158,7 +185,7 @@ class Horarios_Model extends Model {
                     }
                     else
                    {
-                       echo "<br> Erro<br> INSERT INTO HorarioPrimeiro ".$column." VALUES ".$insert;
+                       echo "<br> Erro<br> INSERT INTO HorarioSexto ".$column." VALUES ".$insert;
                    }
                 }
                 if($periodo == 7)
@@ -169,7 +196,7 @@ class Horarios_Model extends Model {
                     }
                     else
                    {
-                       echo "<br> Erro<br> INSERT INTO HorarioPrimeiro ".$column." VALUES ".$insert;
+                       echo "<br> Erro<br> INSERT INTO HorarioSetimo ".$column." VALUES ".$insert;
                    }
                 }
                 if($periodo == 8)
@@ -180,7 +207,7 @@ class Horarios_Model extends Model {
                     }
                     else
                    {
-                       echo "<br> Erro<br> INSERT INTO HorarioPrimeiro ".$column." VALUES ".$insert;
+                       echo "<br> Erro<br> INSERT INTO HorarioOitavo ".$column." VALUES ".$insert;
                    }
                 }
                 if($periodo == 9)
@@ -191,7 +218,7 @@ class Horarios_Model extends Model {
                     }
                     else
                    {
-                       echo "<br> Erro<br> INSERT INTO HorarioPrimeiro ".$column." VALUES ".$insert;
+                       echo "<br> Erro<br> INSERT INTO HorarioNono ".$column." VALUES ".$insert;
                    }
                 }
                 if($periodo == 10)
@@ -202,15 +229,16 @@ class Horarios_Model extends Model {
                     }
                     else
                    {
-                       echo "<br> Erro<br> INSERT INTO HorarioPrimeiro ".$column." VALUES ".$insert;
+                       echo "<br> Erro<br> INSERT INTO HorarioDecimo ".$column." VALUES ".$insert;
                    }
                 }
                 unset($col);
                 unset($id);
+                unset($teste);
+                unset($ins);
             }
-
         }
-
+       
    }
    
    function getListaNome($periodo)
