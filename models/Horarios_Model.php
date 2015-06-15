@@ -84,11 +84,7 @@ class Horarios_Model extends Model {
             $column = "(";
             if(isset($id))
             {
-                for($controle = 0; $controle < sizeof($id); $controle++)
-                {
-                        $insert = $insert.$id[$controle].",";
-                }
-                $insert[strlen($insert)-1] = ")";
+
                 for($coluna = 0; $coluna < 6; $coluna++)
                 {
                     for($linha = 0; $linha < 5; $linha++)
