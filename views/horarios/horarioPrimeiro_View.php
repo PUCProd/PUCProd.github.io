@@ -11,10 +11,12 @@ require_once 'controllers/Horarios.php';
      var elem;
      var grupos;
      for(i = 0; i < element.length; i++){
-         elem = element[i];
-         if(elem.parentNode.getAttribute("id") === "scrollingDiv"){
+         elem = element[i];   
+        
+         var id = "scrollingDiv"+elem.getAttribute("periodo");
+         if(elem.parentNode.getAttribute("id") === id){  
             if(elem.getAttribute("grupo") === "0")
-                grupos = "1";
+                grupos = "1";//a
             if(elem.getAttribute("grupo") === "1")
                 grupos = "2";
             if(elem.getAttribute("grupo") === "2")
@@ -39,7 +41,7 @@ require_once 'controllers/Horarios.php';
                 if(element.getAttribute("grupos") !== "1"){
                     element.setAttribute("class","btn botao-amarelo-config botao-amarelo");
                 }
-                addScrollingDiv(a.toString());
+                addScrollingDiv(a.toString(), element.getAttribute("periodo"));
             }
             a++;
         }
@@ -70,12 +72,14 @@ require_once 'controllers/Horarios.php';
         if (validate(table, disc))
         {
             ev.target.appendChild(disc);
-            if (ev.target.id !== "scrollingDiv")
+            if (ev.target.id !== "scrollingDiv"+periodo)
                 createForm(ev.target.id, idDisc, periodo, professor, disc);
         }
     }
-    function addScrollingDiv(idDisc) {
-        var colunaElemento = document.getElementById("scrollingDiv");
+    function addScrollingDiv(idDisc, period) {
+        var id = "scrollingDiv"+period;
+        var colunaElemento = document.getElementById(id);
+        var periodo = colunaElemento.parentNode.parentNode.parentNode.parentNode.getAttribute("periodo");
         var discElemento = document.getElementById(idDisc);
         colunaElemento.appendChild(discElemento);
     }
@@ -87,7 +91,6 @@ require_once 'controllers/Horarios.php';
         var colunaElemento;
         var discElemento = document.getElementById(idDisc);
         var discPeriodo = discElemento.getAttribute("periodo");
-        //alert(idDisc);
         for (i = 0; i < 3; i++)
         {
             coluna = coluna + col[i];
@@ -166,8 +169,7 @@ require_once 'controllers/Horarios.php';
 
         var origin = disc.parentNode;   //pega a origem do elemento;
         var originID = origin.getAttribute("id");
-
-        var removeID = origin.getAttribute("id") + "|" + discPeriod + "|" + discProf;  //monta o ID para remoção;
+        var removeID = originID + "|" + discPeriod + "|" + discProf;  //monta o ID para remoção;
 
         var cont; // variável contadora;
 
@@ -188,7 +190,6 @@ require_once 'controllers/Horarios.php';
                 stringID = destinyID + "|" + cont + "|" + discProf;
 
                 element = document.getElementById(stringID);
-
                 if (typeof element !== typeof undefined && element !== false
                         && element !== null)
                 {
@@ -199,7 +200,8 @@ require_once 'controllers/Horarios.php';
 
             }
         }
-        if (destinyID === "scrollingDiv") //caso tirar da tabela, apenas tirar o o input do formulario;
+        var scroll = "scrollingDiv"+discPeriod;
+        if (destinyID === scroll) //caso tirar da tabela, apenas tirar o o input do formulario;
         {
             deleteInput(removeID);
             return true;
@@ -241,11 +243,11 @@ require_once 'controllers/Horarios.php';
                 }
 
             }
-            if (originID !== "scrollingDiv")
+            if (originID !== scroll)
                 deleteInput(removeID);
             return true;
         }
-        if (originID !== "scrollingDiv")
+        if (originID !== scroll)
             deleteInput(removeID);
         return true;
     }
@@ -324,7 +326,7 @@ require_once 'controllers/Horarios.php';
                     ondragover="allowDrop(event)"></td>
                 <!-- Final do TD -->
                 <td  id="discs" rowspan="6">
-                    <div id="scrollingDiv" ondrop="drop(event)" ondragover="allowDrop(event)"
+                    <div id="scrollingDiv1" ondrop="drop(event)" ondragover="allowDrop(event)"
                          class = "jumbotron" style="" value="scrollingDiv"></div>  
                 </td>
             </tr>                                      
@@ -537,189 +539,8 @@ require_once 'controllers/Horarios.php';
         }
     }
     $auxId = $id;
-    echo "<script>fun2()</script>"
     ?>
     <?php
-    $id = 0;
-    $table = Horarios::getListaNome(1);
-    while ($resultado_horario = mysql_fetch_array($table)){
-        $coluna = array("seg_0", "ter_0", "qua_0", "qui_0", "sex_0");
-        for ($controle = 0; $controle < 5; $controle++) {
-            for ($linha = 1; $linha < 7; $linha++) {
-                if (isset($resultado_horario[$coluna[$controle] . $linha])) {
-                        $posicao = $coluna[$controle] . $linha;   
-                        $idt = $resultado_horario[$coluna[$controle] . $linha];
-                        $grupo = $resultado_horario["id_Primeiro"];
-                        echo "<script>fun('$idt','$posicao','$grupo')</script>";
-                }
-            }
-        }
-    }
-   /* echo "<br/>";
-    while ($resultado_horario = mysql_fetch_array($table)) {
-        $disciplina = Disciplina::getListaNome();
-        while ($resultado_disc = mysql_fetch_array($disciplina)) {
-            // echo "<script>addScrollingDiv(". $id .")</script>";
-              //   echo "addScrollingDiv(". $id .")<br/>";
-            $coluna = array("seg_0", "ter_0", "qua_0", "qui_0", "sex_0");
-            for ($controle = 0; $controle < 5; $controle++) {
-                echo "<script>addScrollingDiv(". $id .")</script>";
-                 echo "addScrollingDiv(". $id .")<br/>";
-                for ($linha = 1; $linha < 7; $linha++) {
-                    if (isset($resultado_horario[$coluna[$controle] . $linha])) {
-                        echo $resultado_horario[$coluna[$controle] . $linha]. "==". $resultado_disc['id'];
-                        if ($resultado_horario[$coluna[$controle] . $linha] == $resultado_disc['id']) {
-                            echo $resultado_horario[$coluna[$controle] . $linha]. "==". $resultado_disc['id'];
-                            $posicao = $coluna[$controle] . $linha;
-                            if ($resultado_disc["qt_grupos"] > 1) {
-                                for($j = 1; $j <= $resultado_disc["qt_grupos"]; $j++) {
-                                    if ($j == $resultado_horario["id_Primeiro"]) {
-                                        //mudar isso
-                                        $tabela = $resultado_horario[$coluna[$controle] . $linha];
-                                        $idArr = $id + $conta;
-                                        //echo "<script>recoverTable('$idArr','$posicao')</script>";
-                                        echo "<script>recoverTable('$id','$posicao')</script>";
-                                        echo "recoverTable('$id','$posicao')<br/>";
-                                        $conta++;
-                                        $id++;
-                                    }
-                                }
-                            } else {
-                                echo "<script>recoverTable('$id','$posicao')</script>";
-                                echo "recoverTable('$id','$posicao')<br/>";
-                                $id++;
-                            }
-                        }
-                        $id++;
-                    }
-                }
-            }
-        }
-    }*/
-    ?>
-  
-
-
-
-
-
-
-    <?php
-    /*$var = 0;
-      $i = 0;
-      $id = 0;
-      $name = 0;
-
-      while($resultado_disc = mysql_fetch_array($disciplina))
-      {
-
-      if(strcmp($resultado_disc['periodo'],"1") == 0)
-      {
-
-      $prof = "sem_prof";
-      $rel = Relacao::getRelacao(1);
-
-      while($relacao = mysql_fetch_array($rel))
-      {
-      if($resultado_disc['id'] ==
-      $relacao['id']){
-      if($relacao['status'] == 1){
-      $prof = $relacao['nome'];
-      }
-      }
-      }
-      $table = Horarios::getListaNome(1);
-
-      $conta=0;
-
-
-
-      while($i < $resultado_disc["carga_horaria"])
-      {
-
-      for($j = 0; $j < $resultado_disc["qt_grupos"]; $j++)
-      {
-      ?>
-      <div id="<?php echo $id;?>"
-      draggable="true"
-      ondragstart="drag(event)"
-      class="btn botao-verde-config botao-verde"
-      role="button"
-      value="<?php echo $resultado_disc['id'];?>"
-      periodo="<?php echo $resultado_disc['periodo'];?>"
-      professor="<?php echo $prof;?>"
-      tipo="<?php echo $resultado_disc['tipo_disciplina'];?>"
-      grupos="<?php echo $resultado_disc['qt_grupos'];?>"
-      grupo="<?php echo $j;?>"
-      >
-      <?php
-      if($resultado_disc['qt_grupos'] > 1)
-      {
-      echo $resultado_disc['apelido']." G".$j;
-      }
-      else
-      {
-      echo $resultado_disc['apelido'];
-      }
-      ?>
-      </div>
-      <?php
-      echo "<script>addScrollingDiv(". $id .")</script>";
-      while($resultado_horaio = mysql_fetch_array($table))
-      {
-
-      $coluna = array("seg_0","ter_0","qua_0","qui_0","sex_0");
-
-      for($controle = 0; $controle < 5; $controle++)
-      {
-      for($linha = 1; $linha < 7; $linha++)
-      {
-
-      if(isset($resultado_horaio[$coluna[$controle].$linha]))
-      {
-      if($resultado_horaio[$coluna[$controle].$linha] == $resultado_disc['id'])
-      {
-      $tabela = $resultado_horaio[$coluna[$controle].$linha];
-      $posicao =   $coluna[$controle].$linha;
-      $idArr = $id+$conta;
-      echo "<script>recoverTable('$idArr','$posicao')</script>";
-      echo "recoverTable('$idArr','$posicao')";
-      $conta++;
-      }
-      }
-
-      }
-      }
-      }
-      $conta = 0;
-      $id++;
-      }
-      $i++;
-      }
-
-      $i = 0;
-      }
-      } */
-    ?>
-    <?php
-    /* if(isset($tabela))
-      {
-      print_r($tabela);
-      for($x = 0; $x < 6; $x++){
-      echo "<br/>".$x;
-
-      if(isset($tabela[$x])){
-      for($i = 0; $i < sizeof($tabela[$x]); $i++)
-      {
-
-      $ids = $idArr[$x][$i];
-      $pospos = $posicao[$x][$i];
-
-      echo "recoverTable('$ids','$pospos')<br/>";
-      }
-      }
-      }
-      } */
     unset($tabela);
     unset($idArr);
     unset($posicao);
@@ -763,8 +584,22 @@ require_once 'controllers/Horarios.php';
      });*/
 </script>
 <?php
- $table = Horarios::getListaNome(1);
-    while ($resultado_horario = mysql_fetch_array($table)){
-        
+    echo "<script>fun2()</script>";
+    for($i = 1; $i<=10; $i++){
+        $id = 0;
+        $table = Horarios::getListaNome($i);
+        while ($resultado_horario = mysql_fetch_array($table)){
+            $coluna = array("seg_0", "ter_0", "qua_0", "qui_0", "sex_0");
+            for ($controle = 0; $controle < 5; $controle++) {
+                for ($linha = 1; $linha < 7; $linha++) {
+                    if (isset($resultado_horario[$coluna[$controle] . $linha])) {
+                            $posicao = $coluna[$controle] . $linha;   
+                            $idt = $resultado_horario[$coluna[$controle] . $linha];
+                            $grupo = $resultado_horario["id_Primeiro"];
+                            echo "<script>fun('$idt','$posicao','$grupo')</script>";
+                    }
+                }
+            }
+        }
     }
 ?>
