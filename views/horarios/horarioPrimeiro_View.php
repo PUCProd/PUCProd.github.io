@@ -268,6 +268,7 @@ require_once 'controllers/Horarios.php';
     <div><!--Inicializa a tabela dos horários -->     
 
         <br>
+        Tenho de refatorar a inserção das tabelas no banco de dados.
         <table class="table table-bordered 
                table-condensed table-hover table-responsive table-striped"
                periodo="1">
