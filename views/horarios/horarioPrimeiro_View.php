@@ -38,7 +38,7 @@ require_once 'controllers/Horarios.php';
         while(element !== null){
             var element = document.getElementById(a);
             if(element !== null){
-                if(element.getAttribute("grupos") !== "1"){
+                if(element.getAttribute("tipo") === "pratico"){
                     element.setAttribute("class","btn botao-amarelo-config botao-amarelo");
                 }
                 addScrollingDiv(a.toString(), element.getAttribute("periodo"));
