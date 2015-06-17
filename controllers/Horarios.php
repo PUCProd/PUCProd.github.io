@@ -10,16 +10,12 @@ class Horarios extends Controller{
         require_once 'models/Horarios_Model.php';
         $model = new Horarios_Model();
         $model->add($id);
-        //require_once 'views/horarios/redirecionar_horarios.php';
-       // require_once 'views/center.php';
-       // require_once 'views/footer.php';
     }
     function getListaNome($periodo)
     {
         require_once 'models/Horarios_Model.php';
         $model = new Horarios_Model();
         $resultado = $model->getListaNome($periodo);
-        
         return $resultado;
     }
     function organizarDisciplina()

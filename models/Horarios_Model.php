@@ -1,5 +1,5 @@
 <?php
-//PRECISA AJUSTAR DE FORMA QUE POSSA COLOCAR OS GRUPOS EM QUALQUER ORDEM!
+session_start();
 class Horarios_Model extends Model {
 
     function __construct() {
@@ -12,6 +12,9 @@ class Horarios_Model extends Model {
         parent::dropTable();
         parent::criarTabelaHorarios();
         echo 'Insert implementado!... Ainda precisa de voltar manualmente...';
+        echo '<br/>';
+        echo 'Quando eu coloquei o redirecionamento automatico, perdeu-se todas as informacoes do banco de dados';
+        echo '<br/>';
         $colunas = array("segunda0", "terca0", "quarta0", "quinta0", "sexta0");
 
 
@@ -27,8 +30,8 @@ class Horarios_Model extends Model {
             for ($coluna = 1; $coluna <= 6; $coluna++) {
 
                 for ($grupo = 0; $grupo <= 4; $grupo++) {
-
-                    for ($linha = 0; $linha < 5; $linha++) {
+                    
+                    for ($linha = 0; $linha < 5; $linha++) {    
                         $jafoi = false;
                         $string = $colunas[$linha] . $coluna . "|" . $periodo . "|" . $grupo;
 
@@ -45,7 +48,7 @@ class Horarios_Model extends Model {
                                     //$jafoi = true;
                                 }
                                 $id[$grupo][] = $rows["id"];
-                                echo "<br><br><h4>".$col[$coluna-1][$linha]."</h4><br>";
+                                /*echo "<br><br><h4>".$col[$coluna-1][$linha]."</h4><br>";
                                 echo $coluna."|".$grupo."|".$linha."<br/>";
                                 echo "id da disciplina: ".$rows["id"];
                                   echo "<br>";
@@ -61,11 +64,11 @@ class Horarios_Model extends Model {
                                   echo "<br>";
                                   echo "carga horaria: ".$rows['carga_horaria'];
                                   echo "<br>";
-                                  echo "na coluna: ".$colunas[$linha].$coluna; 
+                                  echo "na coluna: ".$colunas[$linha].$coluna; */
                             }
                             $grupos[$grupo][] = $col[$coluna - 1][$linha];
-                            echo"<br/><br/>";
-                            print_r($grupos);
+                          //  echo"<br/><br/>";
+                         //   print_r($grupos);
                         }
                     }
                 }
@@ -82,11 +85,13 @@ class Horarios_Model extends Model {
                     }
                 }
                 $column[strlen($column) - 1] = ")";
-
                 for ($linha = 0; $linha < sizeof($grupos); $linha++) {
                     $teste[$linha] = "(";
                     $ins[$linha] = "(";
-
+                    if(!isset($grupos[$linha])){
+                        $grupos[$linha][] = null;
+                        $id[$linha][] = null;
+                    }
                     for ($coluna = 0; $coluna < sizeof($grupos[$linha]); $coluna++) {
                         $teste[$linha] = $teste[$linha] . $grupos[$linha][$coluna] . ",";
                         $ins[$linha] = $ins[$linha] . $id[$linha][$coluna] . ",";
@@ -201,6 +206,8 @@ class Horarios_Model extends Model {
                 unset($id);
                 unset($teste);
                 unset($ins);
+                unset($column);
+                unset($grupos);
             }
         }
     }
@@ -253,11 +260,4 @@ class Horarios_Model extends Model {
             return $query;
         }
     }
-
-    /* function excluir($id)
-      {
-      }
-      function filtrar()
-      {
-      } */
 }
